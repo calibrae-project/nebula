@@ -3,8 +3,8 @@
 #include <calibrae/app/state.hpp>
 
 #include <calibrae/chain/database.hpp>
-#include <calibrae/chain/steem_objects.hpp>
-#include <calibrae/chain/steem_object_types.hpp>
+#include <calibrae/chain/nebula_objects.hpp>
+#include <calibrae/chain/nebula_object_types.hpp>
 #include <calibrae/chain/history_object.hpp>
 
 #include <calibrae/tags/tags_plugin.hpp>

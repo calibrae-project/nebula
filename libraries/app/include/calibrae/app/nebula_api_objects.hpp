@@ -4,7 +4,7 @@
 #include <calibrae/chain/comment_object.hpp>
 #include <calibrae/chain/global_property_object.hpp>
 #include <calibrae/chain/history_object.hpp>
-#include <calibrae/chain/steem_objects.hpp>
+#include <calibrae/chain/nebula_objects.hpp>
 #include <calibrae/chain/transaction_object.hpp>
 #include <calibrae/chain/witness_objects.hpp>
 

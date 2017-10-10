@@ -3,7 +3,7 @@
 #include <fc/container/flat.hpp>
 #include <calibrae/protocol/operations.hpp>
 #include <calibrae/protocol/transaction.hpp>
-#include <calibrae/chain/steem_object_types.hpp>
+#include <calibrae/chain/nebula_object_types.hpp>
 
 #include <fc/string.hpp>
 

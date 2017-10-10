@@ -1,8 +1,8 @@
 #pragma once
 
 #include <calibrae/protocol/operation_util.hpp>
-#include <calibrae/protocol/steem_operations.hpp>
-#include <calibrae/protocol/steem_virtual_operations.hpp>
+#include <calibrae/protocol/nebula_operations.hpp>
+#include <calibrae/protocol/nebula_virtual_operations.hpp>
 
 namespace steemit { namespace protocol {
 

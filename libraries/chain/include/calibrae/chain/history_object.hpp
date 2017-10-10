@@ -2,9 +2,9 @@
 
 #include <calibrae/protocol/authority.hpp>
 #include <calibrae/protocol/operations.hpp>
-#include <calibrae/protocol/steem_operations.hpp>
+#include <calibrae/protocol/nebula_operations.hpp>
 
-#include <calibrae/chain/steem_object_types.hpp>
+#include <calibrae/chain/nebula_object_types.hpp>
 #include <calibrae/chain/witness_objects.hpp>
 
 #include <boost/multi_index/composite_key.hpp>

@@ -2,7 +2,7 @@
 
 #include <calibrae/protocol/operations.hpp>
 
-#include <calibrae/chain/steem_object_types.hpp>
+#include <calibrae/chain/nebula_object_types.hpp>
 
 namespace steemit { namespace chain {
 

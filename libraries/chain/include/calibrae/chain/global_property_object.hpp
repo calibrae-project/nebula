@@ -1,7 +1,7 @@
 #pragma once
 #include <fc/uint128.hpp>
 
-#include <calibrae/chain/steem_object_types.hpp>
+#include <calibrae/chain/nebula_object_types.hpp>
 
 #include <calibrae/protocol/asset.hpp>
 

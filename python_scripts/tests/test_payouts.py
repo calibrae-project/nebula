@@ -9,7 +9,7 @@ from pathlib import Path
 from time import sleep
 
 # local imports
-from steemdebugnode import DebugNode
+from nebuladebugnode import DebugNode
 from steemapi.steemnoderpc import SteemNodeRPC
 
 WAITING = True

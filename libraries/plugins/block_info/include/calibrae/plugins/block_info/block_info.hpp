@@ -1,6 +1,6 @@
 #pragma once
 
-#include <calibrae/chain/steem_object_types.hpp>
+#include <calibrae/chain/nebula_object_types.hpp>
 
 namespace steemit { namespace plugin { namespace block_info {
 

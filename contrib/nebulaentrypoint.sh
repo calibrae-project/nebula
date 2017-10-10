@@ -10,5 +10,5 @@ if [[ ! "$USE_PAAS" ]]; then
   chmod +x /etc/service/steemd/run
   runsv /etc/service/steemd
 else
-  /usr/local/bin/startpaassteemd.sh
+  /usr/local/bin/startpaasnebula.sh
 fi

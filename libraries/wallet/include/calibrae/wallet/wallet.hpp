@@ -3,7 +3,7 @@
 #include <calibrae/app/api.hpp>
 #include <calibrae/private_message/private_message_plugin.hpp>
 #include <calibrae/follow/follow_plugin.hpp>
-#include <calibrae/app/steem_api_objects.hpp>
+#include <calibrae/app/nebula_api_objects.hpp>
 
 #include <graphene/utilities/key_conversion.hpp>
 

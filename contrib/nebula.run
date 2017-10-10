@@ -90,7 +90,7 @@ fi
 sleep 1
 
 mv /etc/nginx/nginx.conf /etc/nginx/nginx.original.conf
-cp /etc/nginx/steemd.nginx.conf /etc/nginx/nginx.conf
+cp /etc/nginx/nebula.nginx.conf /etc/nginx/nginx.conf
 
 #start multiple read-only instances based on the number of cores
 #attach to the local interface since a proxy will be used to loadbalance

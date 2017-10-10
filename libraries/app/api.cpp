@@ -8,7 +8,7 @@
 #include <calibrae/protocol/get_config.hpp>
 
 #include <calibrae/chain/database.hpp>
-#include <calibrae/chain/steem_objects.hpp>
+#include <calibrae/chain/nebula_objects.hpp>
 #include <calibrae/chain/transaction_object.hpp>
 #include <fc/time.hpp>
 

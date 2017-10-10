@@ -1,4 +1,4 @@
-#include <calibrae/protocol/steem_operations.hpp>
+#include <calibrae/protocol/nebula_operations.hpp>
 
 #include <calibrae/chain/block_summary_object.hpp>
 #include <calibrae/chain/compound.hpp>
@@ -10,8 +10,8 @@
 #include <calibrae/chain/global_property_object.hpp>
 #include <calibrae/chain/history_object.hpp>
 #include <calibrae/chain/index.hpp>
-#include <calibrae/chain/steem_evaluator.hpp>
-#include <calibrae/chain/steem_objects.hpp>
+#include <calibrae/chain/nebula_evaluator.hpp>
+#include <calibrae/chain/nebula_objects.hpp>
 #include <calibrae/chain/transaction_object.hpp>
 #include <calibrae/chain/shared_db_merkle.hpp>
 #include <calibrae/chain/operation_notification.hpp>

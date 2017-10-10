@@ -1,9 +1,9 @@
 #pragma once
 
 #include <calibrae/protocol/authority.hpp>
-#include <calibrae/protocol/steem_operations.hpp>
+#include <calibrae/protocol/nebula_operations.hpp>
 
-#include <calibrae/chain/steem_object_types.hpp>
+#include <calibrae/chain/nebula_object_types.hpp>
 
 #include <boost/multi_index/composite_key.hpp>
 #include <boost/multiprecision/cpp_int.hpp>

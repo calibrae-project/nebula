@@ -3,8 +3,8 @@
 #include <calibrae/app/application.hpp>
 #include <calibrae/app/plugin.hpp>
 
-#include <calibrae/chain/steem_objects.hpp>
-#include <calibrae/chain/steem_object_types.hpp>
+#include <calibrae/chain/nebula_objects.hpp>
+#include <calibrae/chain/nebula_object_types.hpp>
 #include <calibrae/chain/database_exceptions.hpp>
 
 #include <fc/time.hpp>

@@ -46,7 +46,7 @@ chown steemd:steemd $HOME/config.ini
 cd $HOME
 
 mv /etc/nginx/nginx.conf /etc/nginx/nginx.original.conf
-cp /etc/nginx/steemd.nginx.conf /etc/nginx/nginx.conf
+cp /etc/nginx/nebula.nginx.conf /etc/nginx/nginx.conf
 
 # get blockchain state from an S3 bucket
 echo steemd: beginning download and decompress of s3://$S3_BUCKET/blockchain-$VERSION-latest.tar.bz2

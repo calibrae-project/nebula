@@ -1,7 +1,7 @@
 #pragma once
 #include <calibrae/protocol/transaction.hpp>
 
-#include <calibrae/chain/steem_object_types.hpp>
+#include <calibrae/chain/nebula_object_types.hpp>
 
 #include <boost/multi_index/hashed_index.hpp>
 

@@ -201,19 +201,19 @@ ADD contrib/config-for-docker.ini /etc/steemd/config.ini
 ADD contrib/fullnode.config.ini /etc/steemd/fullnode.config.ini
 
 # add normal startup script that starts via sv
-ADD contrib/steemd.run /usr/local/bin/steem-sv-run.sh
+ADD contrib/nebula.run /usr/local/bin/steem-sv-run.sh
 RUN chmod +x /usr/local/bin/steem-sv-run.sh
 
 # add nginx templates
-ADD contrib/steemd.nginx.conf /etc/nginx/steemd.nginx.conf
+ADD contrib/nebula.nginx.conf /etc/nginx/nebula.nginx.conf
 ADD contrib/healthcheck.conf.template /etc/nginx/healthcheck.conf.template
 
 # add PaaS startup script and service script
-ADD contrib/startpaassteemd.sh /usr/local/bin/startpaassteemd.sh
+ADD contrib/startpaasnebula.sh /usr/local/bin/startpaasnebula.sh
 ADD contrib/paas-sv-run.sh /usr/local/bin/paas-sv-run.sh
 ADD contrib/sync-sv-run.sh /usr/local/bin/sync-sv-run.sh
 ADD contrib/healthcheck.sh /usr/local/bin/healthcheck.sh
-RUN chmod +x /usr/local/bin/startpaassteemd.sh
+RUN chmod +x /usr/local/bin/startpaasnebula.sh
 RUN chmod +x /usr/local/bin/paas-sv-run.sh
 RUN chmod +x /usr/local/bin/sync-sv-run.sh
 RUN chmod +x /usr/local/bin/healthcheck.sh
@@ -222,6 +222,6 @@ RUN chmod +x /usr/local/bin/healthcheck.sh
 # this enables exitting of the container when the writer node dies
 # for PaaS mode (elasticbeanstalk, etc)
 # AWS EB Docker requires a non-daemonized entrypoint
-ADD contrib/steemdentrypoint.sh /usr/local/bin/steemdentrypoint.sh
-RUN chmod +x /usr/local/bin/steemdentrypoint.sh
-CMD /usr/local/bin/steemdentrypoint.sh
+ADD contrib/nebulaentrypoint.sh /usr/local/bin/nebulaentrypoint.sh
+RUN chmod +x /usr/local/bin/nebulaentrypoint.sh
+CMD /usr/local/bin/nebulaentrypoint.sh

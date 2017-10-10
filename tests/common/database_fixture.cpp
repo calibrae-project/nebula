@@ -3,7 +3,7 @@
 
 #include <graphene/utilities/tempdir.hpp>
 
-#include <calibrae/chain/steem_objects.hpp>
+#include <calibrae/chain/nebula_objects.hpp>
 #include <calibrae/chain/history_object.hpp>
 #include <calibrae/account_history/account_history_plugin.hpp>
 #include <calibrae/witness/witness_plugin.hpp>

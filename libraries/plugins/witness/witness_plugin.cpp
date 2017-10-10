@@ -7,7 +7,7 @@
 #include <calibrae/chain/database_exceptions.hpp>
 #include <calibrae/chain/generic_custom_operation_interpreter.hpp>
 #include <calibrae/chain/index.hpp>
-#include <calibrae/chain/steem_objects.hpp>
+#include <calibrae/chain/nebula_objects.hpp>
 
 #include <fc/time.hpp>
 
@@ -268,9 +268,10 @@ namespace detail
          {
             r.average_block_size = 0;
             r.current_reserve_ratio = STEEMIT_MAX_RESERVE_RATIO * RESERVE_RATIO_PRECISION;
-            r.max_virtual_bandwidth = ( uint128_t( STEEMIT_MAX_BLOCK_SIZE * STEEMIT_MAX_RESERVE_RATIO )
-                                      * STEEMIT_BANDWIDTH_PRECISION * STEEMIT_BANDWIDTH_AVERAGE_WINDOW_SECONDS )
-                                      / STEEMIT_BLOCK_INTERVAL;
+            r.max_virtual_bandwidth = ( ( uint128_t( STEEMIT_MAX_BLOCK_SIZE ) 
+                  * uint128_t (STEEMIT_MAX_RESERVE_RATIO) ) 
+                  * STEEMIT_BANDWIDTH_PRECISION * STEEMIT_BANDWIDTH_AVERAGE_WINDOW_SECONDS ) 
+                  / STEEMIT_BLOCK_INTERVAL;
          });
       }
       else

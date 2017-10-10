@@ -1,7 +1,7 @@
 #pragma once
 
 #include <calibrae/app/plugin.hpp>
-#include <calibrae/chain/steem_objects.hpp>
+#include <calibrae/chain/nebula_objects.hpp>
 
 namespace steemit { namespace delayed_node {
 namespace detail { struct delayed_node_plugin_impl; }

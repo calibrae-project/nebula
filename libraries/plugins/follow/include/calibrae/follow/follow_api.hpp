@@ -1,7 +1,7 @@
 #pragma once
 
 #include <calibrae/app/application.hpp>
-#include <calibrae/app/steem_api_objects.hpp>
+#include <calibrae/app/nebula_api_objects.hpp>
 
 #include <calibrae/follow/follow_objects.hpp>
 

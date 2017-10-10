@@ -3,7 +3,7 @@
 #include <calibrae/chain/database.hpp>
 #include <calibrae/protocol/protocol.hpp>
 
-#include <calibrae/protocol/steem_operations.hpp>
+#include <calibrae/protocol/nebula_operations.hpp>
 
 #include <fc/crypto/digest.hpp>
 #include <fc/crypto/hex.hpp>

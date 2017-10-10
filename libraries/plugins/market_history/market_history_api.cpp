@@ -1,6 +1,6 @@
 #include <calibrae/market_history/market_history_api.hpp>
 
-#include <calibrae/chain/steem_objects.hpp>
+#include <calibrae/chain/nebula_objects.hpp>
 
 namespace steemit { namespace market_history {
 

@@ -11,7 +11,7 @@ from time import sleep
 from time import time
 
 # local imports
-from steemdebugnode import DebugNode
+from nebuladebugnode import DebugNode
 from steemapi.steemnoderpc import SteemNodeRPC
 
 WAITING = True

@@ -1,5 +1,5 @@
 #include <calibrae/protocol/protocol.hpp>
-#include <calibrae/chain/steem_objects.hpp>
+#include <calibrae/chain/nebula_objects.hpp>
 #include <fc/smart_ref_impl.hpp>
 #include <iostream>
 

@@ -26,7 +26,7 @@ How Do I Use This?
 
 First of all, you need to install the module. Navigate to `tests/external_testing_scripts`
 and run `python3 setup.py install`
-To use the script include `from steemdebugnode import DebugNode`
+To use the script include `from nebuladebugnode import DebugNode`
 
 There are a couple of examples already made that you can try modifying yourself.
 
@@ -38,7 +38,7 @@ generates a historgram of block producers to verify the witness scheduling algor
 properly. The purpose of the script is it verify any given hardfork does not have a bug that
 could crash the chain entirely.
 
-[debugnode.py](https://github.com/steemit/steem/python_scripts/steemdebugnode/debugnode.py#L212)
+[debugnode.py](https://github.com/steemit/steem/python_scripts/nebuladebugnode/debugnode.py#L212)
 This script is much simpler. It has the same parsing logic, but has much less test logic.
 All it does is replay the blockchain, periodically printing a status update so the user
 knows it is still working. The script then hangs so the user can interact with the chain

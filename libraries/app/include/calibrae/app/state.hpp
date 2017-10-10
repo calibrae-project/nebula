@@ -1,10 +1,10 @@
 #pragma once
 #include <calibrae/app/applied_operation.hpp>
-#include <calibrae/app/steem_api_objects.hpp>
+#include <calibrae/app/nebula_api_objects.hpp>
 
 #include <calibrae/chain/global_property_object.hpp>
 #include <calibrae/chain/account_object.hpp>
-#include <calibrae/chain/steem_objects.hpp>
+#include <calibrae/chain/nebula_objects.hpp>
 
 namespace steemit { namespace app {
    using std::string;
