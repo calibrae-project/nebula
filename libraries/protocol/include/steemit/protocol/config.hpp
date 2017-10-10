@@ -40,11 +40,12 @@
 #define STEEMIT_OWNER_AUTH_HISTORY_TRACKING_START_BLOCK_NUM 1
 #else // IS LIVE STEEM NETWORK
 
-#define STEEMIT_INIT_PUBLIC_KEY_STR             "STM8GC13uCZbP44HzMLV6zPZGwVQ8Nt4Kji8PapsPiNq1BK153XTX"
-#define STEEMIT_CHAIN_ID                        (steemit::protocol::chain_id_type())
-#define VESTS_SYMBOL  (uint64_t(6) | (uint64_t('V') << 8) | (uint64_t('E') << 16) | (uint64_t('S') << 24) | (uint64_t('T') << 32) | (uint64_t('S') << 40)) ///< VESTS with 6 digits of precision
-#define STEEM_SYMBOL  (uint64_t(3) | (uint64_t('S') << 8) | (uint64_t('T') << 16) | (uint64_t('E') << 24) | (uint64_t('E') << 32) | (uint64_t('M') << 40)) ///< STEEM with 3 digits of precision
-#define SBD_SYMBOL    (uint64_t(3) | (uint64_t('S') << 8) | (uint64_t('B') << 16) | (uint64_t('D') << 24) ) ///< STEEM Backed Dollars with 3 digits of precision
+#define STEEMIT_INIT_PRIVATE_KEY                (fc::ecc::private_key::regenerate(fc::sha256::hash(std::string("init_key")))) 
+#define STEEMIT_INIT_PUBLIC_KEY_STR             (std::string( steemit::protocol::public_key_type(STEEMIT_INIT_PRIVATE_KEY.get_public_key()) )) 
+#define STEEMIT_CHAIN_ID                        (fc::sha256::hash("nebula")) 
+#define VESTS_SYMBOL  (uint64_t(6) | (uint64_t('S') << 8) | (uint64_t('T') << 16) | (uint64_t('A') << 24) | (uint64_t('K') << 32) | (uint64_t('E') << 40)) ///< STAKE with 6 digits of precision 
+#define STEEM_SYMBOL  (uint64_t(3) | (uint64_t('N') << 8) | (uint64_t('C') << 16) | (uint64_t('T') << 24) | (uint64_t('R') << 32)) ///< NECTAR with 3 digits of precision 
+#define SBD_SYMBOL    (uint64_t(3) | (uint64_t('W') << 8) | (uint64_t('S') << 16) | (uint64_t('S') << 24) ) ///< STEEM Backed Dollars with 3 digits of precision 
 #define STMD_SYMBOL   (uint64_t(3) | (uint64_t('S') << 8) | (uint64_t('T') << 16) | (uint64_t('M') << 24) | (uint64_t('D') << 32) ) ///< STEEM Dollars with 3 digits of precision
 #define STEEMIT_SYMBOL                          "STEEM"
 #define STEEMIT_ADDRESS_PREFIX                  "STM"
@@ -215,7 +216,7 @@
 #define STEEMIT_MAX_PERMLINK_LENGTH             256
 #define STEEMIT_MAX_WITNESS_URL_LENGTH          2048
 
-#define STEEMIT_INIT_SUPPLY                     int64_t(0)
+#define STEEMIT_INIT_SUPPLY                     int64_t(10000000)
 #define STEEMIT_MAX_SHARE_SUPPLY                int64_t(1000000000000000ll)
 #define STEEMIT_MAX_SIG_CHECK_DEPTH             2
 

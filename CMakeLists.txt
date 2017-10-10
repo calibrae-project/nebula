@@ -2,7 +2,7 @@
 project( Steem )
 cmake_minimum_required( VERSION 3.2 )
 
-set( BLOCKCHAIN_NAME "Steem" )
+set( BLOCKCHAIN_NAME "Calibrae" )
 
 set( GUI_CLIENT_EXECUTABLE_NAME Steem )
 set( CUSTOM_URL_SCHEME "gcs" )
