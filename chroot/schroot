@@ -1,0 +1,20 @@
+#!/bin/bash
+# This script creates a chroot in the folder $HOME/nebula for building nebula
+# It requires the installation of debootstrap and schroot
+cat schroot.conf|sed "s/USERNAME/$USER/g"|sed "s/HOME/\/home\/$USER/g">tempschroot.conf
+sudo mv tempschroot.conf /etc/schroot/schroot.conf
+sudo chown root /etc/schroot/schroot.conf
+mkdir $HOME/nebula
+sudo debootstrap --variant=buildd --arch amd64 xenial ~/nebula http://archive.ubuntu.com/ubuntu/
+sudo mkdir $HOME/nebula/home/$USER
+sudo chown $USER $HOME/nebula/home/$USER
+sudo ln -s . $HOME/nebula/home/$USER/nebula
+sudo cp /etc/hostname $HOME/nebula/etc/hostname
+echo "127.0.0.1 `hostname` localhost.localdomain   localhost">hosts
+echo "::1 `hostname` localhost.localdomain   localhost">>hosts
+sudo mv hosts $HOME/nebula/etc/hosts
+sudo touch /etc/networks
+echo "You can now enter the chroot with './login' for building"
+echo "Run the script './schroot-prep' inside the chroot to initialise the environment, this is only necessary one time"
+echo "Then 'sudo <yourusername>' inside the chroot and you can start running build scripts"
+echo "You can use './build-nebula' to do all the building automatically"
