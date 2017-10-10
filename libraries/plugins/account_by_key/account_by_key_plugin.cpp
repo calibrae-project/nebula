@@ -1,10 +1,10 @@
-#include <steemit/account_by_key/account_by_key_plugin.hpp>
-#include <steemit/account_by_key/account_by_key_objects.hpp>
+#include <calibrae/account_by_key/account_by_key_plugin.hpp>
+#include <calibrae/account_by_key/account_by_key_objects.hpp>
 
-#include <steemit/chain/account_object.hpp>
-#include <steemit/chain/database.hpp>
-#include <steemit/chain/index.hpp>
-#include <steemit/chain/operation_notification.hpp>
+#include <calibrae/chain/account_object.hpp>
+#include <calibrae/chain/database.hpp>
+#include <calibrae/chain/index.hpp>
+#include <calibrae/chain/operation_notification.hpp>
 
 #include <graphene/schema/schema.hpp>
 #include <graphene/schema/schema_impl.hpp>

@@ -2,15 +2,15 @@
 #include <graphene/utilities/key_conversion.hpp>
 #include <graphene/utilities/words.hpp>
 
-#include <steemit/app/api.hpp>
-#include <steemit/protocol/base.hpp>
-#include <steemit/follow/follow_operations.hpp>
-#include <steemit/private_message/private_message_operations.hpp>
-#include <steemit/wallet/wallet.hpp>
-#include <steemit/wallet/api_documentation.hpp>
-#include <steemit/wallet/reflect_util.hpp>
+#include <calibrae/app/api.hpp>
+#include <calibrae/protocol/base.hpp>
+#include <calibrae/follow/follow_operations.hpp>
+#include <calibrae/private_message/private_message_operations.hpp>
+#include <calibrae/wallet/wallet.hpp>
+#include <calibrae/wallet/api_documentation.hpp>
+#include <calibrae/wallet/reflect_util.hpp>
 
-#include <steemit/account_by_key/account_by_key_api.hpp>
+#include <calibrae/account_by_key/account_by_key_api.hpp>
 
 #include <algorithm>
 #include <cctype>

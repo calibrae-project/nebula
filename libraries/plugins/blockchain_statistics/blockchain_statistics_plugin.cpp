@@ -1,13 +1,13 @@
-#include <steemit/blockchain_statistics/blockchain_statistics_api.hpp>
+#include <calibrae/blockchain_statistics/blockchain_statistics_api.hpp>
 
-#include <steemit/app/impacted.hpp>
-#include <steemit/chain/account_object.hpp>
-#include <steemit/chain/comment_object.hpp>
-#include <steemit/chain/history_object.hpp>
+#include <calibrae/app/impacted.hpp>
+#include <calibrae/chain/account_object.hpp>
+#include <calibrae/chain/comment_object.hpp>
+#include <calibrae/chain/history_object.hpp>
 
-#include <steemit/chain/database.hpp>
-#include <steemit/chain/index.hpp>
-#include <steemit/chain/operation_notification.hpp>
+#include <calibrae/chain/database.hpp>
+#include <calibrae/chain/index.hpp>
+#include <calibrae/chain/operation_notification.hpp>
 
 namespace steemit { namespace blockchain_statistics {
 

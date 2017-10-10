@@ -1,17 +1,17 @@
-#include <steemit/follow/follow_api.hpp>
-#include <steemit/follow/follow_objects.hpp>
-#include <steemit/follow/follow_operations.hpp>
+#include <calibrae/follow/follow_api.hpp>
+#include <calibrae/follow/follow_objects.hpp>
+#include <calibrae/follow/follow_operations.hpp>
 
-#include <steemit/app/impacted.hpp>
+#include <calibrae/app/impacted.hpp>
 
-#include <steemit/protocol/config.hpp>
+#include <calibrae/protocol/config.hpp>
 
-#include <steemit/chain/database.hpp>
-#include <steemit/chain/index.hpp>
-#include <steemit/chain/generic_custom_operation_interpreter.hpp>
-#include <steemit/chain/operation_notification.hpp>
-#include <steemit/chain/account_object.hpp>
-#include <steemit/chain/comment_object.hpp>
+#include <calibrae/chain/database.hpp>
+#include <calibrae/chain/index.hpp>
+#include <calibrae/chain/generic_custom_operation_interpreter.hpp>
+#include <calibrae/chain/operation_notification.hpp>
+#include <calibrae/chain/account_object.hpp>
+#include <calibrae/chain/comment_object.hpp>
 
 #include <graphene/schema/schema.hpp>
 #include <graphene/schema/schema_impl.hpp>

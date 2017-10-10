@@ -1,6 +1,6 @@
 
-#include <steemit/app/application.hpp>
-#include <steemit/app/plugin.hpp>
+#include <calibrae/app/application.hpp>
+#include <calibrae/app/plugin.hpp>
 
 #include <sstream>
 #include <string>

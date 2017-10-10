@@ -1,7 +1,7 @@
-#include <steemit/witness/witness_operations.hpp>
-#include <steemit/witness/witness_objects.hpp>
+#include <calibrae/witness/witness_operations.hpp>
+#include <calibrae/witness/witness_objects.hpp>
 
-#include <steemit/chain/comment_object.hpp>
+#include <calibrae/chain/comment_object.hpp>
 
 namespace steemit { namespace witness {
 

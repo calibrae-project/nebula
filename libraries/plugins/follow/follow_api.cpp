@@ -1,6 +1,6 @@
-#include <steemit/chain/account_object.hpp>
+#include <calibrae/chain/account_object.hpp>
 
-#include <steemit/follow/follow_api.hpp>
+#include <calibrae/follow/follow_api.hpp>
 
 namespace steemit { namespace follow {
 

@@ -1,17 +1,17 @@
 #ifdef IS_TEST_NET
 #include <boost/test/unit_test.hpp>
 
-#include <steemit/protocol/exceptions.hpp>
+#include <calibrae/protocol/exceptions.hpp>
 
-#include <steemit/chain/block_summary_object.hpp>
-#include <steemit/chain/database.hpp>
-#include <steemit/chain/hardfork.hpp>
-#include <steemit/chain/history_object.hpp>
-#include <steemit/chain/steem_objects.hpp>
+#include <calibrae/chain/block_summary_object.hpp>
+#include <calibrae/chain/database.hpp>
+#include <calibrae/chain/hardfork.hpp>
+#include <calibrae/chain/history_object.hpp>
+#include <calibrae/chain/steem_objects.hpp>
 
-#include <steemit/chain/util/reward.hpp>
+#include <calibrae/chain/util/reward.hpp>
 
-#include <steemit/plugins/debug_node/debug_node_plugin.hpp>
+#include <calibrae/plugins/debug_node/debug_node_plugin.hpp>
 
 #include <fc/crypto/digest.hpp>
 

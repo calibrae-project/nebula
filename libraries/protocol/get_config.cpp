@@ -1,8 +1,8 @@
-#include <steemit/protocol/get_config.hpp>
-#include <steemit/protocol/config.hpp>
-#include <steemit/protocol/asset.hpp>
-#include <steemit/protocol/types.hpp>
-#include <steemit/protocol/version.hpp>
+#include <calibrae/protocol/get_config.hpp>
+#include <calibrae/protocol/config.hpp>
+#include <calibrae/protocol/asset.hpp>
+#include <calibrae/protocol/types.hpp>
+#include <calibrae/protocol/version.hpp>
 
 namespace steemit { namespace protocol {
 

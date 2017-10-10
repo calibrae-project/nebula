@@ -1,4 +1,4 @@
-#include <steemit/protocol/authority.hpp>
+#include <calibrae/protocol/authority.hpp>
 
 namespace steemit { namespace protocol {
 

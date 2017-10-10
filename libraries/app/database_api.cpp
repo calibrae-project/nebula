@@ -1,10 +1,10 @@
-#include <steemit/app/api_context.hpp>
-#include <steemit/app/application.hpp>
-#include <steemit/app/database_api.hpp>
+#include <calibrae/app/api_context.hpp>
+#include <calibrae/app/application.hpp>
+#include <calibrae/app/database_api.hpp>
 
-#include <steemit/protocol/get_config.hpp>
+#include <calibrae/protocol/get_config.hpp>
 
-#include <steemit/chain/util/reward.hpp>
+#include <calibrae/chain/util/reward.hpp>
 
 #include <fc/bloom_filter.hpp>
 #include <fc/smart_ref_impl.hpp>

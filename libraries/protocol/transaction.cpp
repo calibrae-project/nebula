@@ -1,6 +1,6 @@
 
-#include <steemit/protocol/transaction.hpp>
-#include <steemit/protocol/exceptions.hpp>
+#include <calibrae/protocol/transaction.hpp>
+#include <calibrae/protocol/exceptions.hpp>
 
 #include <fc/io/raw.hpp>
 #include <fc/bitutil.hpp>

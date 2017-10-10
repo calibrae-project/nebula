@@ -1,11 +1,11 @@
 #pragma once
 
-#include <steemit/app/application.hpp>
-#include <steemit/chain/database.hpp>
+#include <calibrae/app/application.hpp>
+#include <calibrae/chain/database.hpp>
 #include <fc/io/json.hpp>
 #include <fc/smart_ref_impl.hpp>
 
-#include <steemit/plugins/debug_node/debug_node_plugin.hpp>
+#include <calibrae/plugins/debug_node/debug_node_plugin.hpp>
 
 #include <graphene/utilities/key_conversion.hpp>
 

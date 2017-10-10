@@ -1,15 +1,15 @@
-#include <steemit/tags/tags_plugin.hpp>
+#include <calibrae/tags/tags_plugin.hpp>
 
-#include <steemit/app/impacted.hpp>
+#include <calibrae/app/impacted.hpp>
 
-#include <steemit/protocol/config.hpp>
+#include <calibrae/protocol/config.hpp>
 
-#include <steemit/chain/database.hpp>
-#include <steemit/chain/hardfork.hpp>
-#include <steemit/chain/index.hpp>
-#include <steemit/chain/operation_notification.hpp>
-#include <steemit/chain/account_object.hpp>
-#include <steemit/chain/comment_object.hpp>
+#include <calibrae/chain/database.hpp>
+#include <calibrae/chain/hardfork.hpp>
+#include <calibrae/chain/index.hpp>
+#include <calibrae/chain/operation_notification.hpp>
+#include <calibrae/chain/account_object.hpp>
+#include <calibrae/chain/comment_object.hpp>
 
 #include <fc/smart_ref_impl.hpp>
 #include <fc/thread/thread.hpp>

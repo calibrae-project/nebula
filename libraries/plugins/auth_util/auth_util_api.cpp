@@ -1,15 +1,15 @@
 
-#include <steemit/app/api_context.hpp>
-#include <steemit/app/application.hpp>
+#include <calibrae/app/api_context.hpp>
+#include <calibrae/app/application.hpp>
 
-#include <steemit/protocol/authority.hpp>
-#include <steemit/protocol/sign_state.hpp>
+#include <calibrae/protocol/authority.hpp>
+#include <calibrae/protocol/sign_state.hpp>
 
-#include <steemit/chain/account_object.hpp>
-#include <steemit/chain/database.hpp>
+#include <calibrae/chain/account_object.hpp>
+#include <calibrae/chain/database.hpp>
 
-#include <steemit/plugins/auth_util/auth_util_api.hpp>
-#include <steemit/plugins/auth_util/auth_util_plugin.hpp>
+#include <calibrae/plugins/auth_util/auth_util_api.hpp>
+#include <calibrae/plugins/auth_util/auth_util_plugin.hpp>
 
 #include <fc/container/flat.hpp>
 

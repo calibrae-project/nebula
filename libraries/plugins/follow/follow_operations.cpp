@@ -1,6 +1,6 @@
-#include <steemit/follow/follow_operations.hpp>
+#include <calibrae/follow/follow_operations.hpp>
 
-#include <steemit/protocol/operation_util_impl.hpp>
+#include <calibrae/protocol/operation_util_impl.hpp>
 
 namespace steemit { namespace follow {
 

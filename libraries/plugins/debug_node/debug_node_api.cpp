@@ -3,20 +3,20 @@
 #include <fc/optional.hpp>
 #include <fc/variant_object.hpp>
 
-#include <steemit/app/api_context.hpp>
-#include <steemit/app/application.hpp>
+#include <calibrae/app/api_context.hpp>
+#include <calibrae/app/application.hpp>
 
-#include <steemit/protocol/block.hpp>
+#include <calibrae/protocol/block.hpp>
 
-#include <steemit/chain/block_log.hpp>
-#include <steemit/chain/account_object.hpp>
-#include <steemit/chain/database.hpp>
-#include <steemit/chain/witness_objects.hpp>
+#include <calibrae/chain/block_log.hpp>
+#include <calibrae/chain/account_object.hpp>
+#include <calibrae/chain/database.hpp>
+#include <calibrae/chain/witness_objects.hpp>
 
 #include <graphene/utilities/key_conversion.hpp>
 
-#include <steemit/plugins/debug_node/debug_node_api.hpp>
-#include <steemit/plugins/debug_node/debug_node_plugin.hpp>
+#include <calibrae/plugins/debug_node/debug_node_api.hpp>
+#include <calibrae/plugins/debug_node/debug_node_plugin.hpp>
 
 namespace steemit { namespace plugin { namespace debug_node {
 

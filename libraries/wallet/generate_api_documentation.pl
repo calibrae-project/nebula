@@ -13,8 +13,8 @@ my $outFile = new IO::File($outputFileName, "w")
 my $fileHeader = <<'END';
 /** GENERATED FILE **/
 #include <set>
-#include <steemit/wallet/api_documentation.hpp>
-#include <steemit/wallet/wallet.hpp>
+#include <calibrae/wallet/api_documentation.hpp>
+#include <calibrae/wallet/wallet.hpp>
 
 namespace steemit { namespace wallet {
    namespace detail

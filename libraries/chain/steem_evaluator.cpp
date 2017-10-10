@@ -1,11 +1,11 @@
-#include <steemit/chain/steem_evaluator.hpp>
-#include <steemit/chain/database.hpp>
-#include <steemit/chain/custom_operation_interpreter.hpp>
-#include <steemit/chain/steem_objects.hpp>
-#include <steemit/chain/witness_objects.hpp>
-#include <steemit/chain/block_summary_object.hpp>
+#include <calibrae/chain/steem_evaluator.hpp>
+#include <calibrae/chain/database.hpp>
+#include <calibrae/chain/custom_operation_interpreter.hpp>
+#include <calibrae/chain/steem_objects.hpp>
+#include <calibrae/chain/witness_objects.hpp>
+#include <calibrae/chain/block_summary_object.hpp>
 
-#include <steemit/chain/util/reward.hpp>
+#include <calibrae/chain/util/reward.hpp>
 
 #ifndef IS_LOW_MEM
 #include <diff_match_patch.h>

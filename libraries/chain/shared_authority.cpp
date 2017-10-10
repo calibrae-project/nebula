@@ -1,4 +1,4 @@
-#include <steemit/chain/shared_authority.hpp>
+#include <calibrae/chain/shared_authority.hpp>
 
 namespace steemit { namespace chain {
 

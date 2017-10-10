@@ -10,8 +10,8 @@
 
 #include <graphene/utilities/key_conversion.hpp>
 
-#include <steemit/protocol/transaction.hpp>
-#include <steemit/protocol/types.hpp>
+#include <calibrae/protocol/transaction.hpp>
+#include <calibrae/protocol/types.hpp>
 
 struct tx_signing_request
 {

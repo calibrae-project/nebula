@@ -1,8 +1,8 @@
-#include <steemit/market_history/market_history_api.hpp>
+#include <calibrae/market_history/market_history_api.hpp>
 
-#include <steemit/chain/database.hpp>
-#include <steemit/chain/index.hpp>
-#include <steemit/chain/operation_notification.hpp>
+#include <calibrae/chain/database.hpp>
+#include <calibrae/chain/index.hpp>
+#include <calibrae/chain/operation_notification.hpp>
 
 namespace steemit { namespace market_history {
 

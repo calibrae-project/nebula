@@ -1,3 +1,27 @@
+# Calibrae Nebula
+
+Calibrae Nebula is a fork of the Steem blockchain that will have a number of alterations including the removal of SBD, the revamping of the reputation system to become an effective crowdsourced security mechanism, a developer fund allocation from the rewards pool of 5%.
+
+The objective of this project is twofold:
+
+One, is to provide an alternative to the only operating social network/blogging platform with crowdsourced decisionmaking about the allocation of the newly minted tokens, that lacks the completely absurd amount of stake in the holders of the first 20 or so registered users, who have proven themselves to be quite irresponsible stewards of the network. 
+
+Two, to enable a funding mechanism for the development of a much more advanced replacement that will be built over the 12 months following the launch of this network, and a migration mechanism will be built to smoothly move from the archaic blockchain protocol to a more advanced byzantine fault tolerant database system.
+
+To clone this repository via SSH (faster):
+
+```
+git clone --recursive git@git.calibr.ae:calibrae/nebula.git
+```
+
+Note that the `--recursive` saves a second step of `git submodule update --init --recursive`
+
+See the build instructions for Nebula at [doc/building-nebula.md](doc/building-nebula.md)
+
+The remainder of this document is from the original readme of the steemd repository.
+
+---
+
 # Introducing Steem (beta)
 
 Steem is a Delegated Proof of Stake blockchain that uses a "Proof of Brain" social consensus algorithm for token allocation.

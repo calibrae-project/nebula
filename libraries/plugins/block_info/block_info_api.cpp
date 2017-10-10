@@ -1,9 +1,9 @@
 
-#include <steemit/app/api_context.hpp>
-#include <steemit/app/application.hpp>
+#include <calibrae/app/api_context.hpp>
+#include <calibrae/app/application.hpp>
 
-#include <steemit/plugins/block_info/block_info_api.hpp>
-#include <steemit/plugins/block_info/block_info_plugin.hpp>
+#include <calibrae/plugins/block_info/block_info_api.hpp>
+#include <calibrae/plugins/block_info/block_info_plugin.hpp>
 
 namespace steemit { namespace plugin { namespace block_info {
 

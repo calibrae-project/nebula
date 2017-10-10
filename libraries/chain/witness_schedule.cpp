@@ -1,9 +1,9 @@
 
-#include <steemit/chain/database.hpp>
-#include <steemit/chain/witness_objects.hpp>
-#include <steemit/chain/witness_schedule.hpp>
+#include <calibrae/chain/database.hpp>
+#include <calibrae/chain/witness_objects.hpp>
+#include <calibrae/chain/witness_schedule.hpp>
 
-#include <steemit/protocol/config.hpp>
+#include <calibrae/protocol/config.hpp>
 
 namespace steemit { namespace chain {
 

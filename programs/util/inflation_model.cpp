@@ -1,7 +1,7 @@
 
-#include <steemit/chain/compound.hpp>
-#include <steemit/protocol/asset.hpp>
-#include <steemit/protocol/types.hpp>
+#include <calibrae/chain/compound.hpp>
+#include <calibrae/protocol/asset.hpp>
+#include <calibrae/protocol/types.hpp>
 
 #include <fc/io/json.hpp>
 #include <fc/variant_object.hpp>

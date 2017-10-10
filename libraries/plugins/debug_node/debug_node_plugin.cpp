@@ -1,8 +1,8 @@
 
-#include <steemit/app/application.hpp>
-#include <steemit/app/plugin.hpp>
-#include <steemit/plugins/debug_node/debug_node_api.hpp>
-#include <steemit/plugins/debug_node/debug_node_plugin.hpp>
+#include <calibrae/app/application.hpp>
+#include <calibrae/app/plugin.hpp>
+#include <calibrae/plugins/debug_node/debug_node_api.hpp>
+#include <calibrae/plugins/debug_node/debug_node_plugin.hpp>
 
 #include <fc/io/buffered_iostream.hpp>
 #include <fc/io/fstream.hpp>

@@ -1,6 +1,6 @@
 
-#include <steemit/chain/util/reward.hpp>
-#include <steemit/chain/util/uint256.hpp>
+#include <calibrae/chain/util/reward.hpp>
+#include <calibrae/chain/util/uint256.hpp>
 
 namespace steemit { namespace chain { namespace util {
 

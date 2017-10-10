@@ -1,8 +1,8 @@
-#include <steemit/follow/follow_operations.hpp>
-#include <steemit/follow/follow_objects.hpp>
+#include <calibrae/follow/follow_operations.hpp>
+#include <calibrae/follow/follow_objects.hpp>
 
-#include <steemit/chain/account_object.hpp>
-#include <steemit/chain/comment_object.hpp>
+#include <calibrae/chain/account_object.hpp>
+#include <calibrae/chain/comment_object.hpp>
 
 namespace steemit { namespace follow {
 
