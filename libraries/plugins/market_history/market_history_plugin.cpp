@@ -217,4 +217,4 @@ uint32_t market_history_plugin::get_max_history_per_bucket() const
 
 } } // steemit::market_history
 
-STEEMIT_DEFINE_PLUGIN( market_history, steemit::market_history::market_history_plugin )
+CALIBRAE_DEFINE_PLUGIN( market_history, steemit::market_history::market_history_plugin )

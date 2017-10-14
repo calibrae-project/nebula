@@ -391,6 +391,6 @@ void follow_plugin::plugin_startup()
 
 } } // steemit::follow
 
-STEEMIT_DEFINE_PLUGIN( follow, steemit::follow::follow_plugin )
+CALIBRAE_DEFINE_PLUGIN( follow, steemit::follow::follow_plugin )
 
 //DEFINE_OPERATION_TYPE( steemit::follow::follow_plugin_operation )

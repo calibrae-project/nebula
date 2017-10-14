@@ -119,7 +119,7 @@ if( options.count(name) ) { \
 
 } } //steemit::app
 
-#define STEEMIT_DEFINE_PLUGIN( plugin_name, plugin_class ) \
+#define CALIBRAE_DEFINE_PLUGIN( plugin_name, plugin_class ) \
    namespace steemit { namespace plugin { \
    std::shared_ptr< steemit::app::abstract_plugin > create_ ## plugin_name ## _plugin( app::application* app )  \
    { return std::make_shared< plugin_class >( app ); } \
