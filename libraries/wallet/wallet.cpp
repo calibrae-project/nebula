@@ -309,7 +309,7 @@ public:
          client_version = client_version.substr( pos + 1 );
 
       fc::mutable_variant_object result;
-      result["blockchain_version"]       = STEEMIT_BLOCKCHAIN_VERSION;
+      result["blockchain_version"]       = CALIBRAE_BLOCKCHAIN_VERSION;
       result["client_version"]           = client_version;
       result["steem_revision"]           = graphene::utilities::git_revision_sha;
       result["steem_revision_age"]       = fc::get_approximate_relative_time_string( fc::time_point_sec( graphene::utilities::git_revision_unix_timestamp ) );

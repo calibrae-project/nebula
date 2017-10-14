@@ -1,9 +1,9 @@
 
-# The steemit_plugins target links with all plugins
-add_library( steemit_plugins
+# The calibrae_plugins target links with all plugins
+add_library( calibrae_plugins
    plugins.cpp )
 
-target_link_libraries( steemit_plugins
+target_link_libraries( calibrae_plugins
 {% for plugin in plugins %}
    {{ plugin["plugin_project"] }}
 {% endfor %}
@@ -30,7 +30,7 @@ target_link_libraries( steemit_plugins
 # `create_xxx_plugin()` global function which returns a
 # `shared_ptr< abstract_plugin >`.  The weak reference isn't
 # resolved until link time.  So as long as we link with both
-# `steemit_mf_plugins` and `steemit_plugins` we are fine.
+# `steemit_mf_plugins` and `calibrae_plugins` we are fine.
 #
 
 add_library( steemit_mf_plugins

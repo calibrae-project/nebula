@@ -12,12 +12,12 @@ endif()
 if( STEEM_STATIC_BUILD )
    target_link_libraries( nebula PRIVATE
       "-static-libstdc++ -static-libgcc"
-      steemit_plugins
+      calibrae_plugins
       steemit_mf_plugins
       steemit_app
       steemit_witness
       steemit_account_history
-      steemit_chain
+      calibrae_chain
       steemit_protocol
       fc
       ${CMAKE_DL_LIBS}
@@ -25,12 +25,12 @@ if( STEEM_STATIC_BUILD )
    )
 else( STEEM_STATIC_BUILD )
    target_link_libraries( nebula PRIVATE
-      steemit_plugins
+      calibrae_plugins
       steemit_mf_plugins
       steemit_app
       steemit_witness
       steemit_account_history
-      steemit_chain
+      calibrae_chain
       steemit_protocol
       fc
       ${CMAKE_DL_LIBS}
