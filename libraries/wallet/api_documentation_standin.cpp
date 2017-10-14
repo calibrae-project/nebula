@@ -3,7 +3,7 @@
 #include <calibrae/wallet/wallet.hpp>
 #include <calibrae/wallet/api_documentation.hpp>
 
-namespace steemit { namespace wallet {
+namespace calibrae { namespace wallet {
    namespace detail {
       namespace
       {
@@ -65,4 +65,4 @@ namespace steemit { namespace wallet {
                 std::inserter(method_descriptions, method_descriptions.end()));
    }
 
-} } // end namespace steemit::wallet
+} } // end namespace calibrae::wallet

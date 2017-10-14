@@ -26,7 +26,7 @@
 #include <deque>
 #include <cstdint>
 
-namespace steemit {
+namespace calibrae {
 
    using                                    fc::uint128_t;
    typedef boost::multiprecision::uint256_t u256;
@@ -100,7 +100,7 @@ namespace steemit {
             friend bool operator != ( const public_key_type& p1, const public_key_type& p2);
       };
 
-      #define CALIBRAE_INIT_PUBLIC_KEY (steemit::protocol::public_key_type(CALIBRAE_INIT_PUBLIC_KEY_STR))
+      #define CALIBRAE_INIT_PUBLIC_KEY (calibrae::protocol::public_key_type(CALIBRAE_INIT_PUBLIC_KEY_STR))
 
       struct extended_public_key_type
       {
@@ -145,25 +145,25 @@ namespace steemit {
          friend bool operator == ( const extended_private_key_type& p1, const extended_private_key_type& p2);
          friend bool operator != ( const extended_private_key_type& p1, const extended_private_key_type& p2);
       };
-} }  // steemit::protocol
+} }  // calibrae::protocol
 
 namespace fc
 {
-    void to_variant( const steemit::protocol::public_key_type& var,  fc::variant& vo );
-    void from_variant( const fc::variant& var,  steemit::protocol::public_key_type& vo );
-    void to_variant( const steemit::protocol::extended_public_key_type& var, fc::variant& vo );
-    void from_variant( const fc::variant& var, steemit::protocol::extended_public_key_type& vo );
-    void to_variant( const steemit::protocol::extended_private_key_type& var, fc::variant& vo );
-    void from_variant( const fc::variant& var, steemit::protocol::extended_private_key_type& vo );
+    void to_variant( const calibrae::protocol::public_key_type& var,  fc::variant& vo );
+    void from_variant( const fc::variant& var,  calibrae::protocol::public_key_type& vo );
+    void to_variant( const calibrae::protocol::extended_public_key_type& var, fc::variant& vo );
+    void from_variant( const fc::variant& var, calibrae::protocol::extended_public_key_type& vo );
+    void to_variant( const calibrae::protocol::extended_private_key_type& var, fc::variant& vo );
+    void from_variant( const fc::variant& var, calibrae::protocol::extended_private_key_type& vo );
 }
 
-FC_REFLECT( steemit::protocol::public_key_type, (key_data) )
-FC_REFLECT( steemit::protocol::public_key_type::binary_key, (data)(check) )
-FC_REFLECT( steemit::protocol::extended_public_key_type, (key_data) )
-FC_REFLECT( steemit::protocol::extended_public_key_type::binary_key, (check)(data) )
-FC_REFLECT( steemit::protocol::extended_private_key_type, (key_data) )
-FC_REFLECT( steemit::protocol::extended_private_key_type::binary_key, (check)(data) )
+FC_REFLECT( calibrae::protocol::public_key_type, (key_data) )
+FC_REFLECT( calibrae::protocol::public_key_type::binary_key, (data)(check) )
+FC_REFLECT( calibrae::protocol::extended_public_key_type, (key_data) )
+FC_REFLECT( calibrae::protocol::extended_public_key_type::binary_key, (check)(data) )
+FC_REFLECT( calibrae::protocol::extended_private_key_type, (key_data) )
+FC_REFLECT( calibrae::protocol::extended_private_key_type::binary_key, (check)(data) )
 
-FC_REFLECT_TYPENAME( steemit::protocol::share_type )
+FC_REFLECT_TYPENAME( calibrae::protocol::share_type )
 
-FC_REFLECT( steemit::void_t, )
+FC_REFLECT( calibrae::void_t, )

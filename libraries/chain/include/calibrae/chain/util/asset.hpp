@@ -2,10 +2,10 @@
 
 #include <calibrae/protocol/asset.hpp>
 
-namespace steemit { namespace chain { namespace util {
+namespace calibrae { namespace chain { namespace util {
 
-using steemit::protocol::asset;
-using steemit::protocol::price;
+using calibrae::protocol::asset;
+using calibrae::protocol::price;
 
 inline asset to_sbd( const price& p, const asset& steem )
 {

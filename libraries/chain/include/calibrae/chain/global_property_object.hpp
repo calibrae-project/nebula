@@ -5,10 +5,10 @@
 
 #include <calibrae/protocol/asset.hpp>
 
-namespace steemit { namespace chain {
+namespace calibrae { namespace chain {
 
-   using steemit::protocol::asset;
-   using steemit::protocol::price;
+   using calibrae::protocol::asset;
+   using calibrae::protocol::price;
 
    /**
     * @class dynamic_global_property_object
@@ -124,9 +124,9 @@ namespace steemit { namespace chain {
       allocator< dynamic_global_property_object >
    > dynamic_global_property_index;
 
-} } // steemit::chain
+} } // calibrae::chain
 
-FC_REFLECT( steemit::chain::dynamic_global_property_object,
+FC_REFLECT( calibrae::chain::dynamic_global_property_object,
              (id)
              (head_block_number)
              (head_block_id)
@@ -154,4 +154,4 @@ FC_REFLECT( steemit::chain::dynamic_global_property_object,
              (last_irreversible_block_num)
              (vote_power_reserve_rate)
           )
-CHAINBASE_SET_INDEX_TYPE( steemit::chain::dynamic_global_property_object, steemit::chain::dynamic_global_property_index )
+CHAINBASE_SET_INDEX_TYPE( calibrae::chain::dynamic_global_property_object, calibrae::chain::dynamic_global_property_index )

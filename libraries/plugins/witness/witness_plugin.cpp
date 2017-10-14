@@ -23,7 +23,7 @@
 #define DISTANCE_CALC_PRECISION (10000)
 
 
-namespace steemit { namespace witness {
+namespace calibrae { namespace witness {
 
 namespace bpo = boost::program_options;
 
@@ -33,7 +33,7 @@ using std::vector;
 using protocol::signed_transaction;
 using chain::account_object;
 
-void new_chain_banner( const steemit::chain::database& db )
+void new_chain_banner( const calibrae::chain::database& db )
 {
    std::cerr << "\n"
       "********************************\n"
@@ -49,7 +49,7 @@ void new_chain_banner( const steemit::chain::database& db )
 
 namespace detail
 {
-   using namespace steemit::chain;
+   using namespace calibrae::chain;
 
 
    class witness_plugin_impl
@@ -474,7 +474,7 @@ void witness_plugin::plugin_startup()
       {
          if( d.head_block_num() == 0 )
             new_chain_banner(d);
-         _production_skip_flags |= steemit::chain::database::skip_undo_history_check;
+         _production_skip_flags |= calibrae::chain::database::skip_undo_history_check;
       }
       schedule_production_loop();
    }
@@ -526,7 +526,7 @@ block_production_condition::block_production_condition_enum witness_plugin::bloc
       //We're trying to exit. Go ahead and let this one out.
       throw;
    }
-   catch( const steemit::chain::unknown_hardfork_exception& e )
+   catch( const calibrae::chain::unknown_hardfork_exception& e )
    {
       // Hit a hardfork that the current node know nothing about, stop production and inform user
       elog( "${e}\nNode may be out of date...", ("e", e.to_detail_string()) );
@@ -620,7 +620,7 @@ block_production_condition::block_production_condition_enum witness_plugin::mayb
    auto itr = witness_by_name.find( scheduled_witness );
 
    fc::time_point_sec scheduled_time = db.get_slot_time( slot );
-   steemit::protocol::public_key_type scheduled_key = itr->signing_key;
+   calibrae::protocol::public_key_type scheduled_key = itr->signing_key;
    auto private_key_itr = _private_keys.find( scheduled_key );
 
    if( private_key_itr == _private_keys.end() )
@@ -671,6 +671,6 @@ block_production_condition::block_production_condition_enum witness_plugin::mayb
    return block_production_condition::exception_producing_block;
 }
 
-} } // steemit::witness
+} } // calibrae::witness
 
-CALIBRAE_DEFINE_PLUGIN( witness, steemit::witness::witness_plugin )
+CALIBRAE_DEFINE_PLUGIN( witness, calibrae::witness::witness_plugin )

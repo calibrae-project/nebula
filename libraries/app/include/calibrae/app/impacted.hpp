@@ -7,17 +7,17 @@
 
 #include <fc/string.hpp>
 
-namespace steemit { namespace app {
+namespace calibrae { namespace app {
 
 using namespace fc;
 
 void operation_get_impacted_accounts(
-   const steemit::protocol::operation& op,
+   const calibrae::protocol::operation& op,
    fc::flat_set<protocol::account_name_type>& result );
 
 void transaction_get_impacted_accounts(
-   const steemit::protocol::transaction& tx,
+   const calibrae::protocol::transaction& tx,
    fc::flat_set<protocol::account_name_type>& result
    );
 
-} } // steemit::app
+} } // calibrae::app

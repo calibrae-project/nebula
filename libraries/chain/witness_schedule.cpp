@@ -5,7 +5,7 @@
 
 #include <calibrae/protocol/config.hpp>
 
-namespace steemit { namespace chain {
+namespace calibrae { namespace chain {
 
 void reset_virtual_schedule_time( database& db )
 {

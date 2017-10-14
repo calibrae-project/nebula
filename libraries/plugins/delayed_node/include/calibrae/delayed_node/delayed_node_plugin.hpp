@@ -3,12 +3,12 @@
 #include <calibrae/app/plugin.hpp>
 #include <calibrae/chain/nebula_objects.hpp>
 
-namespace steemit { namespace delayed_node {
+namespace calibrae { namespace delayed_node {
 namespace detail { struct delayed_node_plugin_impl; }
 
 using app::application;
 
-class delayed_node_plugin : public steemit::app::plugin
+class delayed_node_plugin : public calibrae::app::plugin
 {
    std::unique_ptr<detail::delayed_node_plugin_impl> my;
 public:
@@ -28,5 +28,5 @@ protected:
    void sync_with_trusted_node();
 };
 
-} } //steemit::account_history
+} } //calibrae::account_history
 

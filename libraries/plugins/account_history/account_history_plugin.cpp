@@ -13,14 +13,14 @@
 
 #include <boost/algorithm/string.hpp>
 
-#define STEEM_NAMESPACE_PREFIX "steemit::protocol::"
+#define STEEM_NAMESPACE_PREFIX "calibrae::protocol::"
 
-namespace steemit { namespace account_history {
+namespace calibrae { namespace account_history {
 
 namespace detail
 {
 
-using namespace steemit::protocol;
+using namespace calibrae::protocol;
 
 class account_history_plugin_impl
 {
@@ -30,7 +30,7 @@ class account_history_plugin_impl
       { }
       virtual ~account_history_plugin_impl();
 
-      steemit::chain::database& database()
+      calibrae::chain::database& database()
       {
          return _self.database();
       }
@@ -124,7 +124,7 @@ struct operation_visitor_filter : operation_visitor
 void account_history_plugin_impl::on_operation( const operation_notification& note )
 {
    flat_set<account_name_type> impacted;
-   steemit::chain::database& db = database();
+   calibrae::chain::database& db = database();
 
    const operation_object* new_obj = nullptr;
    app::operation_get_impacted_accounts( note.op, impacted );
@@ -262,4 +262,4 @@ flat_map< account_name_type, account_name_type > account_history_plugin::tracked
 
 } }
 
-CALIBRAE_DEFINE_PLUGIN( account_history, steemit::account_history::account_history_plugin )
+CALIBRAE_DEFINE_PLUGIN( account_history, calibrae::account_history::account_history_plugin )

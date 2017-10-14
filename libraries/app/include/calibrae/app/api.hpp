@@ -18,8 +18,8 @@
 #include <string>
 #include <vector>
 
-namespace steemit { namespace app {
-   using namespace steemit::chain;
+namespace calibrae { namespace app {
+   using namespace calibrae::chain;
    using namespace fc::ecc;
    using namespace std;
 
@@ -191,22 +191,22 @@ namespace steemit { namespace app {
          api_context _ctx;
    };
 
-}}  // steemit::app
+}}  // calibrae::app
 
-FC_REFLECT( steemit::app::network_broadcast_api::transaction_confirmation,
+FC_REFLECT( calibrae::app::network_broadcast_api::transaction_confirmation,
         (id)(block_num)(trx_num)(expired) )
-FC_REFLECT( steemit::app::nebula_version_info, (blockchain_version)(nebula_revision)(fc_revision) )
+FC_REFLECT( calibrae::app::nebula_version_info, (blockchain_version)(nebula_revision)(fc_revision) )
 //FC_REFLECT_TYPENAME( fc::ecc::compact_signature );
 //FC_REFLECT_TYPENAME( fc::ecc::commitment_type );
 
-FC_API(steemit::app::network_broadcast_api,
+FC_API(calibrae::app::network_broadcast_api,
        (broadcast_transaction)
        (broadcast_transaction_with_callback)
        (broadcast_transaction_synchronous)
        (broadcast_block)
        (set_max_block_age)
      )
-FC_API(steemit::app::network_node_api,
+FC_API(calibrae::app::network_node_api,
        (get_info)
        (add_node)
        (get_connected_peers)
@@ -214,7 +214,7 @@ FC_API(steemit::app::network_node_api,
        (get_advanced_node_parameters)
        (set_advanced_node_parameters)
      )
-FC_API(steemit::app::login_api,
+FC_API(calibrae::app::login_api,
        (login)
        (get_api_by_name)
        (get_version)

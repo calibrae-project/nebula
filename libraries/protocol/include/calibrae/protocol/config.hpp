@@ -1,9 +1,9 @@
-#define CALIBRAE_BLOCKCHAIN_VERSION              ( version(0, 0, 0) )
+#define CALIBRAE_BLOCKCHAIN_VERSION              ( version(0, 19, 2) )
 #define CALIBRAE_BLOCKCHAIN_HARDFORK_VERSION     ( hardfork_version( CALIBRAE_BLOCKCHAIN_VERSION ) )
 
 #ifdef IS_TEST_NET
 #define CALIBRAE_INIT_PRIVATE_KEY                (fc::ecc::private_key::regenerate(fc::sha256::hash(std::string("init_key"))))
-#define CALIBRAE_INIT_PUBLIC_KEY_STR             (std::string( steemit::protocol::public_key_type(CALIBRAE_INIT_PRIVATE_KEY.get_public_key()) ))
+#define CALIBRAE_INIT_PUBLIC_KEY_STR             (std::string( calibrae::protocol::public_key_type(CALIBRAE_INIT_PRIVATE_KEY.get_public_key()) ))
 #define CALIBRAE_CHAIN_ID                        (fc::sha256::hash("testnet"))
 
 #define VESTS_SYMBOL  (uint64_t(6) | (uint64_t('V') << 8) | (uint64_t('E') << 16) | (uint64_t('S') << 24) | (uint64_t('T') << 32) | (uint64_t('S') << 40)) ///< VESTS with 6 digits of precision
@@ -36,7 +36,7 @@
 #else // IS LIVE STEEM NETWORK
 
 #define CALIBRAE_INIT_PRIVATE_KEY                (fc::ecc::private_key::regenerate(fc::sha256::hash(std::string("init_key")))) 
-#define CALIBRAE_INIT_PUBLIC_KEY_STR             (std::string( steemit::protocol::public_key_type(CALIBRAE_INIT_PRIVATE_KEY.get_public_key()) )) 
+#define CALIBRAE_INIT_PUBLIC_KEY_STR             (std::string( calibrae::protocol::public_key_type(CALIBRAE_INIT_PRIVATE_KEY.get_public_key()) )) 
 #define CALIBRAE_CHAIN_ID                        (fc::sha256::hash("nebula")) 
 #define VESTS_SYMBOL  (uint64_t(6) | (uint64_t('S') << 8) | (uint64_t('T') << 16) | (uint64_t('A') << 24) | (uint64_t('K') << 32) | (uint64_t('E') << 40)) ///< STAKE with 6 digits of precision 
 #define NECTAR_SYMBOL  (uint64_t(3) | (uint64_t('N') << 8) | (uint64_t('C') << 16) | (uint64_t('T') << 24) | (uint64_t('R') << 32)) ///< NECTAR with 3 digits of precision 

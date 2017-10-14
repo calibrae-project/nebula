@@ -12,7 +12,7 @@
 #include <fc/smart_ref_impl.hpp>
 
 
-namespace steemit { namespace delayed_node {
+namespace calibrae { namespace delayed_node {
 namespace bpo = boost::program_options;
 
 namespace detail {
@@ -20,10 +20,10 @@ struct delayed_node_plugin_impl {
    std::string remote_endpoint;
    fc::http::websocket_client client;
    std::shared_ptr<fc::rpc::websocket_api_connection> client_connection;
-   fc::api<steemit::app::database_api> database_api;
+   fc::api<calibrae::app::database_api> database_api;
    boost::signals2::scoped_connection client_connection_closed;
-   steemit::chain::block_id_type last_received_remote_head;
-   steemit::chain::block_id_type last_processed_remote_head;
+   calibrae::chain::block_id_type last_received_remote_head;
+   calibrae::chain::block_id_type last_processed_remote_head;
 };
 }
 
@@ -45,7 +45,7 @@ void delayed_node_plugin::plugin_set_program_options(bpo::options_description& c
 void delayed_node_plugin::connect()
 {
    my->client_connection = std::make_shared<fc::rpc::websocket_api_connection>(*my->client.connect(my->remote_endpoint));
-   my->database_api = my->client_connection->get_remote_api<steemit::app::database_api>(0);
+   my->database_api = my->client_connection->get_remote_api<calibrae::app::database_api>(0);
    my->client_connection_closed = my->client_connection->closed.connect([this] {
       connection_failed();
    });
@@ -64,7 +64,7 @@ void delayed_node_plugin::sync_with_trusted_node()
    uint32_t pass_count = 0;
    while( true )
    {
-      steemit::chain::dynamic_global_property_object remote_dpo = my->database_api->get_dynamic_global_properties();
+      calibrae::chain::dynamic_global_property_object remote_dpo = my->database_api->get_dynamic_global_properties();
       if( remote_dpo.last_irreversible_block_num <= db.head_block_num() )
       {
          if( remote_dpo.last_irreversible_block_num < db.head_block_num() )
@@ -80,7 +80,7 @@ void delayed_node_plugin::sync_with_trusted_node()
       pass_count++;
       while( remote_dpo.last_irreversible_block_num > db.head_block_num() )
       {
-         fc::optional<steemit::chain::signed_block> block = my->database_api->get_block( db.head_block_num()+1 );
+         fc::optional<calibrae::chain::signed_block> block = my->database_api->get_block( db.head_block_num()+1 );
          FC_ASSERT(block, "Trusted node claims it has blocks it doesn't actually have.");
          ilog("Pushing block #${n}", ("n", block->block_num()));
          db.push_block(*block);
@@ -141,4 +141,4 @@ void delayed_node_plugin::connection_failed()
 
 } }
 
-CALIBRAE_DEFINE_PLUGIN( delayed_node, steemit::delayed_node::delayed_node_plugin )
+CALIBRAE_DEFINE_PLUGIN( delayed_node, calibrae::delayed_node::delayed_node_plugin )

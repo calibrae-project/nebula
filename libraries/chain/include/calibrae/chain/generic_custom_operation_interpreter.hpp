@@ -15,7 +15,7 @@
 #include <string>
 #include <vector>
 
-namespace steemit { namespace chain {
+namespace calibrae { namespace chain {
 
 class database;
 

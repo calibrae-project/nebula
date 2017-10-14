@@ -48,7 +48,7 @@ int main( int argc, char** argv )
       auto show_key = [&]( const fc::ecc::private_key& priv_key )
       {
          fc::mutable_variant_object mvo;
-         steemit::protocol::public_key_type pub_key = priv_key.get_public_key();
+         calibrae::protocol::public_key_type pub_key = priv_key.get_public_key();
          mvo( "private_key", graphene::utilities::key_to_wif( priv_key ) )
             ( "public_key", std::string( pub_key ) )
             ;

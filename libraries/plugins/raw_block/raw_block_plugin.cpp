@@ -5,7 +5,7 @@
 
 #include <string>
 
-namespace steemit { namespace plugin { namespace raw_block {
+namespace calibrae { namespace plugin { namespace raw_block {
 
 raw_block_plugin::raw_block_plugin( application* app ) : plugin( app ) {}
 raw_block_plugin::~raw_block_plugin() {}
@@ -28,6 +28,6 @@ void raw_block_plugin::plugin_shutdown()
 {
 }
 
-} } } // steemit::plugin::raw_block
+} } } // calibrae::plugin::raw_block
 
-CALIBRAE_DEFINE_PLUGIN( raw_block, steemit::plugin::raw_block::raw_block_plugin )
+CALIBRAE_DEFINE_PLUGIN( raw_block, calibrae::plugin::raw_block::raw_block_plugin )

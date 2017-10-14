@@ -2,7 +2,7 @@
 
 #include <calibrae/chain/evaluator.hpp>
 
-namespace steemit { namespace chain {
+namespace calibrae { namespace chain {
 
 template< typename OperationType >
 class evaluator_registry

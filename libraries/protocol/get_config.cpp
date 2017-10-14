@@ -4,7 +4,7 @@
 #include <calibrae/protocol/types.hpp>
 #include <calibrae/protocol/version.hpp>
 
-namespace steemit { namespace protocol {
+namespace calibrae { namespace protocol {
 
 fc::variant_object get_config()
 {
@@ -184,4 +184,4 @@ fc::variant_object get_config()
    return result;
 }
 
-} } // steemit::protocol
+} } // calibrae::protocol

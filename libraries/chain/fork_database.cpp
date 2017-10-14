@@ -2,7 +2,7 @@
 
 #include <calibrae/chain/database_exceptions.hpp>
 
-namespace steemit { namespace chain {
+namespace calibrae { namespace chain {
 
 fork_database::fork_database()
 {
@@ -240,4 +240,4 @@ void fork_database::remove(block_id_type id)
    _index.get<block_id>().erase(id);
 }
 
-} } // steemit::chain
+} } // calibrae::chain

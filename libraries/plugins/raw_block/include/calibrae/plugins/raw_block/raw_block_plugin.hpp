@@ -2,11 +2,11 @@
 
 #include <calibrae/app/plugin.hpp>
 
-namespace steemit { namespace plugin { namespace raw_block {
+namespace calibrae { namespace plugin { namespace raw_block {
 
-using steemit::app::application;
+using calibrae::app::application;
 
-class raw_block_plugin : public steemit::app::plugin
+class raw_block_plugin : public calibrae::app::plugin
 {
    public:
       raw_block_plugin( application* app );

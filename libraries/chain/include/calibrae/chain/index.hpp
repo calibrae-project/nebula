@@ -2,7 +2,7 @@
 
 #include <calibrae/chain/database.hpp>
 
-namespace steemit { namespace chain {
+namespace calibrae { namespace chain {
 
 template< typename MultiIndexType >
 void _add_index_impl( database& db )

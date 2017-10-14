@@ -1,7 +1,7 @@
 #pragma once
 #include <calibrae/protocol/base.hpp>
 
-namespace steemit { namespace protocol {
+namespace calibrae { namespace protocol {
 
    struct block_header
    {
@@ -27,7 +27,7 @@ namespace steemit { namespace protocol {
    };
 
 
-} } // steemit::protocol
+} } // calibrae::protocol
 
-FC_REFLECT( steemit::protocol::block_header, (previous)(timestamp)(witness)(transaction_merkle_root)(extensions) )
-FC_REFLECT_DERIVED( steemit::protocol::signed_block_header, (steemit::protocol::block_header), (witness_signature) )
+FC_REFLECT( calibrae::protocol::block_header, (previous)(timestamp)(witness)(transaction_merkle_root)(extensions) )
+FC_REFLECT_DERIVED( calibrae::protocol::signed_block_header, (calibrae::protocol::block_header), (witness_signature) )

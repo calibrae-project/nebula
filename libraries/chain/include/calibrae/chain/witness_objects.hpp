@@ -7,16 +7,16 @@
 
 #include <boost/multi_index/composite_key.hpp>
 
-namespace steemit { namespace chain {
+namespace calibrae { namespace chain {
 
-   using steemit::protocol::chain_properties;
-   using steemit::protocol::digest_type;
-   using steemit::protocol::public_key_type;
-   using steemit::protocol::version;
-   using steemit::protocol::hardfork_version;
-   using steemit::protocol::price;
-   using steemit::protocol::asset;
-   using steemit::protocol::asset_symbol_type;
+   using calibrae::protocol::chain_properties;
+   using calibrae::protocol::digest_type;
+   using calibrae::protocol::public_key_type;
+   using calibrae::protocol::version;
+   using calibrae::protocol::hardfork_version;
+   using calibrae::protocol::price;
+   using calibrae::protocol::asset;
+   using calibrae::protocol::asset_symbol_type;
 
    /**
     *  All witnesses with at least 1% net positive approval and
@@ -234,9 +234,9 @@ namespace steemit { namespace chain {
 
 } }
 
-FC_REFLECT_ENUM( steemit::chain::witness_object::witness_schedule_type, (top19)(timeshare)(miner)(none) )
+FC_REFLECT_ENUM( calibrae::chain::witness_object::witness_schedule_type, (top19)(timeshare)(miner)(none) )
 
-FC_REFLECT( steemit::chain::witness_object,
+FC_REFLECT( calibrae::chain::witness_object,
              (id)
              (owner)
              (created)
@@ -248,12 +248,12 @@ FC_REFLECT( steemit::chain::witness_object,
              (running_version)
              (hardfork_version_vote)(hardfork_time_vote)
           )
-CHAINBASE_SET_INDEX_TYPE( steemit::chain::witness_object, steemit::chain::witness_index )
+CHAINBASE_SET_INDEX_TYPE( calibrae::chain::witness_object, calibrae::chain::witness_index )
 
-FC_REFLECT( steemit::chain::witness_vote_object, (id)(witness)(account) )
-CHAINBASE_SET_INDEX_TYPE( steemit::chain::witness_vote_object, steemit::chain::witness_vote_index )
+FC_REFLECT( calibrae::chain::witness_vote_object, (id)(witness)(account) )
+CHAINBASE_SET_INDEX_TYPE( calibrae::chain::witness_vote_object, calibrae::chain::witness_vote_index )
 
-FC_REFLECT( steemit::chain::witness_schedule_object,
+FC_REFLECT( calibrae::chain::witness_schedule_object,
              (id)(current_virtual_time)(next_shuffle_block_num)(current_shuffled_witnesses)(num_scheduled_witnesses)
              (top19_weight)(timeshare_weight)(miner_weight)(witness_pay_normalization_factor)
              (median_props)(majority_version)
@@ -262,4 +262,4 @@ FC_REFLECT( steemit::chain::witness_schedule_object,
              (max_runner_witnesses)
              (hardfork_required_witnesses)
           )
-CHAINBASE_SET_INDEX_TYPE( steemit::chain::witness_schedule_object, steemit::chain::witness_schedule_index )
+CHAINBASE_SET_INDEX_TYPE( calibrae::chain::witness_schedule_object, calibrae::chain::witness_schedule_index )

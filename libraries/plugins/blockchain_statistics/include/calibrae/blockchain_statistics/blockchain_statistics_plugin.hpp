@@ -23,9 +23,9 @@
 #define BLOCKCHAIN_STATISTICS_PLUGIN_NAME "chain_stats"
 #endif
 
-namespace steemit { namespace blockchain_statistics {
+namespace calibrae { namespace blockchain_statistics {
 
-using namespace steemit::chain;
+using namespace calibrae::chain;
 using app::application;
 
 enum blockchain_statistics_object_type
@@ -38,7 +38,7 @@ namespace detail
    class blockchain_statistics_plugin_impl;
 }
 
-class blockchain_statistics_plugin : public steemit::app::plugin
+class blockchain_statistics_plugin : public calibrae::app::plugin
 {
    public:
       blockchain_statistics_plugin( application* app );
@@ -134,9 +134,9 @@ typedef multi_index_container<
    allocator< bucket_object >
 > bucket_index;
 
-} } // steemit::blockchain_statistics
+} } // calibrae::blockchain_statistics
 
-FC_REFLECT( steemit::blockchain_statistics::bucket_object,
+FC_REFLECT( calibrae::blockchain_statistics::bucket_object,
    (id)
    (open)
    (seconds)
@@ -184,4 +184,4 @@ FC_REFLECT( steemit::blockchain_statistics::bucket_object,
    (total_pow)
    (estimated_hashpower)
 )
-CHAINBASE_SET_INDEX_TYPE( steemit::blockchain_statistics::bucket_object, steemit::blockchain_statistics::bucket_index )
+CHAINBASE_SET_INDEX_TYPE( calibrae::blockchain_statistics::bucket_object, calibrae::blockchain_statistics::bucket_index )

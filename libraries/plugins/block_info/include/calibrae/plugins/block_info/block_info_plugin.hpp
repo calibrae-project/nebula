@@ -6,15 +6,15 @@
 #include <string>
 #include <vector>
 
-namespace steemit { namespace protocol {
+namespace calibrae { namespace protocol {
 struct signed_block;
 } }
 
-namespace steemit { namespace plugin { namespace block_info {
+namespace calibrae { namespace plugin { namespace block_info {
 
-using steemit::app::application;
+using calibrae::app::application;
 
-class block_info_plugin : public steemit::app::plugin
+class block_info_plugin : public calibrae::app::plugin
 {
    public:
       block_info_plugin( application* app );

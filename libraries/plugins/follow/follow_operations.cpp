@@ -2,7 +2,7 @@
 
 #include <calibrae/protocol/operation_util_impl.hpp>
 
-namespace steemit { namespace follow {
+namespace calibrae { namespace follow {
 
 void follow_operation::validate()const
 {
@@ -14,6 +14,6 @@ void reblog_operation::validate()const
    FC_ASSERT( account != author, "You cannot reblog your own content" );
 }
 
-} } //steemit::follow
+} } //calibrae::follow
 
-DEFINE_OPERATION_TYPE( steemit::follow::follow_plugin_operation )
+DEFINE_OPERATION_TYPE( calibrae::follow::follow_plugin_operation )

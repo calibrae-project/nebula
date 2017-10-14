@@ -5,7 +5,7 @@
 
 #include <string>
 
-namespace steemit { namespace plugin { namespace auth_util {
+namespace calibrae { namespace plugin { namespace auth_util {
 
 auth_util_plugin::auth_util_plugin( application* app ) : plugin( app ) {}
 auth_util_plugin::~auth_util_plugin() {}
@@ -28,6 +28,6 @@ void auth_util_plugin::plugin_shutdown()
 {
 }
 
-} } } // steemit::plugin::auth_util
+} } } // calibrae::plugin::auth_util
 
-CALIBRAE_DEFINE_PLUGIN( auth_util, steemit::plugin::auth_util::auth_util_plugin )
+CALIBRAE_DEFINE_PLUGIN( auth_util, calibrae::plugin::auth_util::auth_util_plugin )

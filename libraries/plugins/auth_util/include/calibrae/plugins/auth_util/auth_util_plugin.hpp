@@ -2,11 +2,11 @@
 
 #include <calibrae/app/plugin.hpp>
 
-namespace steemit { namespace plugin { namespace auth_util {
+namespace calibrae { namespace plugin { namespace auth_util {
 
-using steemit::app::application;
+using calibrae::app::application;
 
-class auth_util_plugin : public steemit::app::plugin
+class auth_util_plugin : public calibrae::app::plugin
 {
    public:
       auth_util_plugin( application* app ) ;

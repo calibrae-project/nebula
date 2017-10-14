@@ -3,6 +3,6 @@
 
 #include <fc/uint128.hpp>
 
-namespace steemit { namespace chain {
+namespace calibrae { namespace chain {
 
-} } // steemit::chain
+} } // calibrae::chain

@@ -10,7 +10,7 @@
 #include <boost/multi_index/composite_key.hpp>
 
 
-namespace steemit { namespace chain {
+namespace calibrae { namespace chain {
 
    class operation_object : public object< operation_object_type, operation_object >
    {
@@ -96,8 +96,8 @@ namespace steemit { namespace chain {
    > account_history_index;
 } }
 
-FC_REFLECT( steemit::chain::operation_object, (id)(trx_id)(block)(trx_in_block)(op_in_trx)(virtual_op)(timestamp)(serialized_op) )
-CHAINBASE_SET_INDEX_TYPE( steemit::chain::operation_object, steemit::chain::operation_index )
+FC_REFLECT( calibrae::chain::operation_object, (id)(trx_id)(block)(trx_in_block)(op_in_trx)(virtual_op)(timestamp)(serialized_op) )
+CHAINBASE_SET_INDEX_TYPE( calibrae::chain::operation_object, calibrae::chain::operation_index )
 
-FC_REFLECT( steemit::chain::account_history_object, (id)(account)(sequence)(op) )
-CHAINBASE_SET_INDEX_TYPE( steemit::chain::account_history_object, steemit::chain::account_history_index )
+FC_REFLECT( calibrae::chain::account_history_object, (id)(account)(sequence)(op) )
+CHAINBASE_SET_INDEX_TYPE( calibrae::chain::account_history_object, calibrae::chain::account_history_index )

@@ -4,10 +4,10 @@
 
 #include <calibrae/chain/nebula_object_types.hpp>
 
-namespace steemit { namespace follow {
+namespace calibrae { namespace follow {
 
 using namespace std;
-using namespace steemit::chain;
+using namespace calibrae::chain;
 using chainbase::shared_vector;
 
 #ifndef FOLLOW_SPACE_ID
@@ -327,24 +327,24 @@ typedef multi_index_container<
    allocator< follow_count_object >
 > follow_count_index;
 
-} } // steemit::follow
+} } // calibrae::follow
 
-FC_REFLECT_ENUM( steemit::follow::follow_type, (undefined)(blog)(ignore) )
+FC_REFLECT_ENUM( calibrae::follow::follow_type, (undefined)(blog)(ignore) )
 
-FC_REFLECT( steemit::follow::follow_object, (id)(follower)(following)(what) )
-CHAINBASE_SET_INDEX_TYPE( steemit::follow::follow_object, steemit::follow::follow_index )
+FC_REFLECT( calibrae::follow::follow_object, (id)(follower)(following)(what) )
+CHAINBASE_SET_INDEX_TYPE( calibrae::follow::follow_object, calibrae::follow::follow_index )
 
-FC_REFLECT( steemit::follow::feed_object, (id)(account)(first_reblogged_by)(first_reblogged_on)(reblogged_by)(comment)(reblogs)(account_feed_id) )
-CHAINBASE_SET_INDEX_TYPE( steemit::follow::feed_object, steemit::follow::feed_index )
+FC_REFLECT( calibrae::follow::feed_object, (id)(account)(first_reblogged_by)(first_reblogged_on)(reblogged_by)(comment)(reblogs)(account_feed_id) )
+CHAINBASE_SET_INDEX_TYPE( calibrae::follow::feed_object, calibrae::follow::feed_index )
 
-FC_REFLECT( steemit::follow::blog_object, (id)(account)(comment)(reblogged_on)(blog_feed_id) )
-CHAINBASE_SET_INDEX_TYPE( steemit::follow::blog_object, steemit::follow::blog_index )
+FC_REFLECT( calibrae::follow::blog_object, (id)(account)(comment)(reblogged_on)(blog_feed_id) )
+CHAINBASE_SET_INDEX_TYPE( calibrae::follow::blog_object, calibrae::follow::blog_index )
 
-FC_REFLECT( steemit::follow::reputation_object, (id)(account)(reputation) )
-CHAINBASE_SET_INDEX_TYPE( steemit::follow::reputation_object, steemit::follow::reputation_index )
+FC_REFLECT( calibrae::follow::reputation_object, (id)(account)(reputation) )
+CHAINBASE_SET_INDEX_TYPE( calibrae::follow::reputation_object, calibrae::follow::reputation_index )
 
-FC_REFLECT( steemit::follow::follow_count_object, (id)(account)(follower_count)(following_count) )
-CHAINBASE_SET_INDEX_TYPE( steemit::follow::follow_count_object, steemit::follow::follow_count_index )
+FC_REFLECT( calibrae::follow::follow_count_object, (id)(account)(follower_count)(following_count) )
+CHAINBASE_SET_INDEX_TYPE( calibrae::follow::follow_count_object, calibrae::follow::follow_count_index )
 
-FC_REFLECT( steemit::follow::blog_author_stats_object, (id)(blogger)(guest)(count) )
-CHAINBASE_SET_INDEX_TYPE( steemit::follow::blog_author_stats_object, steemit::follow::blog_author_stats_index );
+FC_REFLECT( calibrae::follow::blog_author_stats_object, (id)(blogger)(guest)(count) )
+CHAINBASE_SET_INDEX_TYPE( calibrae::follow::blog_author_stats_object, calibrae::follow::blog_author_stats_index );

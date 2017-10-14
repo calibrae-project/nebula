@@ -19,11 +19,11 @@
 #include <boost/range/iterator_range.hpp>
 #include <boost/algorithm/string.hpp>
 
-namespace steemit { namespace tags {
+namespace calibrae { namespace tags {
 
 namespace detail {
 
-using namespace steemit::protocol;
+using namespace calibrae::protocol;
 
 class tags_plugin_impl
 {
@@ -33,7 +33,7 @@ class tags_plugin_impl
       { }
       virtual ~tags_plugin_impl();
 
-      steemit::chain::database& database()
+      calibrae::chain::database& database()
       {
          return _self.database();
       }
@@ -533,6 +533,6 @@ void tags_plugin::plugin_startup()
 {
 }
 
-} } /// steemit::tags
+} } /// calibrae::tags
 
-CALIBRAE_DEFINE_PLUGIN( tags, steemit::tags::tags_plugin )
+CALIBRAE_DEFINE_PLUGIN( tags, calibrae::tags::tags_plugin )

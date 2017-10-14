@@ -9,12 +9,12 @@
 #include <calibrae/chain/index.hpp>
 #include <calibrae/chain/operation_notification.hpp>
 
-namespace steemit { namespace blockchain_statistics {
+namespace calibrae { namespace blockchain_statistics {
 
 namespace detail
 {
 
-using namespace steemit::protocol;
+using namespace calibrae::protocol;
 
 class blockchain_statistics_plugin_impl
 {
@@ -468,6 +468,6 @@ uint32_t blockchain_statistics_plugin::get_max_history_per_bucket() const
    return _my->_maximum_history_per_bucket_size;
 }
 
-} } // steemit::blockchain_statistics
+} } // calibrae::blockchain_statistics
 
-CALIBRAE_DEFINE_PLUGIN( blockchain_statistics, steemit::blockchain_statistics::blockchain_statistics_plugin );
+CALIBRAE_DEFINE_PLUGIN( blockchain_statistics, calibrae::blockchain_statistics::blockchain_statistics_plugin );

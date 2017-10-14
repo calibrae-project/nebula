@@ -2,7 +2,7 @@
 #include <calibrae/protocol/block_header.hpp>
 #include <calibrae/protocol/transaction.hpp>
 
-namespace steemit { namespace protocol {
+namespace calibrae { namespace protocol {
 
    struct signed_block : public signed_block_header
    {
@@ -10,6 +10,6 @@ namespace steemit { namespace protocol {
       vector<signed_transaction> transactions;
    };
 
-} } // steemit::protocol
+} } // calibrae::protocol
 
-FC_REFLECT_DERIVED( steemit::protocol::signed_block, (steemit::protocol::signed_block_header), (transactions) )
+FC_REFLECT_DERIVED( calibrae::protocol::signed_block, (calibrae::protocol::signed_block_header), (transactions) )

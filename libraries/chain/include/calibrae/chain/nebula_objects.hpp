@@ -9,11 +9,11 @@
 #include <boost/multiprecision/cpp_int.hpp>
 
 
-namespace steemit { namespace chain {
+namespace calibrae { namespace chain {
 
-   using steemit::protocol::asset;
-   using steemit::protocol::price;
-   using steemit::protocol::asset_symbol_type;
+   using calibrae::protocol::asset;
+   using calibrae::protocol::price;
+   using calibrae::protocol::asset_symbol_type;
 
    typedef protocol::fixed_string_16 reward_fund_name_type;
 
@@ -484,50 +484,50 @@ namespace steemit { namespace chain {
       allocator< reward_fund_object >
    > reward_fund_index;
 
-} } // steemit::chain
+} } // calibrae::chain
 
 #include <calibrae/chain/comment_object.hpp>
 #include <calibrae/chain/account_object.hpp>
 
-FC_REFLECT_ENUM( steemit::chain::curve_id,
+FC_REFLECT_ENUM( calibrae::chain::curve_id,
                   (quadratic)(quadratic_curation)(linear)(square_root))
 
-FC_REFLECT( steemit::chain::limit_order_object,
+FC_REFLECT( calibrae::chain::limit_order_object,
              (id)(created)(expiration)(seller)(orderid)(for_sale)(sell_price) )
-CHAINBASE_SET_INDEX_TYPE( steemit::chain::limit_order_object, steemit::chain::limit_order_index )
+CHAINBASE_SET_INDEX_TYPE( calibrae::chain::limit_order_object, calibrae::chain::limit_order_index )
 
-FC_REFLECT( steemit::chain::feed_history_object,
+FC_REFLECT( calibrae::chain::feed_history_object,
              (id)(current_median_history)(price_history) )
-CHAINBASE_SET_INDEX_TYPE( steemit::chain::feed_history_object, steemit::chain::feed_history_index )
+CHAINBASE_SET_INDEX_TYPE( calibrae::chain::feed_history_object, calibrae::chain::feed_history_index )
 
-FC_REFLECT( steemit::chain::convert_request_object,
+FC_REFLECT( calibrae::chain::convert_request_object,
              (id)(owner)(requestid)(amount)(conversion_date) )
-CHAINBASE_SET_INDEX_TYPE( steemit::chain::convert_request_object, steemit::chain::convert_request_index )
+CHAINBASE_SET_INDEX_TYPE( calibrae::chain::convert_request_object, calibrae::chain::convert_request_index )
 
-FC_REFLECT( steemit::chain::liquidity_reward_balance_object,
+FC_REFLECT( calibrae::chain::liquidity_reward_balance_object,
              (id)(owner)(nebula_volume)(sbd_volume)(weight)(last_update) )
-CHAINBASE_SET_INDEX_TYPE( steemit::chain::liquidity_reward_balance_object, steemit::chain::liquidity_reward_balance_index )
+CHAINBASE_SET_INDEX_TYPE( calibrae::chain::liquidity_reward_balance_object, calibrae::chain::liquidity_reward_balance_index )
 
-FC_REFLECT( steemit::chain::withdraw_vesting_route_object,
+FC_REFLECT( calibrae::chain::withdraw_vesting_route_object,
              (id)(from_account)(to_account)(percent)(auto_vest) )
-CHAINBASE_SET_INDEX_TYPE( steemit::chain::withdraw_vesting_route_object, steemit::chain::withdraw_vesting_route_index )
+CHAINBASE_SET_INDEX_TYPE( calibrae::chain::withdraw_vesting_route_object, calibrae::chain::withdraw_vesting_route_index )
 
-FC_REFLECT( steemit::chain::savings_withdraw_object,
+FC_REFLECT( calibrae::chain::savings_withdraw_object,
              (id)(from)(to)(memo)(request_id)(amount)(complete) )
-CHAINBASE_SET_INDEX_TYPE( steemit::chain::savings_withdraw_object, steemit::chain::savings_withdraw_index )
+CHAINBASE_SET_INDEX_TYPE( calibrae::chain::savings_withdraw_object, calibrae::chain::savings_withdraw_index )
 
-FC_REFLECT( steemit::chain::escrow_object,
+FC_REFLECT( calibrae::chain::escrow_object,
              (id)(escrow_id)(from)(to)(agent)
              (ratification_deadline)(escrow_expiration)
              (sbd_balance)(nebula_balance)(pending_fee)
              (to_approved)(agent_approved)(disputed) )
-CHAINBASE_SET_INDEX_TYPE( steemit::chain::escrow_object, steemit::chain::escrow_index )
+CHAINBASE_SET_INDEX_TYPE( calibrae::chain::escrow_object, calibrae::chain::escrow_index )
 
-FC_REFLECT( steemit::chain::decline_voting_rights_request_object,
+FC_REFLECT( calibrae::chain::decline_voting_rights_request_object,
              (id)(account)(effective_date) )
-CHAINBASE_SET_INDEX_TYPE( steemit::chain::decline_voting_rights_request_object, steemit::chain::decline_voting_rights_request_index )
+CHAINBASE_SET_INDEX_TYPE( calibrae::chain::decline_voting_rights_request_object, calibrae::chain::decline_voting_rights_request_index )
 
-FC_REFLECT( steemit::chain::reward_fund_object,
+FC_REFLECT( calibrae::chain::reward_fund_object,
             (id)
             (name)
             (reward_balance)
@@ -539,4 +539,4 @@ FC_REFLECT( steemit::chain::reward_fund_object,
             (author_reward_curve)
             (curation_reward_curve)
          )
-CHAINBASE_SET_INDEX_TYPE( steemit::chain::reward_fund_object, steemit::chain::reward_fund_index )
+CHAINBASE_SET_INDEX_TYPE( calibrae::chain::reward_fund_object, calibrae::chain::reward_fund_index )

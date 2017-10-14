@@ -4,11 +4,11 @@
 
 #include <calibrae/plugins/block_info/block_info.hpp>
 
-namespace steemit { namespace app {
+namespace calibrae { namespace app {
    struct api_context;
 } }
 
-namespace steemit { namespace plugin { namespace block_info {
+namespace calibrae { namespace plugin { namespace block_info {
 
 namespace detail {
 class block_info_api_impl;
@@ -23,7 +23,7 @@ struct get_block_info_args
 class block_info_api
 {
    public:
-      block_info_api( const steemit::app::api_context& ctx );
+      block_info_api( const calibrae::app::api_context& ctx );
 
       void on_api_startup();
 
@@ -36,12 +36,12 @@ class block_info_api
 
 } } }
 
-FC_REFLECT( steemit::plugin::block_info::get_block_info_args,
+FC_REFLECT( calibrae::plugin::block_info::get_block_info_args,
    (start_block_num)
    (count)
    )
 
-FC_API( steemit::plugin::block_info::block_info_api,
+FC_API( calibrae::plugin::block_info::block_info_api,
    (get_block_info)
    (get_blocks_with_info)
    )

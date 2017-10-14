@@ -3,7 +3,7 @@
 #include <calibrae/protocol/authority.hpp>
 #include <calibrae/protocol/types.hpp>
 
-namespace steemit { namespace protocol {
+namespace calibrae { namespace protocol {
 
 typedef std::function<authority(const string&)> authority_getter;
 
@@ -35,4 +35,4 @@ struct sign_state
       uint32_t                         max_recursion = CALIBRAE_MAX_SIG_CHECK_DEPTH;
 };
 
-} } // steemit::protocol
+} } // calibrae::protocol

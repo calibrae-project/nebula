@@ -1,6 +1,6 @@
 #pragma once
 
-namespace steemit { namespace chain {
+namespace calibrae { namespace chain {
 
 class database;
 

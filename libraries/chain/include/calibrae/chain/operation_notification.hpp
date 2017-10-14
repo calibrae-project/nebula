@@ -4,7 +4,7 @@
 
 #include <calibrae/chain/nebula_object_types.hpp>
 
-namespace steemit { namespace chain {
+namespace calibrae { namespace chain {
 
 struct operation_notification
 {

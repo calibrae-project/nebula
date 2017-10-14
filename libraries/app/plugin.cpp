@@ -2,7 +2,7 @@
 
 #include <fc/vector.hpp>
 
-namespace steemit { namespace app {
+namespace calibrae { namespace app {
 
 plugin::plugin( application* app ) : _app( app )
 {
@@ -42,4 +42,4 @@ void plugin::plugin_set_program_options(
    return;
 }
 
-} } // steemit::app
+} } // calibrae::app

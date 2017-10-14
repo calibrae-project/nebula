@@ -2,9 +2,9 @@
 #include <fc/filesystem.hpp>
 #include <calibrae/protocol/block.hpp>
 
-namespace steemit { namespace chain {
+namespace calibrae { namespace chain {
 
-   using namespace steemit::protocol;
+   using namespace calibrae::protocol;
 
    namespace detail { class block_log_impl; }
 

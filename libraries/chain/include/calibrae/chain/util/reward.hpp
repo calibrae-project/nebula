@@ -11,11 +11,11 @@
 
 #include <fc/uint128.hpp>
 
-namespace steemit { namespace chain { namespace util {
+namespace calibrae { namespace chain { namespace util {
 
-using steemit::protocol::asset;
-using steemit::protocol::price;
-using steemit::protocol::share_type;
+using calibrae::protocol::asset;
+using calibrae::protocol::price;
+using calibrae::protocol::share_type;
 
 using fc::uint128_t;
 
@@ -45,9 +45,9 @@ inline bool is_comment_payout_dust( const price& p, uint64_t nebula_payout )
    return to_sbd( p, asset( nebula_payout, NECTAR_SYMBOL ) ) < CALIBRAE_MIN_PAYOUT_SBD;
 }
 
-} } } // steemit::chain::util
+} } } // calibrae::chain::util
 
-FC_REFLECT( steemit::chain::util::comment_reward_context,
+FC_REFLECT( calibrae::chain::util::comment_reward_context,
    (rshares)
    (reward_weight)
    (max_sbd)

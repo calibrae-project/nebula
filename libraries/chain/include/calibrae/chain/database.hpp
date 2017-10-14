@@ -15,14 +15,14 @@
 
 #include <map>
 
-namespace steemit { namespace chain {
+namespace calibrae { namespace chain {
 
-   using steemit::protocol::signed_transaction;
-   using steemit::protocol::operation;
-   using steemit::protocol::authority;
-   using steemit::protocol::asset;
-   using steemit::protocol::asset_symbol_type;
-   using steemit::protocol::price;
+   using calibrae::protocol::signed_transaction;
+   using calibrae::protocol::operation;
+   using calibrae::protocol::authority;
+   using calibrae::protocol::asset;
+   using calibrae::protocol::asset_symbol_type;
+   using calibrae::protocol::price;
 
    class database_impl;
    class custom_operation_interpreter;

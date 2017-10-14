@@ -1,9 +1,9 @@
 #pragma once
 #include <calibrae/chain/nebula_object_types.hpp>
 
-namespace steemit { namespace chain {
+namespace calibrae { namespace chain {
 
-   using steemit::protocol::block_id_type;
+   using calibrae::protocol::block_id_type;
 
    /**
     *  @brief tracks minimal information about past blocks to implement TaPOS
@@ -38,7 +38,7 @@ namespace steemit { namespace chain {
       allocator< block_summary_object >
    > block_summary_index;
 
-} } // steemit::chain
+} } // calibrae::chain
 
-FC_REFLECT( steemit::chain::block_summary_object, (id)(block_id) )
-CHAINBASE_SET_INDEX_TYPE( steemit::chain::block_summary_object, steemit::chain::block_summary_index )
+FC_REFLECT( calibrae::chain::block_summary_object, (id)(block_id) )
+CHAINBASE_SET_INDEX_TYPE( calibrae::chain::block_summary_object, calibrae::chain::block_summary_index )

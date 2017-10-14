@@ -6,14 +6,14 @@
 
 #include <calibrae/follow/follow_api.hpp>
 
-namespace steemit { namespace follow {
-using steemit::app::application;
+namespace calibrae { namespace follow {
+using calibrae::app::application;
 
 #define FOLLOW_PLUGIN_NAME "follow"
 
 namespace detail { class follow_plugin_impl; }
 
-class follow_plugin : public steemit::app::plugin
+class follow_plugin : public calibrae::app::plugin
 {
    public:
       follow_plugin( application* app );
@@ -31,4 +31,4 @@ class follow_plugin : public steemit::app::plugin
       fc::time_point_sec start_feeds;
 };
 
-} } //steemit::follow
+} } //calibrae::follow

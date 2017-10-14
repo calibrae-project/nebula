@@ -20,7 +20,7 @@
 #include <graphene/utilities/git_revision.hpp>
 #include <fc/git_revision.hpp>
 
-namespace steemit { namespace app {
+namespace calibrae { namespace app {
 
     login_api::login_api(const api_context& ctx)
     :_ctx(ctx)
@@ -310,4 +310,4 @@ namespace steemit { namespace app {
        return _app.p2p_node()->set_advanced_node_parameters(params);
     }
 
-} } // steemit::app
+} } // calibrae::app

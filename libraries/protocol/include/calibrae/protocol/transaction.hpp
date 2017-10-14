@@ -5,7 +5,7 @@
 
 #include <numeric>
 
-namespace steemit { namespace protocol {
+namespace calibrae { namespace protocol {
 
    struct transaction
    {
@@ -115,8 +115,8 @@ namespace steemit { namespace protocol {
 
    /// @} transactions group
 
-} } // steemit::protocol
+} } // calibrae::protocol
 
-FC_REFLECT( steemit::protocol::transaction, (ref_block_num)(ref_block_prefix)(expiration)(operations)(extensions) )
-FC_REFLECT_DERIVED( steemit::protocol::signed_transaction, (steemit::protocol::transaction), (signatures) )
-FC_REFLECT_DERIVED( steemit::protocol::annotated_signed_transaction, (steemit::protocol::signed_transaction), (transaction_id)(block_num)(transaction_num) );
+FC_REFLECT( calibrae::protocol::transaction, (ref_block_num)(ref_block_prefix)(expiration)(operations)(extensions) )
+FC_REFLECT_DERIVED( calibrae::protocol::signed_transaction, (calibrae::protocol::transaction), (signatures) )
+FC_REFLECT_DERIVED( calibrae::protocol::annotated_signed_transaction, (calibrae::protocol::signed_transaction), (transaction_id)(block_num)(transaction_num) );

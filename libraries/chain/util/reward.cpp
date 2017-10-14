@@ -2,7 +2,7 @@
 #include <calibrae/chain/util/reward.hpp>
 #include <calibrae/chain/util/uint256.hpp>
 
-namespace steemit { namespace chain { namespace util {
+namespace calibrae { namespace chain { namespace util {
 
 uint8_t find_msb( const uint128_t& u )
 {
@@ -94,4 +94,4 @@ uint128_t evaluate_reward_curve( const uint128_t& rshares, const curve_id& curve
    return result;
 }
 
-} } } // steemit::chain::util
+} } } // calibrae::chain::util

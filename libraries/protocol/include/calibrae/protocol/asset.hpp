@@ -2,7 +2,7 @@
 #include <calibrae/protocol/types.hpp>
 #include <calibrae/protocol/config.hpp>
 
-namespace steemit { namespace protocol {
+namespace calibrae { namespace protocol {
 
    typedef uint64_t asset_symbol_type;
 
@@ -115,13 +115,13 @@ namespace steemit { namespace protocol {
    asset operator *  ( const asset& a, const price& b );
 
 
-} } // steemit::protocol
+} } // calibrae::protocol
 
 namespace fc {
-    inline void to_variant( const steemit::protocol::asset& var,  fc::variant& vo ) { vo = var.to_string(); }
-    inline void from_variant( const fc::variant& var,  steemit::protocol::asset& vo ) { vo = steemit::protocol::asset::from_string( var.as_string() ); }
+    inline void to_variant( const calibrae::protocol::asset& var,  fc::variant& vo ) { vo = var.to_string(); }
+    inline void from_variant( const fc::variant& var,  calibrae::protocol::asset& vo ) { vo = calibrae::protocol::asset::from_string( var.as_string() ); }
 }
 
-FC_REFLECT( steemit::protocol::asset, (amount)(symbol) )
-FC_REFLECT( steemit::protocol::price, (base)(quote) )
+FC_REFLECT( calibrae::protocol::asset, (amount)(symbol) )
+FC_REFLECT( calibrae::protocol::price, (base)(quote) )
 

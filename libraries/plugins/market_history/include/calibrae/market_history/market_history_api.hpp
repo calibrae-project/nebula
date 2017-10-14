@@ -6,11 +6,11 @@
 
 #include <fc/api.hpp>
 
-namespace steemit { namespace app {
+namespace calibrae { namespace app {
    struct api_context;
 } }
 
-namespace steemit{ namespace market_history {
+namespace calibrae{ namespace market_history {
 
 using chain::share_type;
 using fc::time_point_sec;
@@ -59,7 +59,7 @@ struct market_trade
 class market_history_api
 {
    public:
-      market_history_api( const steemit::app::api_context& ctx );
+      market_history_api( const calibrae::app::api_context& ctx );
 
       void on_api_startup();
 
@@ -113,20 +113,20 @@ class market_history_api
       std::shared_ptr< detail::market_history_api_impl > my;
 };
 
-} } // steemit::market_history
+} } // calibrae::market_history
 
-FC_REFLECT( steemit::market_history::market_ticker,
+FC_REFLECT( calibrae::market_history::market_ticker,
    (latest)(lowest_ask)(highest_bid)(percent_change)(nebula_volume)(sbd_volume) );
-FC_REFLECT( steemit::market_history::market_volume,
+FC_REFLECT( calibrae::market_history::market_volume,
    (nebula_volume)(sbd_volume) );
-FC_REFLECT( steemit::market_history::order,
+FC_REFLECT( calibrae::market_history::order,
    (price)(steem)(sbd) );
-FC_REFLECT( steemit::market_history::order_book,
+FC_REFLECT( calibrae::market_history::order_book,
    (bids)(asks) );
-FC_REFLECT( steemit::market_history::market_trade,
+FC_REFLECT( calibrae::market_history::market_trade,
    (date)(current_pays)(open_pays) );
 
-FC_API( steemit::market_history::market_history_api,
+FC_API( calibrae::market_history::market_history_api,
    (get_ticker)
    (get_volume)
    (get_order_book)

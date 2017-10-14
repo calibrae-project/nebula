@@ -12,9 +12,9 @@
 
 #include <iostream>
 
-using namespace steemit;
-using namespace steemit::chain;
-using namespace steemit::protocol;
+using namespace calibrae;
+using namespace calibrae::chain;
+using namespace calibrae::protocol;
 
 #ifndef IS_TEST_NET
 

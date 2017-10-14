@@ -35,9 +35,9 @@
 
 
 using namespace graphene::utilities;
-using namespace steemit::app;
-using namespace steemit::chain;
-using namespace steemit::wallet;
+using namespace calibrae::app;
+using namespace calibrae::chain;
+using namespace calibrae::wallet;
 using namespace std;
 namespace bpo = boost::program_options;
 

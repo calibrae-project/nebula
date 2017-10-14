@@ -11,7 +11,7 @@
 #include <calibrae/protocol/authority.hpp>
 
 
-namespace steemit { namespace chain {
+namespace calibrae { namespace chain {
 
 namespace bip = chainbase::bip;
 using namespace boost::multi_index;
@@ -22,11 +22,11 @@ using chainbase::object;
 using chainbase::oid;
 using chainbase::allocator;
 
-using steemit::protocol::block_id_type;
-using steemit::protocol::transaction_id_type;
-using steemit::protocol::chain_id_type;
-using steemit::protocol::account_name_type;
-using steemit::protocol::share_type;
+using calibrae::protocol::block_id_type;
+using calibrae::protocol::transaction_id_type;
+using calibrae::protocol::chain_id_type;
+using calibrae::protocol::account_name_type;
+using calibrae::protocol::share_type;
 
 typedef bip::basic_string< char, std::char_traits< char >, allocator< char > > shared_string;
 inline std::string to_string( const shared_string& str ) { return std::string( str.begin(), str.end() ); }
@@ -133,17 +133,17 @@ enum bandwidth_type
    market   ///< Rate limiting for all other actions
 };
 
-} } //steemit::chain
+} } //calibrae::chain
 
 namespace fc
 {
    class variant;
-   inline void to_variant( const steemit::chain::shared_string& s, variant& var )
+   inline void to_variant( const calibrae::chain::shared_string& s, variant& var )
    {
-      var = fc::string( steemit::chain::to_string( s ) );
+      var = fc::string( calibrae::chain::to_string( s ) );
    }
 
-   inline void from_variant( const variant& var, steemit::chain::shared_string& s )
+   inline void from_variant( const variant& var, calibrae::chain::shared_string& s )
    {
       auto str = var.as_string();
       s.assign( str.begin(), str.end() );
@@ -178,7 +178,7 @@ namespace fc
       namespace bip = chainbase::bip;
       using chainbase::allocator;
 
-      template< typename T > inline void pack( steemit::chain::buffer_type& raw, const T& v )
+      template< typename T > inline void pack( calibrae::chain::buffer_type& raw, const T& v )
       {
          auto size = pack_size( v );
          raw.resize( size );
@@ -186,13 +186,13 @@ namespace fc
          pack( ds, v );
       }
 
-      template< typename T > inline void unpack( const steemit::chain::buffer_type& raw, T& v )
+      template< typename T > inline void unpack( const calibrae::chain::buffer_type& raw, T& v )
       {
          datastream< const char* > ds( raw.data(), raw.size() );
          unpack( ds, v );
       }
 
-      template< typename T > inline T unpack( const steemit::chain::buffer_type& raw )
+      template< typename T > inline T unpack( const calibrae::chain::buffer_type& raw )
       {
          T v;
          datastream< const char* > ds( raw.data(), raw.size() );
@@ -206,7 +206,7 @@ namespace fc {
 
 }
 
-FC_REFLECT_ENUM( steemit::chain::object_type,
+FC_REFLECT_ENUM( calibrae::chain::object_type,
                  (dynamic_global_property_object_type)
                  (account_object_type)
                  (account_authority_object_type)
@@ -237,7 +237,7 @@ FC_REFLECT_ENUM( steemit::chain::object_type,
                  (vesting_delegation_expiration_object_type)
                )
 
-FC_REFLECT_TYPENAME( steemit::chain::shared_string )
-FC_REFLECT_TYPENAME( steemit::chain::buffer_type )
+FC_REFLECT_TYPENAME( calibrae::chain::shared_string )
+FC_REFLECT_TYPENAME( calibrae::chain::buffer_type )
 
-FC_REFLECT_ENUM( steemit::chain::bandwidth_type, (post)(forum)(market) )
+FC_REFLECT_ENUM( calibrae::chain::bandwidth_type, (post)(forum)(market) )
