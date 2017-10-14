@@ -47,7 +47,7 @@ Then you can:
 mkdir build
 cd build
 cmake -DCMAKE_BUILD_TYPE=Release ..
-make -j$(nproc) steemd
+make -j$(nproc) nebula
 make -j$(nproc) cli_wallet
 # optional
 make install  # defaults to /usr/local

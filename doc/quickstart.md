@@ -1,11 +1,11 @@
 Quickstart
 ----------
 
-### Get current steemd
+### Get current nebula
 Use docker:
 ```
 docker run \
-    -d -p 2001:2001 -p 8090:8090 --name steemd-default \
+    -d -p 2001:2001 -p 8090:8090 --name nebula-default \
     --restart unless-stopped steemit/steem
 ```
 #### Low memory node?
@@ -18,7 +18,7 @@ For full api node use:
 ```
 docker run \
     --env USE_WAY_TOO_MUCH_RAM=1 --env USE_FULL_WEB_NODE=1 \
-    -d -p 2001:2001 -p 8090:8090 --name steemd-full \
+    -d -p 2001:2001 -p 8090:8090 --name nebula-full \
     --restart unless-stopped \
     steemit/steem
 ```
@@ -42,7 +42,7 @@ This configuration exists in Docker with the following command
 
 ```
 docker run -d --env TRACK_ACCOUNT="yourexchangeid" \
-    --name steemd \
+    --name nebula \
     --restart unless-stopped \
     steemit/steem
 ```
