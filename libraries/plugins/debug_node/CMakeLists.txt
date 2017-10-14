@@ -1,16 +1,16 @@
 file(GLOB HEADERS "include/calibrae/plugins/debug_node/*.hpp")
 
-add_library( steemit_debug_node
+add_library( calibrae_debug_node
              ${HEADERS}
              debug_node_plugin.cpp
              debug_node_api.cpp
            )
 
-target_link_libraries( steemit_debug_node steemit_app calibrae_chain steemit_protocol fc )
-target_include_directories( steemit_debug_node
+target_link_libraries( calibrae_debug_node calibrae_app calibrae_chain calibrae_protocol fc )
+target_include_directories( calibrae_debug_node
                             PUBLIC "${CMAKE_CURRENT_SOURCE_DIR}/include" )
 
-install( TARGETS steemit_debug_node
+install( TARGETS calibrae_debug_node
          RUNTIME DESTINATION bin
          LIBRARY DESTINATION lib
          ARCHIVE DESTINATION lib

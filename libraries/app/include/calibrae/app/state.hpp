@@ -116,7 +116,7 @@ namespace steemit { namespace app {
       double          low = 0;
       double          open = 0;
       double          close = 0;
-      double          steem_volume = 0;
+      double          nebula_volume = 0;
       double          dollar_volume = 0;
    };
 
@@ -124,7 +124,7 @@ namespace steemit { namespace app {
       time_point_sec time;
       string         type; // buy or sell
       asset          sbd_quantity;
-      asset          steem_quantity;
+      asset          nebula_quantity;
       double         real_price = 0;
    };
 
@@ -191,6 +191,6 @@ FC_REFLECT_DERIVED( steemit::app::discussion, (steemit::app::comment_api_obj), (
 FC_REFLECT( steemit::app::state, (current_route)(props)(tag_idx)(tags)(content)(accounts)(pow_queue)(witnesses)(discussion_idx)(witness_schedule)(feed_price)(error)(market_data) )
 
 FC_REFLECT_DERIVED( steemit::app::extended_limit_order, (steemit::app::limit_order_api_obj), (real_price)(rewarded) )
-FC_REFLECT( steemit::app::order_history_item, (time)(type)(sbd_quantity)(steem_quantity)(real_price) );
+FC_REFLECT( steemit::app::order_history_item, (time)(type)(sbd_quantity)(nebula_quantity)(real_price) );
 FC_REFLECT( steemit::app::market, (bids)(asks)(history)(price_history)(available_candlesticks)(available_zoom)(current_candlestick)(current_zoom) )
-FC_REFLECT( steemit::app::candle_stick, (open_time)(period)(high)(low)(open)(close)(steem_volume)(dollar_volume) );
+FC_REFLECT( steemit::app::candle_stick, (open_time)(period)(high)(low)(open)(close)(nebula_volume)(dollar_volume) );

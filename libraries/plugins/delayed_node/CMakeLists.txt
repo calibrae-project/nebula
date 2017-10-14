@@ -1,11 +1,11 @@
 file(GLOB HEADERS "include/calibrae/delayed_node/*.hpp")
 
-add_library( steemit_delayed_node
+add_library( calibrae_delayed_node
              delayed_node_plugin.cpp
            )
 
-target_link_libraries( steemit_delayed_node calibrae_chain steemit_protocol steemit_app )
-target_include_directories( steemit_delayed_node
+target_link_libraries( calibrae_delayed_node calibrae_chain calibrae_protocol calibrae_app )
+target_include_directories( calibrae_delayed_node
                             PUBLIC "${CMAKE_CURRENT_SOURCE_DIR}/include" )
 
 if(MSVC)
@@ -13,7 +13,7 @@ if(MSVC)
 endif(MSVC)
 
 install( TARGETS
-   steemit_delayed_node
+   calibrae_delayed_node
 
    RUNTIME DESTINATION bin
    LIBRARY DESTINATION lib

@@ -7,12 +7,12 @@
 #define STEEMIT_CHAIN_ID                        (fc::sha256::hash("testnet"))
 
 #define VESTS_SYMBOL  (uint64_t(6) | (uint64_t('V') << 8) | (uint64_t('E') << 16) | (uint64_t('S') << 24) | (uint64_t('T') << 32) | (uint64_t('S') << 40)) ///< VESTS with 6 digits of precision
-#define STEEM_SYMBOL  (uint64_t(3) | (uint64_t('T') << 8) | (uint64_t('E') << 16) | (uint64_t('S') << 24) | (uint64_t('T') << 32) | (uint64_t('S') << 40)) ///< STEEM with 3 digits of precision
+#define NECTAR_SYMBOL  (uint64_t(3) | (uint64_t('T') << 8) | (uint64_t('E') << 16) | (uint64_t('S') << 24) | (uint64_t('T') << 32) | (uint64_t('S') << 40)) ///< STEEM with 3 digits of precision
 #define SBD_SYMBOL    (uint64_t(3) | (uint64_t('T') << 8) | (uint64_t('B') << 16) | (uint64_t('D') << 24) ) ///< Test Backed Dollars with 3 digits of precision
 #define STMD_SYMBOL   (uint64_t(3) | (uint64_t('T') << 8) | (uint64_t('S') << 16) | (uint64_t('T') << 24) | (uint64_t('D') << 32) ) ///< Test Dollars with 3 digits of precision
 
-#define STEEMIT_SYMBOL                          "TEST"
-#define STEEMIT_ADDRESS_PREFIX                  "TST"
+#define CALIBRAE_SYMBOL                          "TEST"
+#define CALIBRAE_ADDRESS_PREFIX                  "TST"
 
 #define STEEMIT_GENESIS_TIME                    (fc::time_point_sec(1451606400))
 #define STEEMIT_MINING_TIME                     (fc::time_point_sec(1451606400))
@@ -39,11 +39,11 @@
 #define STEEMIT_INIT_PUBLIC_KEY_STR             (std::string( steemit::protocol::public_key_type(STEEMIT_INIT_PRIVATE_KEY.get_public_key()) )) 
 #define STEEMIT_CHAIN_ID                        (fc::sha256::hash("nebula")) 
 #define VESTS_SYMBOL  (uint64_t(6) | (uint64_t('S') << 8) | (uint64_t('T') << 16) | (uint64_t('A') << 24) | (uint64_t('K') << 32) | (uint64_t('E') << 40)) ///< STAKE with 6 digits of precision 
-#define STEEM_SYMBOL  (uint64_t(3) | (uint64_t('N') << 8) | (uint64_t('C') << 16) | (uint64_t('T') << 24) | (uint64_t('R') << 32)) ///< NECTAR with 3 digits of precision 
+#define NECTAR_SYMBOL  (uint64_t(3) | (uint64_t('N') << 8) | (uint64_t('C') << 16) | (uint64_t('T') << 24) | (uint64_t('R') << 32)) ///< NECTAR with 3 digits of precision 
 #define SBD_SYMBOL    (uint64_t(3) | (uint64_t('W') << 8) | (uint64_t('S') << 16) | (uint64_t('S') << 24) ) ///< STEEM Backed Dollars with 3 digits of precision 
 #define STMD_SYMBOL   (uint64_t(3) | (uint64_t('S') << 8) | (uint64_t('T') << 16) | (uint64_t('M') << 24) | (uint64_t('D') << 32) ) ///< STEEM Dollars with 3 digits of precision
-#define STEEMIT_SYMBOL                          "STEEM"
-#define STEEMIT_ADDRESS_PREFIX                  "STM"
+#define CALIBRAE_SYMBOL                          "NECTAR"
+#define CALIBRAE_ADDRESS_PREFIX                  "CLB"
 
 #define STEEMIT_GENESIS_TIME                    (fc::time_point_sec(1458835200))
 #define STEEMIT_MINING_TIME                     (fc::time_point_sec(1458838800))
@@ -138,7 +138,7 @@
 #define STEEMIT_CREATE_ACCOUNT_DELEGATION_RATIO    5
 #define STEEMIT_CREATE_ACCOUNT_DELEGATION_TIME     fc::days(30)
 
-#define STEEMIT_MINING_REWARD                   asset( 1000, STEEM_SYMBOL )
+#define STEEMIT_MINING_REWARD                   asset( 1000, NECTAR_SYMBOL )
 #define STEEMIT_EQUIHASH_N                      140
 #define STEEMIT_EQUIHASH_K                      6
 
@@ -146,14 +146,14 @@
 #define STEEMIT_MIN_LIQUIDITY_REWARD_PERIOD_SEC (fc::seconds(60)) // 1 minute required on books to receive volume
 #define STEEMIT_LIQUIDITY_REWARD_PERIOD_SEC     (60*60)
 #define STEEMIT_LIQUIDITY_REWARD_BLOCKS         (STEEMIT_LIQUIDITY_REWARD_PERIOD_SEC/STEEMIT_BLOCK_INTERVAL)
-#define STEEMIT_MIN_LIQUIDITY_REWARD            (asset( 1000*STEEMIT_LIQUIDITY_REWARD_BLOCKS, STEEM_SYMBOL )) // Minumum reward to be paid out to liquidity providers
+#define STEEMIT_MIN_LIQUIDITY_REWARD            (asset( 1000*STEEMIT_LIQUIDITY_REWARD_BLOCKS, NECTAR_SYMBOL )) // Minumum reward to be paid out to liquidity providers
 #define STEEMIT_MIN_CONTENT_REWARD              STEEMIT_MINING_REWARD
 #define STEEMIT_MIN_CURATE_REWARD               STEEMIT_MINING_REWARD
 #define STEEMIT_MIN_PRODUCER_REWARD             STEEMIT_MINING_REWARD
 #define STEEMIT_MIN_POW_REWARD                  STEEMIT_MINING_REWARD
 
-#define STEEMIT_ACTIVE_CHALLENGE_FEE            asset( 2000, STEEM_SYMBOL )
-#define STEEMIT_OWNER_CHALLENGE_FEE             asset( 30000, STEEM_SYMBOL )
+#define STEEMIT_ACTIVE_CHALLENGE_FEE            asset( 2000, NECTAR_SYMBOL )
+#define STEEMIT_OWNER_CHALLENGE_FEE             asset( 30000, NECTAR_SYMBOL )
 #define STEEMIT_ACTIVE_CHALLENGE_COOLDOWN       fc::days(1)
 #define STEEMIT_OWNER_CHALLENGE_COOLDOWN        fc::days(1)
 

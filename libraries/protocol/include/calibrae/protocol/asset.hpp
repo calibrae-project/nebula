@@ -8,7 +8,7 @@ namespace steemit { namespace protocol {
 
    struct asset
    {
-      asset( share_type a = 0, asset_symbol_type id = STEEM_SYMBOL )
+      asset( share_type a = 0, asset_symbol_type id = NECTAR_SYMBOL )
       :amount(a),symbol(id){}
 
       share_type        amount;

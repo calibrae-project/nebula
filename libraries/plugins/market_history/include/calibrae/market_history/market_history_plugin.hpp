@@ -81,11 +81,11 @@ struct bucket_object : public object< bucket_object_type, bucket_object >
    share_type           open_sbd;
    share_type           close_steem;
    share_type           close_sbd;
-   share_type           steem_volume;
+   share_type           nebula_volume;
    share_type           sbd_volume;
 
-   price high()const { return asset( high_sbd, SBD_SYMBOL ) / asset( high_steem, STEEM_SYMBOL ); }
-   price low()const { return asset( low_sbd, SBD_SYMBOL ) / asset( low_steem, STEEM_SYMBOL ); }
+   price high()const { return asset( high_sbd, SBD_SYMBOL ) / asset( high_steem, NECTAR_SYMBOL ); }
+   price low()const { return asset( low_sbd, SBD_SYMBOL ) / asset( low_steem, NECTAR_SYMBOL ); }
 };
 
 typedef oid< bucket_object > bucket_id_type;
@@ -143,7 +143,7 @@ FC_REFLECT( steemit::market_history::bucket_object,
                      (low_steem)(low_sbd)
                      (open_steem)(open_sbd)
                      (close_steem)(close_sbd)
-                     (steem_volume)(sbd_volume) )
+                     (nebula_volume)(sbd_volume) )
 CHAINBASE_SET_INDEX_TYPE( steemit::market_history::bucket_object, steemit::market_history::bucket_index )
 
 FC_REFLECT( steemit::market_history::order_history_object,

@@ -311,8 +311,8 @@ public:
       fc::mutable_variant_object result;
       result["blockchain_version"]       = CALIBRAE_BLOCKCHAIN_VERSION;
       result["client_version"]           = client_version;
-      result["steem_revision"]           = graphene::utilities::git_revision_sha;
-      result["steem_revision_age"]       = fc::get_approximate_relative_time_string( fc::time_point_sec( graphene::utilities::git_revision_unix_timestamp ) );
+      result["nebula_revision"]           = graphene::utilities::git_revision_sha;
+      result["nebula_revision_age"]       = fc::get_approximate_relative_time_string( fc::time_point_sec( graphene::utilities::git_revision_unix_timestamp ) );
       result["fc_revision"]              = fc::git_revision_sha;
       result["fc_revision_age"]          = fc::get_approximate_relative_time_string( fc::time_point_sec( fc::git_revision_unix_timestamp ) );
       result["compile_date"]             = "compiled on " __DATE__ " at " __TIME__;
@@ -335,7 +335,7 @@ public:
       {
          auto v = _remote_api->get_version();
          result["server_blockchain_version"] = v.blockchain_version;
-         result["server_steem_revision"] = v.steem_revision;
+         result["server_nebula_revision"] = v.nebula_revision;
          result["server_fc_revision"] = v.fc_revision;
       }
       catch( fc::exception& )
@@ -780,7 +780,7 @@ public:
              ss << ' ' << setw( 10 ) << o.orderid;
              ss << ' ' << setw( 10 ) << o.real_price;
              ss << ' ' << setw( 10 ) << fc::variant( asset( o.for_sale, o.sell_price.base.symbol ) ).as_string();
-             ss << ' ' << setw( 10 ) << (o.sell_price.base.symbol == STEEM_SYMBOL ? "SELL" : "BUY");
+             ss << ' ' << setw( 10 ) << (o.sell_price.base.symbol == NECTAR_SYMBOL ? "SELL" : "BUY");
              ss << "\n";
           }
           return ss.str();
@@ -814,7 +814,7 @@ public:
                ss
                   << ' ' << setw( spacing ) << bid_sum.to_string()
                   << ' ' << setw( spacing ) << asset( orders.bids[i].sbd, SBD_SYMBOL ).to_string()
-                  << ' ' << setw( spacing ) << asset( orders.bids[i].steem, STEEM_SYMBOL ).to_string()
+                  << ' ' << setw( spacing ) << asset( orders.bids[i].steem, NECTAR_SYMBOL ).to_string()
                   << ' ' << setw( spacing ) << orders.bids[i].real_price; //(~orders.bids[i].order_price).to_real();
             }
             else
@@ -829,7 +829,7 @@ public:
                ask_sum += asset( orders.asks[i].sbd, SBD_SYMBOL );
                //ss << ' ' << setw( spacing ) << (~orders.asks[i].order_price).to_real()
                ss << ' ' << setw( spacing ) << orders.asks[i].real_price
-                  << ' ' << setw( spacing ) << asset( orders.asks[i].steem, STEEM_SYMBOL ).to_string()
+                  << ' ' << setw( spacing ) << asset( orders.asks[i].steem, NECTAR_SYMBOL ).to_string()
                   << ' ' << setw( spacing ) << asset( orders.asks[i].sbd, SBD_SYMBOL ).to_string()
                   << ' ' << setw( spacing ) << ask_sum.to_string();
             }
@@ -1298,7 +1298,7 @@ annotated_signed_transaction wallet_api::create_account_with_keys( string creato
    op.posting = authority( 1, posting, 1 );
    op.memo_key = memo;
    op.json_metadata = json_meta;
-   op.fee = my->_remote_db->get_chain_properties().account_creation_fee * asset( STEEMIT_CREATE_ACCOUNT_WITH_STEEM_MODIFIER, STEEM_SYMBOL );
+   op.fee = my->_remote_db->get_chain_properties().account_creation_fee * asset( STEEMIT_CREATE_ACCOUNT_WITH_STEEM_MODIFIER, NECTAR_SYMBOL );
 
    signed_transaction tx;
    tx.operations.push_back(op);
@@ -1313,7 +1313,7 @@ annotated_signed_transaction wallet_api::create_account_with_keys( string creato
  * wallet.
  */
 annotated_signed_transaction wallet_api::create_account_with_keys_delegated( string creator,
-                                      asset steem_fee,
+                                      asset nebula_fee,
                                       asset delegated_vests,
                                       string new_account_name,
                                       string json_meta,
@@ -1332,7 +1332,7 @@ annotated_signed_transaction wallet_api::create_account_with_keys_delegated( str
    op.posting = authority( 1, posting, 1 );
    op.memo_key = memo;
    op.json_metadata = json_meta;
-   op.fee = steem_fee;
+   op.fee = nebula_fee;
    op.delegation = delegated_vests;
 
    signed_transaction tx;
@@ -1699,7 +1699,7 @@ annotated_signed_transaction wallet_api::create_account( string creator, string 
  *  This method will genrate new owner, active, and memo keys for the new account which
  *  will be controlable by this wallet.
  */
-annotated_signed_transaction wallet_api::create_account_delegated( string creator, asset steem_fee, asset delegated_vests, string new_account_name, string json_meta, bool broadcast )
+annotated_signed_transaction wallet_api::create_account_delegated( string creator, asset nebula_fee, asset delegated_vests, string new_account_name, string json_meta, bool broadcast )
 { try {
    FC_ASSERT( !is_locked() );
    auto owner = suggest_brain_key();
@@ -1710,7 +1710,7 @@ annotated_signed_transaction wallet_api::create_account_delegated( string creato
    import_key( active.wif_priv_key );
    import_key( posting.wif_priv_key );
    import_key( memo.wif_priv_key );
-   return create_account_with_keys_delegated( creator, steem_fee, delegated_vests, new_account_name, json_meta,  owner.pub_key, active.pub_key, posting.pub_key, memo.pub_key, broadcast );
+   return create_account_with_keys_delegated( creator, nebula_fee, delegated_vests, new_account_name, json_meta,  owner.pub_key, active.pub_key, posting.pub_key, memo.pub_key, broadcast );
 } FC_CAPTURE_AND_RETHROW( (creator)(new_account_name)(json_meta) ) }
 
 
@@ -1871,7 +1871,7 @@ annotated_signed_transaction wallet_api::escrow_transfer(
       string agent,
       uint32_t escrow_id,
       asset sbd_amount,
-      asset steem_amount,
+      asset nebula_amount,
       asset fee,
       time_point_sec ratification_deadline,
       time_point_sec escrow_expiration,
@@ -1886,7 +1886,7 @@ annotated_signed_transaction wallet_api::escrow_transfer(
    op.agent = agent;
    op.escrow_id = escrow_id;
    op.sbd_amount = sbd_amount;
-   op.steem_amount = steem_amount;
+   op.nebula_amount = nebula_amount;
    op.fee = fee;
    op.ratification_deadline = ratification_deadline;
    op.escrow_expiration = escrow_expiration;
@@ -1956,7 +1956,7 @@ annotated_signed_transaction wallet_api::escrow_release(
    string receiver,
    uint32_t escrow_id,
    asset sbd_amount,
-   asset steem_amount,
+   asset nebula_amount,
    bool broadcast
 )
 {
@@ -1969,7 +1969,7 @@ annotated_signed_transaction wallet_api::escrow_release(
    op.receiver = receiver;
    op.escrow_id = escrow_id;
    op.sbd_amount = sbd_amount;
-   op.steem_amount = steem_amount;
+   op.nebula_amount = nebula_amount;
 
    signed_transaction tx;
    tx.operations.push_back( op );

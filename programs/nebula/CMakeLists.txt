@@ -13,12 +13,12 @@ if( STEEM_STATIC_BUILD )
    target_link_libraries( nebula PRIVATE
       "-static-libstdc++ -static-libgcc"
       calibrae_plugins
-      steemit_mf_plugins
-      steemit_app
-      steemit_witness
-      steemit_account_history
+      calibrae_mf_plugins
+      calibrae_app
+      calibrae_witness
+      calibrae_account_history
       calibrae_chain
-      steemit_protocol
+      calibrae_protocol
       fc
       ${CMAKE_DL_LIBS}
       ${PLATFORM_SPECIFIC_LIBS}
@@ -26,12 +26,12 @@ if( STEEM_STATIC_BUILD )
 else( STEEM_STATIC_BUILD )
    target_link_libraries( nebula PRIVATE
       calibrae_plugins
-      steemit_mf_plugins
-      steemit_app
-      steemit_witness
-      steemit_account_history
+      calibrae_mf_plugins
+      calibrae_app
+      calibrae_witness
+      calibrae_account_history
       calibrae_chain
-      steemit_protocol
+      calibrae_protocol
       fc
       ${CMAKE_DL_LIBS}
       ${PLATFORM_SPECIFIC_LIBS}

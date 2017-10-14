@@ -10,12 +10,12 @@ namespace steemit { namespace protocol {
    struct author_reward_operation : public virtual_operation {
       author_reward_operation(){}
       author_reward_operation( const account_name_type& a, const string& p, const asset& s, const asset& st, const asset& v )
-         :author(a), permlink(p), sbd_payout(s), steem_payout(st), vesting_payout(v){}
+         :author(a), permlink(p), sbd_payout(s), nebula_payout(st), vesting_payout(v){}
 
       account_name_type author;
       string            permlink;
       asset             sbd_payout;
-      asset             steem_payout;
+      asset             nebula_payout;
       asset             vesting_payout;
    };
 
@@ -178,7 +178,7 @@ namespace steemit { namespace protocol {
 
 } } //steemit::protocol
 
-FC_REFLECT( steemit::protocol::author_reward_operation, (author)(permlink)(sbd_payout)(steem_payout)(vesting_payout) )
+FC_REFLECT( steemit::protocol::author_reward_operation, (author)(permlink)(sbd_payout)(nebula_payout)(vesting_payout) )
 FC_REFLECT( steemit::protocol::curation_reward_operation, (curator)(reward)(comment_author)(comment_permlink) )
 FC_REFLECT( steemit::protocol::comment_reward_operation, (author)(permlink)(payout) )
 FC_REFLECT( steemit::protocol::fill_convert_request_operation, (owner)(requestid)(amount_in)(amount_out) )

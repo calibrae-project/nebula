@@ -1,14 +1,14 @@
 file(GLOB HEADERS "include/calibrae/tags/*.hpp")
 
-add_library( steemit_tags
+add_library( calibrae_tags
              tags_plugin.cpp )
 
-target_link_libraries( steemit_tags calibrae_chain steemit_protocol steemit_app )
-target_include_directories( steemit_tags
+target_link_libraries( calibrae_tags calibrae_chain calibrae_protocol calibrae_app )
+target_include_directories( calibrae_tags
                             PUBLIC "${CMAKE_CURRENT_SOURCE_DIR}/include" )
 
 install( TARGETS
-   steemit_tags
+   calibrae_tags
 
    RUNTIME DESTINATION bin
    LIBRARY DESTINATION lib

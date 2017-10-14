@@ -147,14 +147,14 @@ namespace steemit { namespace app {
          application& _app;
    };
 
-   struct steem_version_info
+   struct nebula_version_info
    {
-      steem_version_info() {}
-      steem_version_info( fc::string bc_v, fc::string s_v, fc::string fc_v )
-         :blockchain_version( bc_v ), steem_revision( s_v ), fc_revision( fc_v ) {}
+      nebula_version_info() {}
+      nebula_version_info( fc::string bc_v, fc::string s_v, fc::string fc_v )
+         :blockchain_version( bc_v ), nebula_revision( s_v ), fc_revision( fc_v ) {}
 
       fc::string blockchain_version;
-      fc::string steem_revision;
+      fc::string nebula_revision;
       fc::string fc_revision;
    };
 
@@ -182,7 +182,7 @@ namespace steemit { namespace app {
 
          fc::api_ptr get_api_by_name( const string& api_name )const;
 
-         steem_version_info get_version();
+         nebula_version_info get_version();
 
          /// internal method, not exposed via JSON RPC
          void on_api_startup();
@@ -195,7 +195,7 @@ namespace steemit { namespace app {
 
 FC_REFLECT( steemit::app::network_broadcast_api::transaction_confirmation,
         (id)(block_num)(trx_num)(expired) )
-FC_REFLECT( steemit::app::steem_version_info, (blockchain_version)(steem_revision)(fc_revision) )
+FC_REFLECT( steemit::app::nebula_version_info, (blockchain_version)(nebula_revision)(fc_revision) )
 //FC_REFLECT_TYPENAME( fc::ecc::compact_signature );
 //FC_REFLECT_TYPENAME( fc::ecc::commitment_type );
 

@@ -54,8 +54,8 @@ namespace steemit { namespace chain {
          uint16_t          voting_power = STEEMIT_100_PERCENT;   ///< current voting power of this account, it falls after every vote
          time_point_sec    last_vote_time; ///< used to increase the voting power of this account the longer it goes without voting.
 
-         asset             balance = asset( 0, STEEM_SYMBOL );  ///< total liquid shares held by this account
-         asset             savings_balance = asset( 0, STEEM_SYMBOL );  ///< total liquid shares held by this account
+         asset             balance = asset( 0, NECTAR_SYMBOL );  ///< total liquid shares held by this account
+         asset             savings_balance = asset( 0, NECTAR_SYMBOL );  ///< total liquid shares held by this account
 
          /**
           *  SBD Deposits pay interest based upon the interest rate set by witnesses. The purpose of these
@@ -86,9 +86,9 @@ namespace steemit { namespace chain {
          ///@}
 
          asset             reward_sbd_balance = asset( 0, SBD_SYMBOL );
-         asset             reward_steem_balance = asset( 0, STEEM_SYMBOL );
+         asset             reward_nebula_balance = asset( 0, NECTAR_SYMBOL );
          asset             reward_vesting_balance = asset( 0, VESTS_SYMBOL );
-         asset             reward_vesting_steem = asset( 0, STEEM_SYMBOL );
+         asset             reward_vesting_steem = asset( 0, NECTAR_SYMBOL );
 
          share_type        curation_rewards = 0;
          share_type        posting_rewards = 0;
@@ -242,7 +242,7 @@ namespace steemit { namespace chain {
    struct by_proxy;
    struct by_last_post;
    struct by_next_vesting_withdrawal;
-   struct by_steem_balance;
+   struct by_nebula_balance;
    struct by_smp_balance;
    struct by_smd_balance;
    struct by_post_count;
@@ -277,7 +277,7 @@ namespace steemit { namespace chain {
             >,
             composite_key_compare< std::greater< time_point_sec >, std::less< account_id_type > >
          >,
-         ordered_unique< tag< by_steem_balance >,
+         ordered_unique< tag< by_nebula_balance >,
             composite_key< account_object,
                member< account_object, asset, &account_object::balance >,
                member< account_object, account_id_type, &account_object::id >
@@ -466,7 +466,7 @@ FC_REFLECT( steemit::chain::account_object,
              (savings_balance)
              (sbd_balance)(sbd_seconds)(sbd_seconds_last_update)(sbd_last_interest_payment)
              (savings_sbd_balance)(savings_sbd_seconds)(savings_sbd_seconds_last_update)(savings_sbd_last_interest_payment)(savings_withdraw_requests)
-             (reward_steem_balance)(reward_sbd_balance)(reward_vesting_balance)(reward_vesting_steem)
+             (reward_nebula_balance)(reward_sbd_balance)(reward_vesting_balance)(reward_vesting_steem)
              (vesting_shares)(delegated_vesting_shares)(received_vesting_shares)
              (vesting_withdraw_rate)(next_vesting_withdrawal)(withdrawn)(to_withdraw)(withdraw_routes)
              (curation_rewards)

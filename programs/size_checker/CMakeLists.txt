@@ -4,7 +4,7 @@ if( UNIX AND NOT APPLE )
 endif()
 
 target_link_libraries( size_checker
-                       PRIVATE calibrae_chain steemit_protocol fc ${CMAKE_DL_LIBS} ${PLATFORM_SPECIFIC_LIBS} )
+                       PRIVATE calibrae_chain calibrae_protocol fc ${CMAKE_DL_LIBS} ${PLATFORM_SPECIFIC_LIBS} )
 
 install( TARGETS
    size_checker

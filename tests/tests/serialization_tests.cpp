@@ -1,7 +1,7 @@
 #ifdef IS_TEST_NET
 #include <boost/test/unit_test.hpp>
 
-#include <calibrae/chain/steem_objects.hpp>
+#include <calibrae/chain/nebula_objects.hpp>
 #include <calibrae/chain/database.hpp>
 
 #include <fc/crypto/digest.hpp>
@@ -51,7 +51,7 @@ BOOST_AUTO_TEST_CASE( serialization_raw_test )
       transfer_operation op;
       op.from = "alice";
       op.to = "bob";
-      op.amount = asset(100,STEEM_SYMBOL);
+      op.amount = asset(100,NECTAR_SYMBOL);
 
       trx.operations.push_back( op );
       auto packed = fc::raw::pack( trx );
@@ -70,7 +70,7 @@ BOOST_AUTO_TEST_CASE( serialization_json_test )
       transfer_operation op;
       op.from = "alice";
       op.to = "bob";
-      op.amount = asset(100,STEEM_SYMBOL);
+      op.amount = asset(100,NECTAR_SYMBOL);
 
       fc::variant test(op.amount);
       auto tmp = test.as<asset>();
@@ -108,9 +108,9 @@ BOOST_AUTO_TEST_CASE( asset_test )
       BOOST_CHECK_EQUAL( steem.decimals(), 3 );
       BOOST_CHECK_EQUAL( steem.symbol_name(), "TESTS" );
       BOOST_CHECK_EQUAL( steem.to_string(), "123.456 TESTS" );
-      BOOST_CHECK_EQUAL( steem.symbol, STEEM_SYMBOL);
-      BOOST_CHECK_EQUAL( asset(50, STEEM_SYMBOL).to_string(), "0.050 TESTS" );
-      BOOST_CHECK_EQUAL( asset(50000, STEEM_SYMBOL).to_string(), "50.000 TESTS" );
+      BOOST_CHECK_EQUAL( steem.symbol, NECTAR_SYMBOL);
+      BOOST_CHECK_EQUAL( asset(50, NECTAR_SYMBOL).to_string(), "0.050 TESTS" );
+      BOOST_CHECK_EQUAL( asset(50000, NECTAR_SYMBOL).to_string(), "50.000 TESTS" );
 
       BOOST_CHECK( std::abs( sbd.to_real() - 654.321 ) < 0.0005 );
       BOOST_CHECK_EQUAL( sbd.amount.value, 654321 );
@@ -122,11 +122,11 @@ BOOST_AUTO_TEST_CASE( asset_test )
       BOOST_CHECK_EQUAL( asset(50000, SBD_SYMBOL).to_string(), "50.000 TBD" );
 
       BOOST_CHECK_THROW( steem.set_decimals(100), fc::exception );
-      char* steem_sy = (char*) &steem.symbol;
-      steem_sy[0] = 100;
+      char* nebula_sy = (char*) &steem.symbol;
+      nebula_sy[0] = 100;
       BOOST_CHECK_THROW( steem.decimals(), fc::exception );
-      steem_sy[6] = 'A';
-      steem_sy[7] = 'A';
+      nebula_sy[6] = 'A';
+      nebula_sy[7] = 'A';
 
       auto check_sym = []( const asset& a ) -> std::string
       {

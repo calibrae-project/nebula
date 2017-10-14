@@ -60,7 +60,7 @@ namespace steemit { namespace chain {
          time_point_sec    ratification_deadline;
          time_point_sec    escrow_expiration;
          asset             sbd_balance;
-         asset             steem_balance;
+         asset             nebula_balance;
          asset             pending_fee;
          bool              to_approved = false;
          bool              agent_approved = false;
@@ -118,7 +118,7 @@ namespace steemit { namespace chain {
          id_type           id;
 
          account_id_type   owner;
-         int64_t           steem_volume = 0;
+         int64_t           nebula_volume = 0;
          int64_t           sbd_volume = 0;
          uint128_t         weight = 0;
 
@@ -127,12 +127,12 @@ namespace steemit { namespace chain {
          /// this is the sort index
          uint128_t volume_weight()const
          {
-            return steem_volume * sbd_volume * is_positive();
+            return nebula_volume * sbd_volume * is_positive();
          }
 
          uint128_t min_volume_weight()const
          {
-            return std::min(steem_volume,sbd_volume) * is_positive();
+            return std::min(nebula_volume,sbd_volume) * is_positive();
          }
 
          void update_weight( bool hf9 )
@@ -142,7 +142,7 @@ namespace steemit { namespace chain {
 
          inline int is_positive()const
          {
-            return ( steem_volume > 0 && sbd_volume > 0 ) ? 1 : 0;
+            return ( nebula_volume > 0 && sbd_volume > 0 ) ? 1 : 0;
          }
    };
 
@@ -270,7 +270,7 @@ namespace steemit { namespace chain {
 
          reward_fund_id_type     id;
          reward_fund_name_type   name;
-         asset                   reward_balance = asset( 0, STEEM_SYMBOL );
+         asset                   reward_balance = asset( 0, NECTAR_SYMBOL );
          fc::uint128_t           recent_claims = 0;
          time_point_sec          last_update;
          uint128_t               content_constant = 0;
@@ -505,7 +505,7 @@ FC_REFLECT( steemit::chain::convert_request_object,
 CHAINBASE_SET_INDEX_TYPE( steemit::chain::convert_request_object, steemit::chain::convert_request_index )
 
 FC_REFLECT( steemit::chain::liquidity_reward_balance_object,
-             (id)(owner)(steem_volume)(sbd_volume)(weight)(last_update) )
+             (id)(owner)(nebula_volume)(sbd_volume)(weight)(last_update) )
 CHAINBASE_SET_INDEX_TYPE( steemit::chain::liquidity_reward_balance_object, steemit::chain::liquidity_reward_balance_index )
 
 FC_REFLECT( steemit::chain::withdraw_vesting_route_object,
@@ -519,7 +519,7 @@ CHAINBASE_SET_INDEX_TYPE( steemit::chain::savings_withdraw_object, steemit::chai
 FC_REFLECT( steemit::chain::escrow_object,
              (id)(escrow_id)(from)(to)(agent)
              (ratification_deadline)(escrow_expiration)
-             (sbd_balance)(steem_balance)(pending_fee)
+             (sbd_balance)(nebula_balance)(pending_fee)
              (to_approved)(agent_approved)(disputed) )
 CHAINBASE_SET_INDEX_TYPE( steemit::chain::escrow_object, steemit::chain::escrow_index )
 

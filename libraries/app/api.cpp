@@ -92,9 +92,9 @@ namespace steemit { namespace app {
        return it->second;
     }
 
-    steem_version_info login_api::get_version()
+    nebula_version_info login_api::get_version()
     {
-       return steem_version_info(
+       return nebula_version_info(
          fc::string( CALIBRAE_BLOCKCHAIN_VERSION ),
          fc::string( graphene::utilities::git_revision_sha ),
          fc::string( fc::git_revision_sha ) );

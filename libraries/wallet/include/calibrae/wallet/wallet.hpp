@@ -386,13 +386,13 @@ class wallet_api
        *  These accounts are created with combination of STEEM and delegated SP
        *
        *  @param creator The account creating the new account
-       *  @param steem_fee The amount of the fee to be paid with STEEM
+       *  @param nebula_fee The amount of the fee to be paid with STEEM
        *  @param delegated_vests The amount of the fee to be paid with delegation
        *  @param new_account_name The name of the new account
        *  @param json_meta JSON Metadata associated with the new account
        *  @param broadcast true if you wish to broadcast the transaction
        */
-      annotated_signed_transaction create_account_delegated( string creator, asset steem_fee, asset delegated_vests, string new_account_name, string json_meta, bool broadcast );
+      annotated_signed_transaction create_account_delegated( string creator, asset nebula_fee, asset delegated_vests, string new_account_name, string json_meta, bool broadcast );
 
       /**
        * This method is used by faucets to create new accounts for other users which must
@@ -403,7 +403,7 @@ class wallet_api
        * These accounts are created with combination of STEEM and delegated SP
        *
        * @param creator The account creating the new account
-       * @param steem_fee The amount of the fee to be paid with STEEM
+       * @param nebula_fee The amount of the fee to be paid with STEEM
        * @param delegated_vests The amount of the fee to be paid with delegation
        * @param newname The name of the new account
        * @param json_meta JSON Metadata associated with the new account
@@ -414,7 +414,7 @@ class wallet_api
        * @param broadcast true if you wish to broadcast the transaction
        */
       annotated_signed_transaction create_account_with_keys_delegated( string creator,
-                                            asset steem_fee,
+                                            asset nebula_fee,
                                             asset delegated_vests,
                                             string newname,
                                             string json_meta,
@@ -619,7 +619,7 @@ class wallet_api
        * @param agent The account acting as the agent in case of dispute
        * @param escrow_id A unique id for the escrow transfer. (from, escrow_id) must be a unique pair
        * @param sbd_amount The amount of SBD to transfer
-       * @param steem_amount The amount of STEEM to transfer
+       * @param nebula_amount The amount of STEEM to transfer
        * @param fee The fee paid to the agent
        * @param ratification_deadline The deadline for 'to' and 'agent' to approve the escrow transfer
        * @param escrow_expiration The expiration of the escrow transfer, after which either party can claim the funds
@@ -632,7 +632,7 @@ class wallet_api
          string agent,
          uint32_t escrow_id,
          asset sbd_amount,
-         asset steem_amount,
+         asset nebula_amount,
          asset fee,
          time_point_sec ratification_deadline,
          time_point_sec escrow_expiration,
@@ -691,7 +691,7 @@ class wallet_api
        * @param receiver The account that will receive funds being released
        * @param escrow_id A unique id for the escrow transfer
        * @param sbd_amount The amount of SBD that will be released
-       * @param steem_amount The amount of STEEM that will be released
+       * @param nebula_amount The amount of STEEM that will be released
        * @param broadcast true if you wish to broadcast the transaction
        */
       annotated_signed_transaction escrow_release(
@@ -702,7 +702,7 @@ class wallet_api
          string receiver,
          uint32_t escrow_id,
          asset sbd_amount,
-         asset steem_amount,
+         asset nebula_amount,
          bool broadcast = false
       );
 

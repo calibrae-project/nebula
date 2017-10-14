@@ -3,7 +3,7 @@
 
 #include <calibrae/chain/account_object.hpp>
 #include <calibrae/chain/comment_object.hpp>
-#include <calibrae/protocol/steem_operations.hpp>
+#include <calibrae/protocol/nebula_operations.hpp>
 
 #include <calibrae/market_history/market_history_plugin.hpp>
 
@@ -139,7 +139,7 @@ BOOST_AUTO_TEST_CASE( mh_test )
       BOOST_REQUIRE( bucket->open_sbd == ASSET( "0.750 TBD" ).amount );
       BOOST_REQUIRE( bucket->close_steem == ASSET( "1.500 TESTS").amount );
       BOOST_REQUIRE( bucket->close_sbd == ASSET( "0.750 TBD" ).amount );
-      BOOST_REQUIRE( bucket->steem_volume == ASSET( "1.500 TESTS" ).amount );
+      BOOST_REQUIRE( bucket->nebula_volume == ASSET( "1.500 TESTS" ).amount );
       BOOST_REQUIRE( bucket->sbd_volume == ASSET( "0.750 TBD" ).amount );
       bucket++;
 
@@ -153,7 +153,7 @@ BOOST_AUTO_TEST_CASE( mh_test )
       BOOST_REQUIRE( bucket->open_sbd == ASSET( "0.250 TBD" ).amount );
       BOOST_REQUIRE( bucket->close_steem == ASSET( "0.500 TESTS").amount );
       BOOST_REQUIRE( bucket->close_sbd == ASSET( "0.250 TBD" ).amount );
-      BOOST_REQUIRE( bucket->steem_volume == ASSET( "0.500 TESTS" ).amount );
+      BOOST_REQUIRE( bucket->nebula_volume == ASSET( "0.500 TESTS" ).amount );
       BOOST_REQUIRE( bucket->sbd_volume == ASSET( "0.250 TBD" ).amount );
       bucket++;
 
@@ -167,7 +167,7 @@ BOOST_AUTO_TEST_CASE( mh_test )
       BOOST_REQUIRE( bucket->open_sbd == ASSET( "0.250 TBD" ).amount );
       BOOST_REQUIRE( bucket->close_steem == ASSET( "0.450 TESTS").amount );
       BOOST_REQUIRE( bucket->close_sbd == ASSET( "0.250 TBD" ).amount );
-      BOOST_REQUIRE( bucket->steem_volume == ASSET( "0.950 TESTS" ).amount );
+      BOOST_REQUIRE( bucket->nebula_volume == ASSET( "0.950 TESTS" ).amount );
       BOOST_REQUIRE( bucket->sbd_volume == ASSET( "0.500 TBD" ).amount );
       bucket++;
 
@@ -181,7 +181,7 @@ BOOST_AUTO_TEST_CASE( mh_test )
       BOOST_REQUIRE( bucket->open_sbd == ASSET( "0.750 TBD" ).amount );
       BOOST_REQUIRE( bucket->close_steem == ASSET( "1.500 TESTS").amount );
       BOOST_REQUIRE( bucket->close_sbd == ASSET( "0.750 TBD" ).amount );
-      BOOST_REQUIRE( bucket->steem_volume == ASSET( "1.500 TESTS" ).amount );
+      BOOST_REQUIRE( bucket->nebula_volume == ASSET( "1.500 TESTS" ).amount );
       BOOST_REQUIRE( bucket->sbd_volume == ASSET( "0.750 TBD" ).amount );
       bucket++;
 
@@ -195,7 +195,7 @@ BOOST_AUTO_TEST_CASE( mh_test )
       BOOST_REQUIRE( bucket->open_sbd == ASSET( "0.250 TBD" ).amount );
       BOOST_REQUIRE( bucket->close_steem == ASSET( "0.500 TESTS").amount );
       BOOST_REQUIRE( bucket->close_sbd == ASSET( "0.250 TBD" ).amount );
-      BOOST_REQUIRE( bucket->steem_volume == ASSET( "0.500 TESTS" ).amount );
+      BOOST_REQUIRE( bucket->nebula_volume == ASSET( "0.500 TESTS" ).amount );
       BOOST_REQUIRE( bucket->sbd_volume == ASSET( "0.250 TBD" ).amount );
       bucket++;
 
@@ -209,7 +209,7 @@ BOOST_AUTO_TEST_CASE( mh_test )
       BOOST_REQUIRE( bucket->open_sbd == ASSET( "0.250 TBD" ).amount );
       BOOST_REQUIRE( bucket->close_steem == ASSET( "0.450 TESTS").amount );
       BOOST_REQUIRE( bucket->close_sbd == ASSET( "0.250 TBD" ).amount );
-      BOOST_REQUIRE( bucket->steem_volume == ASSET( "0.950 TESTS" ).amount );
+      BOOST_REQUIRE( bucket->nebula_volume == ASSET( "0.950 TESTS" ).amount );
       BOOST_REQUIRE( bucket->sbd_volume == ASSET( "0.500 TBD" ).amount );
       bucket++;
 
@@ -223,7 +223,7 @@ BOOST_AUTO_TEST_CASE( mh_test )
       BOOST_REQUIRE( bucket->open_sbd == ASSET( "0.750 TBD" ).amount );
       BOOST_REQUIRE( bucket->close_steem == ASSET( "1.500 TESTS").amount );
       BOOST_REQUIRE( bucket->close_sbd == ASSET( "0.750 TBD" ).amount );
-      BOOST_REQUIRE( bucket->steem_volume == ASSET( "1.500 TESTS" ).amount );
+      BOOST_REQUIRE( bucket->nebula_volume == ASSET( "1.500 TESTS" ).amount );
       BOOST_REQUIRE( bucket->sbd_volume == ASSET( "0.750 TBD" ).amount );
       bucket++;
 
@@ -237,7 +237,7 @@ BOOST_AUTO_TEST_CASE( mh_test )
       BOOST_REQUIRE( bucket->open_sbd == ASSET( "0.250 TBD" ).amount );
       BOOST_REQUIRE( bucket->close_steem == ASSET( "0.450 TESTS").amount );
       BOOST_REQUIRE( bucket->close_sbd == ASSET( "0.250 TBD" ).amount );
-      BOOST_REQUIRE( bucket->steem_volume == ASSET( "1.450 TESTS" ).amount );
+      BOOST_REQUIRE( bucket->nebula_volume == ASSET( "1.450 TESTS" ).amount );
       BOOST_REQUIRE( bucket->sbd_volume == ASSET( "0.750 TBD" ).amount );
       bucket++;
 
@@ -251,7 +251,7 @@ BOOST_AUTO_TEST_CASE( mh_test )
       BOOST_REQUIRE( bucket->open_sbd == ASSET( "0.750 TBD" ).amount );
       BOOST_REQUIRE( bucket->close_steem == ASSET( "1.500 TESTS").amount );
       BOOST_REQUIRE( bucket->close_sbd == ASSET( "0.750 TBD" ).amount );
-      BOOST_REQUIRE( bucket->steem_volume == ASSET( "1.500 TESTS" ).amount );
+      BOOST_REQUIRE( bucket->nebula_volume == ASSET( "1.500 TESTS" ).amount );
       BOOST_REQUIRE( bucket->sbd_volume == ASSET( "0.750 TBD" ).amount );
       bucket++;
 
@@ -265,7 +265,7 @@ BOOST_AUTO_TEST_CASE( mh_test )
       BOOST_REQUIRE( bucket->open_sbd == ASSET( "0.250 TBD" ).amount );
       BOOST_REQUIRE( bucket->close_steem == ASSET( "0.450 TESTS").amount );
       BOOST_REQUIRE( bucket->close_sbd == ASSET( "0.250 TBD" ).amount );
-      BOOST_REQUIRE( bucket->steem_volume == ASSET( "1.450 TESTS" ).amount );
+      BOOST_REQUIRE( bucket->nebula_volume == ASSET( "1.450 TESTS" ).amount );
       BOOST_REQUIRE( bucket->sbd_volume == ASSET( "0.750 TBD" ).amount );
       bucket++;
 
@@ -279,7 +279,7 @@ BOOST_AUTO_TEST_CASE( mh_test )
       BOOST_REQUIRE( bucket->open_sbd == ASSET( "0.750 TBD" ).amount );
       BOOST_REQUIRE( bucket->close_steem == ASSET( "0.450 TESTS").amount );
       BOOST_REQUIRE( bucket->close_sbd == ASSET( "0.250 TBD" ).amount );
-      BOOST_REQUIRE( bucket->steem_volume == ASSET( "2.950 TESTS" ).amount );
+      BOOST_REQUIRE( bucket->nebula_volume == ASSET( "2.950 TESTS" ).amount );
       BOOST_REQUIRE( bucket->sbd_volume == ASSET( "1.500 TBD" ).amount );
       bucket++;
 

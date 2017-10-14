@@ -26,13 +26,13 @@ struct market_ticker
    double      lowest_ask = 0;
    double      highest_bid = 0;
    double      percent_change = 0;
-   asset       steem_volume = asset( 0 , STEEM_SYMBOL );
+   asset       nebula_volume = asset( 0 , NECTAR_SYMBOL );
    asset       sbd_volume = asset( 0, SBD_SYMBOL );
 };
 
 struct market_volume
 {
-   asset       steem_volume = asset( 0, STEEM_SYMBOL );
+   asset       nebula_volume = asset( 0, NECTAR_SYMBOL );
    asset       sbd_volume = asset( 0, SBD_SYMBOL );
 };
 
@@ -116,9 +116,9 @@ class market_history_api
 } } // steemit::market_history
 
 FC_REFLECT( steemit::market_history::market_ticker,
-   (latest)(lowest_ask)(highest_bid)(percent_change)(steem_volume)(sbd_volume) );
+   (latest)(lowest_ask)(highest_bid)(percent_change)(nebula_volume)(sbd_volume) );
 FC_REFLECT( steemit::market_history::market_volume,
-   (steem_volume)(sbd_volume) );
+   (nebula_volume)(sbd_volume) );
 FC_REFLECT( steemit::market_history::order,
    (price)(steem)(sbd) );
 FC_REFLECT( steemit::market_history::order_book,

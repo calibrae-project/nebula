@@ -1,6 +1,6 @@
 file(GLOB HEADERS "include/calibrae/app/*.hpp")
 
-add_library( steemit_app
+add_library( calibrae_app
              database_api.cpp
              api.cpp
              application.cpp
@@ -9,8 +9,8 @@ add_library( steemit_app
              ${HEADERS}
            )
 
-target_link_libraries( steemit_app calibrae_chain steemit_protocol steemit_tags steemit_follow steemit_witness steemit_mf_plugins fc graphene_net graphene_utilities )
-target_include_directories( steemit_app
+target_link_libraries( calibrae_app calibrae_chain calibrae_protocol calibrae_tags calibrae_follow calibrae_witness calibrae_mf_plugins fc graphene_net graphene_utilities )
+target_include_directories( calibrae_app
                             PUBLIC "${CMAKE_CURRENT_SOURCE_DIR}/include" )
 
 if(MSVC)
@@ -18,7 +18,7 @@ if(MSVC)
 endif(MSVC)
 
 INSTALL( TARGETS
-   steemit_app
+   calibrae_app
 
    RUNTIME DESTINATION bin
    LIBRARY DESTINATION lib

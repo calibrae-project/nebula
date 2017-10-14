@@ -40,12 +40,12 @@ namespace steemit { namespace sidechain {
         string   sidechain; ///< name of the sidechain account
         string   name; /// sub account within the side chain
 
-        asset    steem_balance;
+        asset    nebula_balance;
         asset    dollar_balance;
   };
 
   FC_REFLECT_DERIVED( steemit::sidechain::side_account, (graphene::db::object),
-                      (sidechain)(name)(steem_balance)(dollar_balance)
+                      (sidechain)(name)(nebula_balance)(dollar_balance)
                      );
 
 

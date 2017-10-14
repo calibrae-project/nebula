@@ -1,7 +1,7 @@
 file(GLOB HEADERS "include/calibrae/protocol/*.hpp")
 
 ## SORT .cpp by most likely to change / break compile
-add_library( steemit_protocol
+add_library( calibrae_protocol
 
              types.cpp
              authority.cpp
@@ -18,12 +18,12 @@ add_library( steemit_protocol
              ${HEADERS}
            )
 
-target_link_libraries( steemit_protocol fc )
-target_include_directories( steemit_protocol
+target_link_libraries( calibrae_protocol fc )
+target_include_directories( calibrae_protocol
                             PUBLIC "${CMAKE_CURRENT_SOURCE_DIR}/include" "${CMAKE_CURRENT_BINARY_DIR}/include" )
 
 INSTALL( TARGETS
-   steemit_protocol
+   calibrae_protocol
 
    RUNTIME DESTINATION bin
    LIBRARY DESTINATION lib

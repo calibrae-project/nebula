@@ -1,16 +1,16 @@
 file(GLOB HEADERS "include/calibrae/market_history/*.hpp")
 
-add_library( steemit_market_history
+add_library( calibrae_market_history
              market_history_plugin.cpp
              market_history_api.cpp
            )
 
-target_link_libraries( steemit_market_history calibrae_chain steemit_protocol steemit_app )
-target_include_directories( steemit_market_history
+target_link_libraries( calibrae_market_history calibrae_chain calibrae_protocol calibrae_app )
+target_include_directories( calibrae_market_history
                             PUBLIC "${CMAKE_CURRENT_SOURCE_DIR}/include" )
 
 install( TARGETS
-   steemit_market_history
+   calibrae_market_history
 
    RUNTIME DESTINATION bin
    LIBRARY DESTINATION lib

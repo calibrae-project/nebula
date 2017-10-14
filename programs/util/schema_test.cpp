@@ -8,7 +8,7 @@
 #include <vector>
 
 #include <calibrae/chain/account_object.hpp>
-#include <calibrae/chain/steem_objects.hpp>
+#include <calibrae/chain/nebula_objects.hpp>
 
 using namespace graphene::db;
 

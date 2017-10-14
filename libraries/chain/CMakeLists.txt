@@ -35,8 +35,8 @@ add_library( calibrae_chain
              "${CMAKE_CURRENT_BINARY_DIR}/include/calibrae/chain/hardfork.hpp"
            )
 
-add_dependencies( calibrae_chain steemit_protocol build_hardfork_hpp )
-target_link_libraries( calibrae_chain steemit_protocol fc chainbase graphene_schema ${PATCH_MERGE_LIB} )
+add_dependencies( calibrae_chain calibrae_protocol build_hardfork_hpp )
+target_link_libraries( calibrae_chain calibrae_protocol fc chainbase graphene_schema ${PATCH_MERGE_LIB} )
 target_include_directories( calibrae_chain
                             PUBLIC "${CMAKE_CURRENT_SOURCE_DIR}/include" "${CMAKE_CURRENT_BINARY_DIR}/include" )
 

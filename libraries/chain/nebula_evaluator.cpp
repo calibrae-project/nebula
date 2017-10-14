@@ -77,9 +77,9 @@ void witness_update_evaluator::do_apply( const witness_update_operation& o )
 
    if ( _db.has_hardfork( STEEMIT_HARDFORK_0_14__410 ) )
    {
-      FC_ASSERT( o.props.account_creation_fee.symbol == STEEM_SYMBOL );
+      FC_ASSERT( o.props.account_creation_fee.symbol == NECTAR_SYMBOL );
    }
-   else if( o.props.account_creation_fee.symbol != STEEM_SYMBOL )
+   else if( o.props.account_creation_fee.symbol != NECTAR_SYMBOL )
    {
       // after HF, above check can be moved to validate() if reindex doesn't show this warning
       wlog( "Wrong fee symbol in block ${b}", ("b", _db.head_block_num()+1) );
@@ -118,8 +118,8 @@ void account_create_evaluator::do_apply( const account_create_operation& o )
    if( _db.has_hardfork( STEEMIT_HARDFORK_0_19__987) )
    {
       const witness_schedule_object& wso = _db.get_witness_schedule_object();
-      FC_ASSERT( o.fee >= asset( wso.median_props.account_creation_fee.amount * STEEMIT_CREATE_ACCOUNT_WITH_STEEM_MODIFIER, STEEM_SYMBOL ), "Insufficient Fee: ${f} required, ${p} provided.",
-                 ("f", wso.median_props.account_creation_fee * asset( STEEMIT_CREATE_ACCOUNT_WITH_STEEM_MODIFIER, STEEM_SYMBOL ) )
+      FC_ASSERT( o.fee >= asset( wso.median_props.account_creation_fee.amount * STEEMIT_CREATE_ACCOUNT_WITH_STEEM_MODIFIER, NECTAR_SYMBOL ), "Insufficient Fee: ${f} required, ${p} provided.",
+                 ("f", wso.median_props.account_creation_fee * asset( STEEMIT_CREATE_ACCOUNT_WITH_STEEM_MODIFIER, NECTAR_SYMBOL ) )
                  ("p", o.fee) );
    }
    else if( _db.has_hardfork( STEEMIT_HARDFORK_0_1 ) )
@@ -200,9 +200,9 @@ void account_create_with_delegation_evaluator::do_apply( const account_create_wi
                ( "creator.vesting_shares", creator.vesting_shares )
                ( "creator.delegated_vesting_shares", creator.delegated_vesting_shares )( "required", o.delegation ) );
 
-   auto target_delegation = asset( wso.median_props.account_creation_fee.amount * STEEMIT_CREATE_ACCOUNT_WITH_STEEM_MODIFIER * STEEMIT_CREATE_ACCOUNT_DELEGATION_RATIO, STEEM_SYMBOL ) * props.get_vesting_share_price();
+   auto target_delegation = asset( wso.median_props.account_creation_fee.amount * STEEMIT_CREATE_ACCOUNT_WITH_STEEM_MODIFIER * STEEMIT_CREATE_ACCOUNT_DELEGATION_RATIO, NECTAR_SYMBOL ) * props.get_vesting_share_price();
 
-   auto current_delegation = asset( o.fee.amount * STEEMIT_CREATE_ACCOUNT_DELEGATION_RATIO, STEEM_SYMBOL ) * props.get_vesting_share_price() + o.delegation;
+   auto current_delegation = asset( o.fee.amount * STEEMIT_CREATE_ACCOUNT_DELEGATION_RATIO, NECTAR_SYMBOL ) * props.get_vesting_share_price() + o.delegation;
 
    FC_ASSERT( current_delegation >= target_delegation, "Inssufficient Delegation ${f} required, ${p} provided.",
                ("f", target_delegation )
@@ -449,11 +449,11 @@ void comment_options_evaluator::do_apply( const comment_options_operation& o )
    FC_ASSERT( comment.allow_curation_rewards >= o.allow_curation_rewards, "Curation rewards cannot be re-enabled." );
    FC_ASSERT( comment.allow_votes >= o.allow_votes, "Voting cannot be re-enabled." );
    FC_ASSERT( comment.max_accepted_payout >= o.max_accepted_payout, "A comment cannot accept a greater payout." );
-   FC_ASSERT( comment.percent_steem_dollars >= o.percent_steem_dollars, "A comment cannot accept a greater percent SBD." );
+   FC_ASSERT( comment.percent_nebula_dollars >= o.percent_nebula_dollars, "A comment cannot accept a greater percent SBD." );
 
    _db.modify( comment, [&]( comment_object& c ) {
        c.max_accepted_payout   = o.max_accepted_payout;
-       c.percent_steem_dollars = o.percent_steem_dollars;
+       c.percent_nebula_dollars = o.percent_nebula_dollars;
        c.allow_votes           = o.allow_votes;
        c.allow_curation_rewards = o.allow_curation_rewards;
    });
@@ -692,17 +692,17 @@ void escrow_transfer_evaluator::do_apply( const escrow_transfer_operation& o )
       FC_ASSERT( o.ratification_deadline > _db.head_block_time(), "The escorw ratification deadline must be after head block time." );
       FC_ASSERT( o.escrow_expiration > _db.head_block_time(), "The escrow expiration must be after head block time." );
 
-      asset steem_spent = o.steem_amount;
+      asset nebula_spent = o.nebula_amount;
       asset sbd_spent = o.sbd_amount;
-      if( o.fee.symbol == STEEM_SYMBOL )
-         steem_spent += o.fee;
+      if( o.fee.symbol == NECTAR_SYMBOL )
+         nebula_spent += o.fee;
       else
          sbd_spent += o.fee;
 
-      FC_ASSERT( from_account.balance >= steem_spent, "Account cannot cover STEEM costs of escrow. Required: ${r} Available: ${a}", ("r",steem_spent)("a",from_account.balance) );
+      FC_ASSERT( from_account.balance >= nebula_spent, "Account cannot cover STEEM costs of escrow. Required: ${r} Available: ${a}", ("r",nebula_spent)("a",from_account.balance) );
       FC_ASSERT( from_account.sbd_balance >= sbd_spent, "Account cannot cover SBD costs of escrow. Required: ${r} Available: ${a}", ("r",sbd_spent)("a",from_account.sbd_balance) );
 
-      _db.adjust_balance( from_account, -steem_spent );
+      _db.adjust_balance( from_account, -nebula_spent );
       _db.adjust_balance( from_account, -sbd_spent );
 
       _db.create<escrow_object>([&]( escrow_object& esc )
@@ -714,7 +714,7 @@ void escrow_transfer_evaluator::do_apply( const escrow_transfer_operation& o )
          esc.ratification_deadline  = o.ratification_deadline;
          esc.escrow_expiration      = o.escrow_expiration;
          esc.sbd_balance            = o.sbd_amount;
-         esc.steem_balance          = o.steem_amount;
+         esc.nebula_balance          = o.nebula_amount;
          esc.pending_fee            = o.fee;
       });
    }
@@ -762,7 +762,7 @@ void escrow_approve_evaluator::do_apply( const escrow_approve_operation& o )
       if( reject_escrow )
       {
          const auto& from_account = _db.get_account( o.from );
-         _db.adjust_balance( from_account, escrow.steem_balance );
+         _db.adjust_balance( from_account, escrow.nebula_balance );
          _db.adjust_balance( from_account, escrow.sbd_balance );
          _db.adjust_balance( from_account, escrow.pending_fee );
 
@@ -811,7 +811,7 @@ void escrow_release_evaluator::do_apply( const escrow_release_operation& o )
       const auto& receiver_account = _db.get_account(o.receiver);
 
       const auto& e = _db.get_escrow( o.from, o.escrow_id );
-      FC_ASSERT( e.steem_balance >= o.steem_amount, "Release amount exceeds escrow balance. Amount: ${a}, Balance: ${b}", ("a", o.steem_amount)("b", e.steem_balance) );
+      FC_ASSERT( e.nebula_balance >= o.nebula_amount, "Release amount exceeds escrow balance. Amount: ${a}, Balance: ${b}", ("a", o.nebula_amount)("b", e.nebula_balance) );
       FC_ASSERT( e.sbd_balance >= o.sbd_amount, "Release amount exceeds escrow balance. Amount: ${a}, Balance: ${b}", ("a", o.sbd_amount)("b", e.sbd_balance) );
       FC_ASSERT( e.to == o.to, "Operation 'to' (${o}) does not match escrow 'to' (${e}).", ("o", o.to)("e", e.to) );
       FC_ASSERT( e.agent == o.agent, "Operation 'agent' (${a}) does not match escrow 'agent' (${e}).", ("o", o.agent)("e", e.agent) );
@@ -842,16 +842,16 @@ void escrow_release_evaluator::do_apply( const escrow_release_operation& o )
       }
       // If escrow expires and there is no dispute, either party can release funds to either party.
 
-      _db.adjust_balance( receiver_account, o.steem_amount );
+      _db.adjust_balance( receiver_account, o.nebula_amount );
       _db.adjust_balance( receiver_account, o.sbd_amount );
 
       _db.modify( e, [&]( escrow_object& esc )
       {
-         esc.steem_balance -= o.steem_amount;
+         esc.nebula_balance -= o.nebula_amount;
          esc.sbd_balance -= o.sbd_amount;
       });
 
-      if( e.steem_balance.amount == 0 && e.sbd_balance.amount == 0 )
+      if( e.nebula_balance.amount == 0 && e.sbd_balance.amount == 0 )
       {
          _db.remove( e );
       }
@@ -883,7 +883,7 @@ void transfer_to_vesting_evaluator::do_apply( const transfer_to_vesting_operatio
    const auto& from_account = _db.get_account(o.from);
    const auto& to_account = o.to.size() ? _db.get_account(o.to) : from_account;
 
-   FC_ASSERT( _db.get_balance( from_account, STEEM_SYMBOL) >= o.amount, "Account does not have sufficient STEEM for transfer." );
+   FC_ASSERT( _db.get_balance( from_account, NECTAR_SYMBOL) >= o.amount, "Account does not have sufficient STEEM for transfer." );
    _db.adjust_balance( from_account, -o.amount );
    _db.create_vesting( to_account, o.amount );
 }
@@ -1761,16 +1761,16 @@ void convert_evaluator::do_apply( const convert_operation& o )
   const auto& fhistory = _db.get_feed_history();
   FC_ASSERT( !fhistory.current_median_history.is_null(), "Cannot convert SBD because there is no price feed." );
 
-  auto steemit_conversion_delay = STEEMIT_CONVERSION_DELAY_PRE_HF_16;
+  auto calibrae_conversion_delay = STEEMIT_CONVERSION_DELAY_PRE_HF_16;
   if( _db.has_hardfork( STEEMIT_HARDFORK_0_16__551) )
-     steemit_conversion_delay = STEEMIT_CONVERSION_DELAY;
+     calibrae_conversion_delay = STEEMIT_CONVERSION_DELAY;
 
   _db.create<convert_request_object>( [&]( convert_request_object& obj )
   {
       obj.owner           = o.owner;
       obj.requestid       = o.requestid;
       obj.amount          = o.amount;
-      obj.conversion_date = _db.head_block_time() + steemit_conversion_delay;
+      obj.conversion_date = _db.head_block_time() + calibrae_conversion_delay;
   });
 
 }
@@ -2121,19 +2121,19 @@ void claim_reward_balance_evaluator::do_apply( const claim_reward_balance_operat
 {
    const auto& acnt = _db.get_account( op.account );
 
-   FC_ASSERT( op.reward_steem <= acnt.reward_steem_balance, "Cannot claim that much STEEM. Claim: ${c} Actual: ${a}",
-      ("c", op.reward_steem)("a", acnt.reward_steem_balance) );
+   FC_ASSERT( op.reward_steem <= acnt.reward_nebula_balance, "Cannot claim that much STEEM. Claim: ${c} Actual: ${a}",
+      ("c", op.reward_steem)("a", acnt.reward_nebula_balance) );
    FC_ASSERT( op.reward_sbd <= acnt.reward_sbd_balance, "Cannot claim that much SBD. Claim: ${c} Actual: ${a}",
       ("c", op.reward_sbd)("a", acnt.reward_sbd_balance) );
    FC_ASSERT( op.reward_vests <= acnt.reward_vesting_balance, "Cannot claim that much VESTS. Claim: ${c} Actual: ${a}",
       ("c", op.reward_vests)("a", acnt.reward_vesting_balance) );
 
-   asset reward_vesting_steem_to_move = asset( 0, STEEM_SYMBOL );
+   asset reward_vesting_nebula_to_move = asset( 0, NECTAR_SYMBOL );
    if( op.reward_vests == acnt.reward_vesting_balance )
-      reward_vesting_steem_to_move = acnt.reward_vesting_steem;
+      reward_vesting_nebula_to_move = acnt.reward_vesting_steem;
    else
-      reward_vesting_steem_to_move = asset( ( ( uint128_t( op.reward_vests.amount.value ) * uint128_t( acnt.reward_vesting_steem.amount.value ) )
-         / uint128_t( acnt.reward_vesting_balance.amount.value ) ).to_uint64(), STEEM_SYMBOL );
+      reward_vesting_nebula_to_move = asset( ( ( uint128_t( op.reward_vests.amount.value ) * uint128_t( acnt.reward_vesting_steem.amount.value ) )
+         / uint128_t( acnt.reward_vesting_balance.amount.value ) ).to_uint64(), NECTAR_SYMBOL );
 
    _db.adjust_reward_balance( acnt, -op.reward_steem );
    _db.adjust_reward_balance( acnt, -op.reward_sbd );
@@ -2144,16 +2144,16 @@ void claim_reward_balance_evaluator::do_apply( const claim_reward_balance_operat
    {
       a.vesting_shares += op.reward_vests;
       a.reward_vesting_balance -= op.reward_vests;
-      a.reward_vesting_steem -= reward_vesting_steem_to_move;
+      a.reward_vesting_steem -= reward_vesting_nebula_to_move;
    });
 
    _db.modify( _db.get_dynamic_global_properties(), [&]( dynamic_global_property_object& gpo )
    {
       gpo.total_vesting_shares += op.reward_vests;
-      gpo.total_vesting_fund_steem += reward_vesting_steem_to_move;
+      gpo.total_vesting_fund_steem += reward_vesting_nebula_to_move;
 
       gpo.pending_rewarded_vesting_shares -= op.reward_vests;
-      gpo.pending_rewarded_vesting_steem -= reward_vesting_steem_to_move;
+      gpo.pending_rewarded_vesting_steem -= reward_vesting_nebula_to_move;
    });
 
    _db.adjust_proxied_witness_votes( acnt, op.reward_vests.amount );
@@ -2169,7 +2169,7 @@ void delegate_vesting_shares_evaluator::do_apply( const delegate_vesting_shares_
 
    const auto& wso = _db.get_witness_schedule_object();
    const auto& gpo = _db.get_dynamic_global_properties();
-   auto min_delegation = asset( wso.median_props.account_creation_fee.amount * 10, STEEM_SYMBOL ) * gpo.get_vesting_share_price();
+   auto min_delegation = asset( wso.median_props.account_creation_fee.amount * 10, NECTAR_SYMBOL ) * gpo.get_vesting_share_price();
    auto min_update = wso.median_props.account_creation_fee * gpo.get_vesting_share_price();
 
    // If delegation doesn't exist, create it
