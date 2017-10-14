@@ -2,7 +2,7 @@
 
 VERSION=`cat /etc/nebulaversion`
 
-STEEMD="/usr/local/nebula-full/bin/nebula"
+NEBULA="/usr/local/nebula-full/bin/nebula"
 
 chown -R nebula:nebula $HOME
 
@@ -17,7 +17,7 @@ ARGS=""
 
 # if user did not pass in any desired
 # seed nodes, use the ones above:
-if [[ -z "$STEEMD_SEED_NODES" ]]; then
+if [[ -z "$NEBULA_SEED_NODES" ]]; then
     for NODE in $SEED_NODES ; do
         ARGS+=" --seed-node=$NODE"
     done
@@ -25,16 +25,16 @@ fi
 
 # if user did pass in desired seed nodes, use
 # the ones the user specified:
-if [[ ! -z "$STEEMD_SEED_NODES" ]]; then
-    for NODE in $STEEMD_SEED_NODES ; do
+if [[ ! -z "$NEBULA_SEED_NODES" ]]; then
+    for NODE in $NEBULA_SEED_NODES ; do
         ARGS+=" --seed-node=$NODE"
     done
 fi
 
 NOW=`date +%s`
-STEEMD_FEED_START_TIME=`expr $NOW - 1209600`
+NEBULA_FEED_START_TIME=`expr $NOW - 1209600`
 
-ARGS+=" --follow-start-feeds=$STEEMD_FEED_START_TIME"
+ARGS+=" --follow-start-feeds=$NEBULA_FEED_START_TIME"
 
 ARGS+=" --disable-get-block"
 
@@ -89,12 +89,12 @@ chown -R nebula:nebula $HOME/*
 # attach to the local interface since a proxy will be used to loadbalance
 if [[ "$USE_MULTICORE_READONLY" ]]; then
     exec chpst -unebula \
-        $STEEMD \
+        $NEBULA \
             --rpc-endpoint=127.0.0.1:8091 \
             --p2p-endpoint=0.0.0.0:2001 \
             --data-dir=$HOME \
             $ARGS \
-            $STEEMD_EXTRA_OPTS \
+            $NEBULA_EXTRA_OPTS \
             2>&1 &
     # sleep for a moment to allow the writer node to be ready to accept connections from the readers
     sleep 30
@@ -112,7 +112,7 @@ if [[ "$USE_MULTICORE_READONLY" ]]; then
     for (( i=2; i<=$PROCESSES; i++ ))
       do
         exec chpst -unebula \
-        $STEEMD \
+        $NEBULA \
           --rpc-endpoint=127.0.0.1:$PORT_NUM \
           --data-dir=$HOME \
           $ARGS \
@@ -143,12 +143,12 @@ else
     /etc/init.d/fcgiwrap restart
     service nginx restart
     exec chpst -unebula \
-        $STEEMD \
+        $NEBULA \
             --rpc-endpoint=0.0.0.0:8091 \
             --p2p-endpoint=0.0.0.0:2001 \
             --data-dir=$HOME \
             $ARGS \
-            $STEEMD_EXTRA_OPTS \
+            $NEBULA_EXTRA_OPTS \
             2>&1&
     SAVED_PID=`pgrep -f p2p-endpoint`
     echo $SAVED_PID >> /tmp/nebulapid

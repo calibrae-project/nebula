@@ -118,8 +118,8 @@ void account_create_evaluator::do_apply( const account_create_operation& o )
    if( _db.has_hardfork( CALIBRAE_HARDFORK_0_19__987) )
    {
       const witness_schedule_object& wso = _db.get_witness_schedule_object();
-      FC_ASSERT( o.fee >= asset( wso.median_props.account_creation_fee.amount * CALIBRAE_CREATE_ACCOUNT_WITH_STEEM_MODIFIER, NECTAR_SYMBOL ), "Insufficient Fee: ${f} required, ${p} provided.",
-                 ("f", wso.median_props.account_creation_fee * asset( CALIBRAE_CREATE_ACCOUNT_WITH_STEEM_MODIFIER, NECTAR_SYMBOL ) )
+      FC_ASSERT( o.fee >= asset( wso.median_props.account_creation_fee.amount * CALIBRAE_CREATE_ACCOUNT_WITH_NEBULA_MODIFIER, NECTAR_SYMBOL ), "Insufficient Fee: ${f} required, ${p} provided.",
+                 ("f", wso.median_props.account_creation_fee * asset( CALIBRAE_CREATE_ACCOUNT_WITH_NEBULA_MODIFIER, NECTAR_SYMBOL ) )
                  ("p", o.fee) );
    }
    else if( _db.has_hardfork( CALIBRAE_HARDFORK_0_1 ) )
@@ -200,7 +200,7 @@ void account_create_with_delegation_evaluator::do_apply( const account_create_wi
                ( "creator.vesting_shares", creator.vesting_shares )
                ( "creator.delegated_vesting_shares", creator.delegated_vesting_shares )( "required", o.delegation ) );
 
-   auto target_delegation = asset( wso.median_props.account_creation_fee.amount * CALIBRAE_CREATE_ACCOUNT_WITH_STEEM_MODIFIER * CALIBRAE_CREATE_ACCOUNT_DELEGATION_RATIO, NECTAR_SYMBOL ) * props.get_vesting_share_price();
+   auto target_delegation = asset( wso.median_props.account_creation_fee.amount * CALIBRAE_CREATE_ACCOUNT_WITH_NEBULA_MODIFIER * CALIBRAE_CREATE_ACCOUNT_DELEGATION_RATIO, NECTAR_SYMBOL ) * props.get_vesting_share_price();
 
    auto current_delegation = asset( o.fee.amount * CALIBRAE_CREATE_ACCOUNT_DELEGATION_RATIO, NECTAR_SYMBOL ) * props.get_vesting_share_price() + o.delegation;
 

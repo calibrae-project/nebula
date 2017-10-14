@@ -1,9 +1,9 @@
 FROM phusion/baseimage:0.9.19
 
-#ARG STEEMD_BLOCKCHAIN=https://example.com/steemd-blockchain.tbz2
+#ARG NEBULA_BLOCKCHAIN=https://example.com/nebula-blockchain.tbz2
 
-ARG STEEM_STATIC_BUILD=ON
-ENV STEEM_STATIC_BUILD ${STEEM_STATIC_BUILD}
+ARG NEBULA_STATIC_BUILD=ON
+ENV NEBULA_STATIC_BUILD ${NEBULA_STATIC_BUILD}
 
 ENV LANG=en_US.UTF-8
 
@@ -50,7 +50,7 @@ RUN \
     cd build && \
     cmake \
         -DCMAKE_BUILD_TYPE=Release \
-        -DBUILD_STEEM_TESTNET=ON \
+        -DBUILD_NEBULA_TESTNET=ON \
         -DLOW_MEMORY_NODE=OFF \
         -DCLEAR_VOTES=ON \
         -DSKIP_BY_TX_ID=ON \
@@ -72,7 +72,7 @@ RUN \
     cmake \
         -DCMAKE_BUILD_TYPE=Debug \
         -DENABLE_COVERAGE_TESTING=ON \
-        -DBUILD_STEEM_TESTNET=ON \
+        -DBUILD_NEBULA_TESTNET=ON \
         -DLOW_MEMORY_NODE=OFF \
         -DCLEAR_VOTES=ON \
         -DSKIP_BY_TX_ID=ON \
@@ -91,36 +91,36 @@ RUN \
     mkdir build && \
     cd build && \
     cmake \
-        -DCMAKE_INSTALL_PREFIX=/usr/local/steemd-default \
+        -DCMAKE_INSTALL_PREFIX=/usr/local/nebula-default \
         -DCMAKE_BUILD_TYPE=Release \
         -DLOW_MEMORY_NODE=ON \
         -DCLEAR_VOTES=ON \
         -DSKIP_BY_TX_ID=OFF \
-        -DBUILD_STEEM_TESTNET=OFF \
-        -DSTEEM_STATIC_BUILD=${STEEM_STATIC_BUILD} \
+        -DBUILD_NEBULA_TESTNET=OFF \
+        -DNEBULA_STATIC_BUILD=${NEBULA_STATIC_BUILD} \
         .. \
     && \
     make -j$(nproc) && \
     make install && \
     cd .. && \
-    ( /usr/local/steemd-default/bin/steemd --version \
+    ( /usr/local/nebula-default/bin/nebula --version \
       | grep -o '[0-9]*\.[0-9]*\.[0-9]*' \
       && echo '_' \
       && git rev-parse --short HEAD ) \
       | sed -e ':a' -e 'N' -e '$!ba' -e 's/\n//g' \
-      > /etc/steemdversion && \
-    cat /etc/steemdversion && \
+      > /etc/nebulaversion && \
+    cat /etc/nebulaversion && \
     rm -rfv build && \
     mkdir build && \
     cd build && \
     cmake \
-        -DCMAKE_INSTALL_PREFIX=/usr/local/steemd-full \
+        -DCMAKE_INSTALL_PREFIX=/usr/local/nebula-full \
         -DCMAKE_BUILD_TYPE=Release \
         -DLOW_MEMORY_NODE=OFF \
         -DCLEAR_VOTES=OFF \
         -DSKIP_BY_TX_ID=ON \
-        -DBUILD_STEEM_TESTNET=OFF \
-        -DSTEEM_STATIC_BUILD=${STEEM_STATIC_BUILD} \
+        -DBUILD_NEBULA_TESTNET=OFF \
+        -DNEBULA_STATIC_BUILD=${NEBULA_STATIC_BUILD} \
         .. \
     && \
     make -j$(nproc) && \
@@ -175,18 +175,18 @@ RUN \
         /usr/include \
         /usr/local/include
 
-RUN useradd -s /bin/bash -m -d /var/lib/steemd steemd
+RUN useradd -s /bin/bash -m -d /var/lib/nebula nebula
 
-RUN mkdir /var/cache/steemd && \
-    chown steemd:steemd -R /var/cache/steemd
+RUN mkdir /var/cache/nebula && \
+    chown nebula:nebula -R /var/cache/nebula
 
 # add blockchain cache to image
-#ADD $STEEMD_BLOCKCHAIN /var/cache/steemd/blocks.tbz2
+#ADD $NEBULA_BLOCKCHAIN /var/cache/nebula/blocks.tbz2
 
-ENV HOME /var/lib/steemd
-RUN chown steemd:steemd -R /var/lib/steemd
+ENV HOME /var/lib/nebula
+RUN chown nebula:nebula -R /var/lib/nebula
 
-VOLUME ["/var/lib/steemd"]
+VOLUME ["/var/lib/nebula"]
 
 # rpc service:
 EXPOSE 8090
@@ -194,11 +194,11 @@ EXPOSE 8090
 EXPOSE 2001
 
 # add seednodes from documentation to image
-ADD doc/seednodes.txt /etc/steemd/seednodes.txt
+ADD doc/seednodes.txt /etc/nebula/seednodes.txt
 
 # the following adds lots of logging info to stdout
-ADD contrib/config-for-docker.ini /etc/steemd/config.ini
-ADD contrib/fullnode.config.ini /etc/steemd/fullnode.config.ini
+ADD contrib/config-for-docker.ini /etc/nebula/config.ini
+ADD contrib/fullnode.config.ini /etc/nebula/fullnode.config.ini
 
 # add normal startup script that starts via sv
 ADD contrib/nebula.run /usr/local/bin/steem-sv-run.sh

@@ -9,15 +9,15 @@ if( GPERFTOOLS_FOUND )
     list( APPEND PLATFORM_SPECIFIC_LIBS tcmalloc )
 endif()
 
-if( STEEM_STATIC_BUILD )
+if( NEBULA_STATIC_BUILD )
    # I don't know why calibrae_app is required twice in the following line, I just know the linker breaks if it isn't.
    target_link_libraries( cli_wallet PRIVATE
                           "-static-libstdc++ -static-libgcc -lreadline"
                           calibrae_app graphene_net calibrae_chain calibrae_protocol graphene_utilities calibrae_wallet calibrae_private_message calibrae_app calibrae_follow fc ${CMAKE_DL_LIBS} ${PLATFORM_SPECIFIC_LIBS} )
-else( STEEM_STATIC_BUILD )
+else( NEBULA_STATIC_BUILD )
    target_link_libraries( cli_wallet PRIVATE
                           calibrae_app graphene_net calibrae_chain calibrae_protocol graphene_utilities calibrae_wallet calibrae_private_message calibrae_app calibrae_follow fc ${CMAKE_DL_LIBS} ${PLATFORM_SPECIFIC_LIBS} )
-endif( STEEM_STATIC_BUILD )
+endif( NEBULA_STATIC_BUILD )
 
 if(MSVC)
   set_source_files_properties( main.cpp PROPERTIES COMPILE_FLAGS "/bigobj" )

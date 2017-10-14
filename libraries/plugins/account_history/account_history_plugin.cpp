@@ -13,7 +13,7 @@
 
 #include <boost/algorithm/string.hpp>
 
-#define STEEM_NAMESPACE_PREFIX "calibrae::protocol::"
+#define NEBULA_NAMESPACE_PREFIX "calibrae::protocol::"
 
 namespace calibrae { namespace account_history {
 
@@ -222,7 +222,7 @@ void account_history_plugin::plugin_initialize(const boost::program_options::var
          for( const string& op : ops )
          {
             if( op.size() )
-               my->_op_list.insert( STEEM_NAMESPACE_PREFIX + op );
+               my->_op_list.insert( NEBULA_NAMESPACE_PREFIX + op );
          }
       }
 
@@ -240,7 +240,7 @@ void account_history_plugin::plugin_initialize(const boost::program_options::var
          for( const string& op : ops )
          {
             if( op.size() )
-               my->_op_list.insert( STEEM_NAMESPACE_PREFIX + op );
+               my->_op_list.insert( NEBULA_NAMESPACE_PREFIX + op );
          }
       }
 

@@ -2,7 +2,7 @@
 
 # if all of the reader nodes die, kill runsv causing the container to exit
 if [[ "$USE_MULTICORE_READONLY" ]]; then
-  STEEMD_READONLY_PIDS=`pgrep -f read-only`
+  NEBULA_READONLY_PIDS=`pgrep -f read-only`
   if [[ ! $? -eq 0 ]]; then
   	echo NOTIFYALERT! nebula reader nodes have quit unexpectedly, starting a new instance..
     RUN_SV_PID=`pgrep -f /etc/service/nebula`
@@ -11,7 +11,7 @@ if [[ "$USE_MULTICORE_READONLY" ]]; then
 fi
 
 # if the writer node dies, kill runsv causing the container to exit
-STEEMD_PID=`pgrep -f p2p-endpoint`
+NEBULA_PID=`pgrep -f p2p-endpoint`
 if [[ ! $? -eq 0 ]]; then
   echo NOTIFYALERT! nebula has quit unexpectedly, checking for core dump and then starting a new instance..
   sleep 30

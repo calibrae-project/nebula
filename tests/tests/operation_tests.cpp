@@ -5993,7 +5993,7 @@ BOOST_AUTO_TEST_CASE( account_create_with_delegation_apply )
       BOOST_TEST_MESSAGE( "--- Test success using only STEEM to reach target delegation." );
 
       tx.clear();
-      op.fee=asset( db.get_witness_schedule_object().median_props.account_creation_fee.amount * CALIBRAE_CREATE_ACCOUNT_WITH_STEEM_MODIFIER * CALIBRAE_CREATE_ACCOUNT_DELEGATION_RATIO, NECTAR_SYMBOL );
+      op.fee=asset( db.get_witness_schedule_object().median_props.account_creation_fee.amount * CALIBRAE_CREATE_ACCOUNT_WITH_NEBULA_MODIFIER * CALIBRAE_CREATE_ACCOUNT_DELEGATION_RATIO, NECTAR_SYMBOL );
       op.delegation = asset(0, VESTS_SYMBOL);
       op.new_account_name = "sam";
       tx.set_expiration( db.head_block_time() + CALIBRAE_MAX_TIME_UNTIL_EXPIRATION );
@@ -6013,7 +6013,7 @@ BOOST_AUTO_TEST_CASE( account_create_with_delegation_apply )
       CALIBRAE_REQUIRE_THROW( db.push_transaction( tx, 0 ), fc::exception );
 
       BOOST_TEST_MESSAGE( "--- Test failure when insufficient fee fo reach target delegation." );
-      fund( "alice" , asset( db.get_witness_schedule_object().median_props.account_creation_fee.amount * CALIBRAE_CREATE_ACCOUNT_WITH_STEEM_MODIFIER * CALIBRAE_CREATE_ACCOUNT_DELEGATION_RATIO , NECTAR_SYMBOL ));
+      fund( "alice" , asset( db.get_witness_schedule_object().median_props.account_creation_fee.amount * CALIBRAE_CREATE_ACCOUNT_WITH_NEBULA_MODIFIER * CALIBRAE_CREATE_ACCOUNT_DELEGATION_RATIO , NECTAR_SYMBOL ));
       CALIBRAE_REQUIRE_THROW( db.push_transaction( tx, 0 ), fc::exception );
 
       validate_database();

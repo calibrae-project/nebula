@@ -20,9 +20,9 @@ def main( ):
       print( "This script only works on POSIX systems" )
       return
 
-   parser = ArgumentParser( description='Run a steemd debug node on an existing chain, trigger a hardfork' \
+   parser = ArgumentParser( description='Run a NEBULA debug node on an existing chain, trigger a hardfork' \
                               ' and verify hardfork does not break invariants or block production' )
-   parser.add_argument( '--steemd', '-s', type=str, required=True, help='The location of a steemd binary to run the debug node' )
+   parser.add_argument( '--NEBULA', '-s', type=str, required=True, help='The location of a NEBULA binary to run the debug node' )
    parser.add_argument( '--data-dir', '-d', type=str, required=True, help='The location of an existing data directory. ' + \
                         'The debug node will pull blocks from this directory when replaying the chain. The directory ' + \
                         'will not be changed.' )
@@ -31,19 +31,19 @@ def main( ):
 
    args = parser.parse_args()
 
-   steemd = Path( args.steemd )
-   if( not steemd.exists() ):
-      print( 'Error: steemd does not exist.' )
+   NEBULA = Path( args.NEBULA )
+   if( not NEBULA.exists() ):
+      print( 'Error: NEBULA does not exist.' )
       return
 
-   steemd = steemd.resolve()
-   if( not steemd.is_file() ):
-      print( 'Error: steemd is not a file.' )
+   NEBULA = NEBULA.resolve()
+   if( not NEBULA.is_file() ):
+      print( 'Error: NEBULA is not a file.' )
       return
 
    data_dir = Path( args.data_dir )
    if( not data_dir.exists() ):
-      print( 'Error: data_dir does not exist or is not a properly constructed steemd data directory' )
+      print( 'Error: data_dir does not exist or is not a properly constructed NEBULA data directory' )
 
    data_dir = data_dir.resolve()
    if( not data_dir.is_dir() ):
@@ -51,11 +51,11 @@ def main( ):
 
    signal.signal( signal.SIGINT, sigint_handler )
 
-   debug_node = DebugNode( str( steemd ), str( data_dir ) )
+   debug_node = DebugNode( str( NEBULA ), str( data_dir ) )
 
    with debug_node :
 
-      run_steemd_tests( debug_node )
+      run_NEBULA_tests( debug_node )
 
       if( args.pause_node ):
          print( "Letting the node hang for manual inspection..." )
@@ -66,7 +66,7 @@ def main( ):
          sleep( 1 )
 
 
-def run_steemd_tests( debug_node ):
+def run_NEBULA_tests( debug_node ):
    from steemapi.steemnoderpc import SteemNodeRPC
 
    try:

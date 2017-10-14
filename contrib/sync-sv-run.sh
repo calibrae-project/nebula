@@ -3,7 +3,7 @@
 VERSION=`cat /etc/nebulaversion`
 
 # if the writer node dies by itself, kill runsv causing the container to exit
-STEEMD_PID=`pgrep -f p2p-endpoint`
+NEBULA_PID=`pgrep -f p2p-endpoint`
 if [[ ! $? -eq 0 ]]; then
   echo NOTIFYALERT! nebulasync has quit unexpectedly, checking for coredump and then starting a new instance..
   sleep 30
@@ -38,10 +38,10 @@ if [[ ! -z "$BLOCKCHAIN_TIME" ]]; then
   # if we're within 10 seconds of current time, call it synced and begin the upload
   BLOCK_AGE=$((${CURRENT_SECS} - ${BLOCKCHAIN_SECS}))
   if [[ ${BLOCK_AGE} -le 10 ]]; then
-    STEEMD_PID=`pgrep -f p2p-endpoint`
-    kill -SIGINT $STEEMD_PID
+    NEBULA_PID=`pgrep -f p2p-endpoint`
+    kill -SIGINT $NEBULA_PID
     echo nebulasync: waiting for nebula to exit cleanly
-    while [ -e /proc/$STEEMD_PID ]; do sleep 0.1; done
+    while [ -e /proc/$NEBULA_PID ]; do sleep 0.1; done
     echo nebulasync: starting a new blockchainstate upload operation
     cd ${COMPRESSPATH:-$HOME}
     echo nebulasync: compressing blockchainstate...

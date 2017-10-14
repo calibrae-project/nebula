@@ -14,10 +14,10 @@ from time import sleep
 from steemapi.steemnoderpc import SteemNodeRPC
 
 class DebugNode( object ):
-   """ Wraps the steemd debug node plugin for easier automated testing of the Steem Network"""
+   """ Wraps the NEBULA debug node plugin for easier automated testing of the Steem Network"""
 
-   def __init__( self, steemd, data_dir, args='', plugins=[], apis=[], steemd_out=None, steemd_err=None ):
-      """ Creates a steemd debug node.
+   def __init__( self, NEBULA, data_dir, args='', plugins=[], apis=[], NEBULA_out=None, NEBULA_err=None ):
+      """ Creates a NEBULA debug node.
 
       It can be ran by using 'with debug_node:'
       While in the context of 'with' the debug node will continue to run.
@@ -26,29 +26,29 @@ class DebugNode( object ):
       For all other requests, the python-steem library should be used.
 
       args:
-         steemd -- The string path to the location of the steemd binary
-         data_dir -- The string path to an existing steemd data directory which will be used to pull blocks from.
-         args -- Other string args to pass to steemd.
+         NEBULA -- The string path to the location of the NEBULA binary
+         data_dir -- The string path to an existing NEBULA data directory which will be used to pull blocks from.
+         args -- Other string args to pass to NEBULA.
          plugins -- Any additional plugins to start with the debug node. Modify plugins DebugNode.plugins
          apis -- Any additional APIs to have available. APIs will retain this order for accesibility starting at id 3.
             database_api is 0, login_api is 1, and debug_node_api is 2. Modify apis with DebugNode.api
-         steemd_stdout -- A stream for steemd's stdout. Default is to pipe to /dev/null
-         steemd_stderr -- A stream for steemd's stderr. Default is to pipe to /dev/null
+         NEBULA_stdout -- A stream for NEBULA's stdout. Default is to pipe to /dev/null
+         NEBULA_stderr -- A stream for NEBULA's stderr. Default is to pipe to /dev/null
       """
       self._data_dir = None
       self._debug_key = None
       self._FNULL = None
       self._rpc = None
-      self._steemd_bin = None
-      self._steemd_lock = None
-      self._steemd_process = None
+      self._NEBULA_bin = None
+      self._NEBULA_lock = None
+      self._NEBULA_process = None
       self._temp_data_dir = None
 
-      self._steemd_bin = Path( steemd )
-      if( not self._steemd_bin.exists() ):
-         raise ValueError( 'steemd does not exist' )
-      if( not self._steemd_bin.is_file() ):
-         raise ValueError( 'steemd is not a file' )
+      self._NEBULA_bin = Path( NEBULA )
+      if( not self._NEBULA_bin.exists() ):
+         raise ValueError( 'NEBULA does not exist' )
+      if( not self._NEBULA_bin.is_file() ):
+         raise ValueError( 'NEBULA is not a file' )
 
       self._data_dir = Path( data_dir )
       if( not self._data_dir.exists() ):
@@ -65,22 +65,22 @@ class DebugNode( object ):
          self._args = list()
 
       self._FNULL = open( devnull, 'w' )
-      if( steemd_out != None ):
-         self.steemd_out = steemd_out
+      if( NEBULA_out != None ):
+         self.NEBULA_out = NEBULA_out
       else:
-         self.steemd_out = self._FNULL
+         self.NEBULA_out = self._FNULL
 
-      if( steemd_err != None ):
-         self.steemd_err = steemd_err
+      if( NEBULA_err != None ):
+         self.NEBULA_err = NEBULA_err
       else:
-         self.steemd_err = self._FNULL
+         self.NEBULA_err = self._FNULL
 
       self._debug_key = '5JHNbFNDg834SFj8CMArV6YW7td4zrPzXveqTfaShmYVuYNeK69'
-      self._steemd_lock = Lock()
+      self._NEBULA_lock = Lock()
 
 
    def __enter__( self ):
-      self._steemd_lock.acquire()
+      self._NEBULA_lock.acquire()
 
       # Setup temp directory to use as the data directory for this
       self._temp_data_dir = TemporaryDirectory()
@@ -97,42 +97,42 @@ class DebugNode( object ):
       config.touch()
       config.write_text( self._get_config() )
 
-      steemd = [ str( self._steemd_bin ), '--data-dir=' + str( self._temp_data_dir.name ) ]
-      steemd.extend( self._args )
+      NEBULA = [ str( self._NEBULA_bin ), '--data-dir=' + str( self._temp_data_dir.name ) ]
+      NEBULA.extend( self._args )
 
-      self._steemd_process = Popen( steemd, stdout=self.steemd_out, stderr=self.steemd_err )
-      self._steemd_process.poll()
+      self._NEBULA_process = Popen( NEBULA, stdout=self.NEBULA_out, stderr=self.NEBULA_err )
+      self._NEBULA_process.poll()
       sleep( 5 )
-      if( not self._steemd_process.returncode ):
+      if( not self._NEBULA_process.returncode ):
          self._rpc = SteemNodeRPC( 'ws://127.0.0.1:8095', '', '' )
       else:
-         raise Exception( "steemd did not start properly..." )
+         raise Exception( "NEBULA did not start properly..." )
 
    def __exit__( self, exc, value, tb ):
       self._rpc = None
 
-      if( self._steemd_process != None ):
-         self._steemd_process.poll()
+      if( self._NEBULA_process != None ):
+         self._NEBULA_process.poll()
 
-         if( not self._steemd_process.returncode ):
-            self._steemd_process.send_signal( SIGINT )
+         if( not self._NEBULA_process.returncode ):
+            self._NEBULA_process.send_signal( SIGINT )
 
             sleep( 7 )
-            self._steemd_process.poll()
+            self._NEBULA_process.poll()
 
-            if( not self._steemd_process.returncode ):
-               self._steemd_process.send_signal( SIGTERM )
+            if( not self._NEBULA_process.returncode ):
+               self._NEBULA_process.send_signal( SIGTERM )
 
                sleep( 5 )
-               self._steemd_process.poll()
+               self._NEBULA_process.poll()
 
-               if( self._steemd_process.returncode ):
-                  loggin.error( 'steemd did not properly shut down after SIGINT and SIGTERM. User intervention may be required.' )
+               if( self._NEBULA_process.returncode ):
+                  loggin.error( 'NEBULA did not properly shut down after SIGINT and SIGTERM. User intervention may be required.' )
 
-      self._steemd_process = None
+      self._NEBULA_process = None
       self._temp_data_dir.cleanup()
       self._temp_data_dir = None
-      self._steemd_lock.release()
+      self._NEBULA_lock.release()
 
 
    def _get_config( self ):
@@ -233,7 +233,7 @@ if __name__=="__main__":
    def main():
       global WAITING
       """
-      This example contains a simple parser to obtain the locations of both steemd and the data directory,
+      This example contains a simple parser to obtain the locations of both NEBULA and the data directory,
       creates and runs a new debug node, replays all of the blocks in the data directory, and finally waits
       for the user to interface with it outside of the script. Sending SIGINT succesfully and cleanly terminates
       the program.
@@ -248,26 +248,26 @@ if __name__=="__main__":
       parser = ArgumentParser( description='Run a Debug Node on an existing chain. This simply replays all blocks ' + \
                                  'and then waits indefinitely to allow user interaction through RPC calls and ' + \
                                  'the CLI wallet' )
-      parser.add_argument( '--steemd', '-s', type=str, required=True, help='The location of a steemd binary to run the debug node' )
+      parser.add_argument( '--NEBULA', '-s', type=str, required=True, help='The location of a NEBULA binary to run the debug node' )
       parser.add_argument( '--data-dir', '-d', type=str, required=True, help='The location of an existing data directory. ' + \
                            'The debug node will pull blocks from this directory when replaying the chain. The directory ' + \
                            'will not be changed.' )
 
       args = parser.parse_args()
 
-      steemd = Path( args.steemd )
-      if( not steemd.exists() ):
-         print( 'Error: steemd does not exist.' )
+      NEBULA = Path( args.NEBULA )
+      if( not NEBULA.exists() ):
+         print( 'Error: NEBULA does not exist.' )
          return
 
-      steemd = steemd.resolve()
-      if( not steemd.is_file() ):
-         print( 'Error: steemd is not a file.' )
+      NEBULA = NEBULA.resolve()
+      if( not NEBULA.is_file() ):
+         print( 'Error: NEBULA is not a file.' )
          return
 
       data_dir = Path( args.data_dir )
       if( not data_dir.exists() ):
-         print( 'Error: data_dir does not exist or is not a properly constructed steemd data directory' )
+         print( 'Error: data_dir does not exist or is not a properly constructed NEBULA data directory' )
 
       data_dir = data_dir.resolve()
       if( not data_dir.is_dir() ):
@@ -276,7 +276,7 @@ if __name__=="__main__":
       signal.signal( signal.SIGINT, sigint_handler )
 
       print( 'Creating and starting debug node' )
-      debug_node = DebugNode( str( steemd ), str( data_dir ), steemd_err=sys.stderr )
+      debug_node = DebugNode( str( NEBULA ), str( data_dir ), NEBULA_err=sys.stderr )
 
       with debug_node:
          print( 'Done!' )

@@ -73,7 +73,7 @@ int main(int argc, char** argv) {
       app_options.add_options()
             ("help,h", "Print this help message and exit.")
             ("data-dir,d", bpo::value<boost::filesystem::path>()->default_value("witness_node_data_dir"), "Directory containing databases, configuration file, etc.")
-            ("version,v", "Print steemd version and exit.")
+            ("version,v", "Print nebula version and exit.")
             ;
 
       bpo::variables_map options;

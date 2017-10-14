@@ -279,7 +279,7 @@ const account_object& database_fixture::account_create(
          name,
          CALIBRAE_INIT_MINER_NAME,
          init_account_priv_key,
-         std::max( db.get_witness_schedule_object().median_props.account_creation_fee.amount * CALIBRAE_CREATE_ACCOUNT_WITH_STEEM_MODIFIER, share_type( 100 ) ),
+         std::max( db.get_witness_schedule_object().median_props.account_creation_fee.amount * CALIBRAE_CREATE_ACCOUNT_WITH_NEBULA_MODIFIER, share_type( 100 ) ),
          key,
          post_key,
          "" );

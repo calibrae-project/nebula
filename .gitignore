@@ -12,7 +12,6 @@ hardfork.hpp
 
 lcov
 
-libraries/utilities/git_revision.cpp
 
 libraries/wallet/Doxyfile
 libraries/wallet/api_documentation.cpp

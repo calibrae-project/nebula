@@ -47,7 +47,7 @@ through RPC calls or the CLI Wallet.
 What is the important part of these scripts?
 
 ``` Python
-debug_node = DebugNode( str( steemd ), str( data_dir ) )
+debug_node = DebugNode( str( NEBULA ), str( data_dir ) )
 with debug_node:
    # Do stuff with blockchain
 ```
@@ -58,8 +58,8 @@ and establishes the internal rpc connection. The script can then do whatever it 
 When the `with` block ends, the node automatically shutsdown and cleans up. The node uses
 a system standard temp directory through the standard Python TemporaryDirectory as the
 working data directory for the running node. The only work your script needs to do is
-specify the steemd binary location and a populated data directory. For most configurations
-this will be `programs/steemd/steemd` and `witness_node_data_dir` respectively, from the
+specify the NEBULA binary location and a populated data directory. For most configurations
+this will be `programs/NEBULA/NEBULA` and `witness_node_data_dir` respectively, from the
 git root directory for Steem.
 
 TODO/ Long Term Goals
